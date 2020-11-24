@@ -7,7 +7,7 @@ package beans;
 
 /**
  *
- * @author Kabelera
+ * @author FelipeSSCA
  */
 public class Alunos {
 

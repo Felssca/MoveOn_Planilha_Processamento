@@ -3,20 +3,25 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tela;
+
 
 import IO.CarreArquivosCompTabelas;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JDialog;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.filechooser.FileSystemView;
+import util.Validacoes;
 
 /**
  *
- * @author felip
+ * @author felipe
  */
 public class JTela extends javax.swing.JFrame {
 
@@ -41,9 +46,7 @@ public class JTela extends javax.swing.JFrame {
     String logSistema = "";
     String arquivoAvisoChooser = "Selecione apenas os arquivos .xlsx";
     String arquivoAvisoChooser03 = "Selecione a pasta de resultado";
-    
-    String SAIDA_ENTREDA_TABELAS = "E:\\PROJETOS_02\\MOVE_ON\\Planilhas\\PROCESSAMENTO_FINAL\\2019 MODELO ANTIGO";
-    
+
     CarreArquivosCompTabelas arquivosCompTabelas;
 
     public JTela() {
@@ -52,8 +55,8 @@ public class JTela extends javax.swing.JFrame {
         limparLog();
     }
 
-   public void acrescentarLogSistema(String log) {
-        
+    public void acrescentarLogSistema(String log) {
+
         logSistema += log + "\n";
         textAreaLog.setText(logSistema);
 
@@ -71,8 +74,7 @@ public class JTela extends javax.swing.JFrame {
 
         int aproved;
         jTexField.setText("");
-       fileDialog = new JFileChooser(SAIDA_ENTREDA_TABELAS);
-   //     fileDialog = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
+        fileDialog = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
         fileDialog.setAcceptAllFileFilterUsed(false);
         fileDialog.setMultiSelectionEnabled(false);
         fileDialog.setDialogTitle(arquivoAvisoChooser);
@@ -107,8 +109,7 @@ public class JTela extends javax.swing.JFrame {
 
         int selecao;
 
-        //fileDialog = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
-        fileDialog = new JFileChooser(SAIDA_ENTREDA_TABELAS);
+        fileDialog = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
         fileDialog.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
         fileDialog.setAcceptAllFileFilterUsed(false);
         fileDialog.setMultiSelectionEnabled(false);
@@ -127,34 +128,125 @@ public class JTela extends javax.swing.JFrame {
         }
     }
 
-    private void processarArquivo() throws IOException, Exception {
+    private void processarArquivo() {
 
         CarreArquivosCompTabelas arquivosCompTabelas = new CarreArquivosCompTabelas();
-        //caminhos
-        arquivosCompTabelas.setINPUTcaminhoPlanilha01(INPUT_caminhoArquivoNumero_01);
-        arquivosCompTabelas.setOUTPUTcaminhoPlanilha01(OUTPUT_caminhoPlanilha01+"//"+"Prc_"+fileNamePlanilha_01);
-        
-        arquivosCompTabelas.setINPUTcaminhoPlanilha02(INPUT_caminhoArquivoNumero_02);
-        arquivosCompTabelas.setOUTPUTcaminhoPlanilha02(OUTPUT_caminhoPlanilha02+"//"+"Prc_"+fileNamePlanilha_02);
+        List<String> paths = new ArrayList<>();
 
-        fileNamePlanilha_03 = "Resultado_Final.xlsx";
-        
-        arquivosCompTabelas.setOUTPUTplanilha03(OUTPUT_planilha03+"//"+fileNamePlanilha_03);
+        paths.add(INPUT_caminhoArquivoNumero_01);
+        paths.add(INPUT_caminhoArquivoNumero_02);
 
-        acrescentarLogSistema("--------------PROCESSANDO SEMESTRE UM---------------");
-        arquivosCompTabelas.carregarTabelasSemestreUm();
+        List<String> pathsOut = new ArrayList<>();
+        pathsOut.add(OUTPUT_planilha03);
 
-        acrescentarLogSistema("--------------PROCESSANDO SEMESTRE DOIS---------------");
-        arquivosCompTabelas.carregarTabelasSemestreDois();
+        if (preCheckagem(paths, 1) == false) {
+            painelAviso("Os caminhos das planilhas estão incorretos, favor selecionar um arquivo válido", "Caminhos inválidos");
+        } else if (preCheckagem(pathsOut, 2) == false) {
+            painelAviso("A pasta de saida est'a incorreta, selecione um caminho válido", "Caminho Saída");
+        } else {
 
-        acrescentarLogSistema("--------------PROCESSANDO SEMESTRE TRÊS---------------");
-        arquivosCompTabelas.processarResultadosTabelasTres();
+            arquivosCompTabelas.setINPUTcaminhoPlanilha01(INPUT_caminhoArquivoNumero_01);
+            arquivosCompTabelas.setOUTPUTcaminhoPlanilha01(OUTPUT_caminhoPlanilha01 + "//" + "Prc_" + fileNamePlanilha_01);
+
+            arquivosCompTabelas.setINPUTcaminhoPlanilha02(INPUT_caminhoArquivoNumero_02);
+            arquivosCompTabelas.setOUTPUTcaminhoPlanilha02(OUTPUT_caminhoPlanilha02 + "//" + "Prc_" + fileNamePlanilha_02);
+
+            fileNamePlanilha_03 = "Resultado_Final.xlsx";
+
+            arquivosCompTabelas.setOUTPUTplanilha03(OUTPUT_planilha03 + "//" + fileNamePlanilha_03);
+
+            acrescentarLogSistema("------------------------------------");
+            acrescentarLogSistema("PROCESSANDO SEMESTRE UM");
+
+            try {
+                arquivosCompTabelas.carregarTabelasSemestreUm();
+                acrescentarLogSistema("------------------------------------>>OK");
+            } catch (Exception e) {
+                painelErro(e.getMessage(), "Erro ao gerar tabela 1");
+            }
+
+            acrescentarLogSistema("-------------------------");
+            acrescentarLogSistema("PROCESSANDO SEMESTRE DOIS");
+
+            try {
+                arquivosCompTabelas.carregarTabelasSemestreDois();
+                acrescentarLogSistema("------------------------->---------->OK");
+            } catch (Exception e) {
+                painelErro(e.getMessage(), "Erro ao gerar tabela 2");
+            }
+
+            acrescentarLogSistema("-------------------------");
+            acrescentarLogSistema("PROCESSANDO RESULTADO");
+
+            try {
+                arquivosCompTabelas.processarResultadosTabelasTres();
+                painelOK("Arquivos criados com sucesso!!!", "Arquivos Criados");
+                acrescentarLogSistema("--------------------------->>OK");
+            } catch (Exception e) {
+                painelErro(e.getMessage(), "Erro ao gerar tabela final");
+            }
+        }
 
     }
 
-    private boolean preCheckagem() {
+    private void painelAviso(String mensagem, String titulo) {
 
-        return true;
+        JOptionPane.showMessageDialog(this,
+                mensagem,
+                titulo,
+                JOptionPane.WARNING_MESSAGE);
+    }
+
+    private void painelErro(String mensagem, String titulo) {
+
+        JOptionPane.showMessageDialog(this,
+                mensagem,
+                titulo,
+                JOptionPane.ERROR_MESSAGE);
+
+    }
+
+    private void painelOK(String mensagem, String titulo) {
+
+        JOptionPane.showMessageDialog(this,
+                mensagem,
+                titulo,
+                JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    private boolean preCheckagem(List<String> paths, int tipoValidacao) {
+        boolean isChecked = false;
+
+        //1 - campos e arquivos
+        //2 - saida local;
+        Validacoes validacoes = new Validacoes();
+
+        if (tipoValidacao == 1) {
+            for (String path : paths) {
+                isChecked = validacoes.isPathEmptXlsx(path);
+                if (isChecked == false) {
+                    return false;
+                }
+            }
+
+            for (String path : paths) {
+                isChecked = validacoes.isPathValidXlsx(path);
+                if (isChecked == false) {
+                    return false;
+                }
+
+            }
+        } else {
+            for (String path : paths) {
+                isChecked = validacoes.isPathEmptXlsx(path);
+                if (isChecked == false) {
+                    return false;
+                }
+
+            }
+
+        }
+        return isChecked;
     }
 
     /**
@@ -192,7 +284,6 @@ public class JTela extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MoveON Planilhas");
-        setPreferredSize(new java.awt.Dimension(800, 800));
 
         painelCaminhosArquivos.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -418,14 +509,14 @@ public class JTela extends javax.swing.JFrame {
 
     private void btnSelecionarCaminho01ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionarCaminho01ActionPerformed
 
-        acoesIniciaisBotoes(campoPlanilha01,planilha01);
+        acoesIniciaisBotoes(campoPlanilha01, planilha01);
 
 
     }//GEN-LAST:event_btnSelecionarCaminho01ActionPerformed
 
     private void BtnSelecionarCaminho02ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSelecionarCaminho02ActionPerformed
         // TODO add your handling code here:
-        acoesIniciaisBotoes(campoPlanilha02,planilha02);
+        acoesIniciaisBotoes(campoPlanilha02, planilha02);
     }//GEN-LAST:event_BtnSelecionarCaminho02ActionPerformed
 
     private void btnSelecionarCaminhoOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionarCaminhoOutActionPerformed

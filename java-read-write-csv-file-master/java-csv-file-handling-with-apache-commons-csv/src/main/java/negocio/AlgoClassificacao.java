@@ -3086,9 +3086,9 @@ public class AlgoClassificacao {
                             resultadoIMC = Constantes.IMC_RISCO;
                         }
                         break;
-                }
+                
 
-                switch (idade) {
+                
                     case 7:
                         if (imc <= 17.8) {
                             resultadoIMC = Constantes.IMC_SAUDAVEL;
@@ -3097,9 +3097,9 @@ public class AlgoClassificacao {
                             resultadoIMC = Constantes.IMC_RISCO;
                         }
                         break;
-                }
+                
 
-                switch (idade) {
+                
                     case 8:
                         if (imc <= 19.2) {
                             resultadoIMC = Constantes.IMC_SAUDAVEL;
@@ -3108,9 +3108,9 @@ public class AlgoClassificacao {
                             resultadoIMC = Constantes.IMC_RISCO;
                         }
                         break;
-                }
+                
 
-                switch (idade) {
+              
                     case 9:
                         if (imc <= 19.3) {
                             resultadoIMC = Constantes.IMC_SAUDAVEL;
@@ -3119,9 +3119,9 @@ public class AlgoClassificacao {
                             resultadoIMC = Constantes.IMC_RISCO;
                         }
                         break;
-                }
+                
 
-                switch (idade) {
+              
                     case 10:
                         if (imc <= 20.7) {
                             resultadoIMC = Constantes.IMC_SAUDAVEL;
@@ -3130,9 +3130,9 @@ public class AlgoClassificacao {
                             resultadoIMC = Constantes.IMC_RISCO;
                         }
                         break;
-                }
+                
 
-                switch (idade) {
+                
                     case 11:
                         if (imc <= 22.1) {
                             resultadoIMC = Constantes.IMC_SAUDAVEL;
@@ -3141,9 +3141,9 @@ public class AlgoClassificacao {
                             resultadoIMC = Constantes.IMC_RISCO;
                         }
                         break;
-                }
+                
 
-                switch (idade) {
+                
                     case 12:
                         if (imc <= 22.2) {
                             resultadoIMC = Constantes.IMC_SAUDAVEL;
@@ -3152,9 +3152,9 @@ public class AlgoClassificacao {
                             resultadoIMC = Constantes.IMC_RISCO;
                         }
                         break;
-                }
+                
 
-                switch (idade) {
+               
                     case 13:
                         if (imc <= 22) {
                             resultadoIMC = Constantes.IMC_SAUDAVEL;
@@ -3163,8 +3163,8 @@ public class AlgoClassificacao {
                             resultadoIMC = Constantes.IMC_RISCO;
                         }
                         break;
-                }
-                switch (idade) {
+                
+                
                     case 14:
                         if (imc <= 22.2) {
                             resultadoIMC = Constantes.IMC_SAUDAVEL;
@@ -3173,8 +3173,8 @@ public class AlgoClassificacao {
                             resultadoIMC = Constantes.IMC_RISCO;
                         }
                         break;
-                }
-                switch (idade) {
+                
+              
                     case 15:
                         if (imc <= 23) {
                             resultadoIMC = Constantes.IMC_SAUDAVEL;
@@ -3183,8 +3183,7 @@ public class AlgoClassificacao {
                             resultadoIMC = Constantes.IMC_RISCO;
                         }
                         break;
-                }
-                switch (idade) {
+                
                     case 16:
                         if (imc <= 24) {
                             resultadoIMC = Constantes.IMC_SAUDAVEL;
@@ -3193,8 +3192,8 @@ public class AlgoClassificacao {
                             resultadoIMC = Constantes.IMC_RISCO;
                         }
                         break;
-                }
-                switch (idade) {
+            
+               
                     case 17:
                         if (imc <= 25.4) {
                             resultadoIMC = Constantes.IMC_SAUDAVEL;
@@ -3220,8 +3219,7 @@ public class AlgoClassificacao {
                             resultadoIMC = Constantes.IMC_RISCO;
                         }
                         break;
-                }
-                switch (idade) {
+               
                     case 7:
                         if (imc < 17.1) {
                             resultadoIMC = Constantes.IMC_SAUDAVEL;
@@ -3230,8 +3228,7 @@ public class AlgoClassificacao {
                             resultadoIMC = Constantes.IMC_RISCO;
                         }
                         break;
-                }
-                switch (idade) {
+                
                     case 8:
                         if (imc < 18.2) {
                             resultadoIMC = Constantes.IMC_SAUDAVEL;
@@ -3240,8 +3237,7 @@ public class AlgoClassificacao {
                             resultadoIMC = Constantes.IMC_RISCO;
                         }
                         break;
-                }
-                switch (idade) {
+                
                     case 9:
                         if (imc < 19.1) {
                             resultadoIMC = Constantes.IMC_SAUDAVEL;
@@ -3250,9 +3246,7 @@ public class AlgoClassificacao {
                             resultadoIMC = Constantes.IMC_RISCO;
                         }
                         break;
-                }
-                switch (idade) {
-                    case 10:
+                   case 10:
                         if (imc < 20.9) {
                             resultadoIMC = Constantes.IMC_SAUDAVEL;
                         } else {
@@ -3260,8 +3254,8 @@ public class AlgoClassificacao {
                             resultadoIMC = Constantes.IMC_RISCO;
                         }
                         break;
-                }
-                switch (idade) {
+                
+                
                     case 11:
                         if (imc < 22.3) {
                             resultadoIMC = Constantes.IMC_SAUDAVEL;
@@ -3270,8 +3264,7 @@ public class AlgoClassificacao {
                             resultadoIMC = Constantes.IMC_RISCO;
                         }
                         break;
-                }
-                switch (idade) {
+                
                     case 12:
                         if (imc < 22.6) {
                             resultadoIMC = Constantes.IMC_SAUDAVEL;
@@ -3280,8 +3273,8 @@ public class AlgoClassificacao {
                             resultadoIMC = Constantes.IMC_RISCO;
                         }
                         break;
-                }
-                switch (idade) {
+                
+                
                     case 13:
                         if (imc < 22) {
                             resultadoIMC = Constantes.IMC_SAUDAVEL;
@@ -3290,8 +3283,8 @@ public class AlgoClassificacao {
                             resultadoIMC = Constantes.IMC_RISCO;
                         }
                         break;
-                }
-                switch (idade) {
+                
+                
                     case 14:
                         if (imc < 22) {
                             resultadoIMC = Constantes.IMC_SAUDAVEL;
@@ -3300,8 +3293,8 @@ public class AlgoClassificacao {
                             resultadoIMC = Constantes.IMC_RISCO;
                         }
                         break;
-                }
-                switch (idade) {
+                
+                
                     case 15:
                         if (imc < 22.4) {
                             resultadoIMC = Constantes.IMC_SAUDAVEL;
@@ -3310,8 +3303,8 @@ public class AlgoClassificacao {
                             resultadoIMC = Constantes.IMC_RISCO;
                         }
                         break;
-                }
-                switch (idade) {
+                
+                
                     case 16:
                         if (imc < 24) {
                             resultadoIMC = Constantes.IMC_SAUDAVEL;
@@ -3320,8 +3313,9 @@ public class AlgoClassificacao {
                             resultadoIMC = Constantes.IMC_RISCO;
                         }
                         break;
-                }
-                switch (idade) {
+                
+                
+                
                     case 17:
                         if (imc < 24) {
                             resultadoIMC = Constantes.IMC_SAUDAVEL;
@@ -3365,9 +3359,9 @@ public class AlgoClassificacao {
                             resultadoFlexibilidade = Constantes.FLEX_SAUDAVEL;
                         }
                         break;
-                }
+                
 
-                switch (idade) {
+                
                     case 7:
                         if (flex < 29.3) {
                             resultadoFlexibilidade = Constantes.FLEX_RISCO;
@@ -3376,9 +3370,9 @@ public class AlgoClassificacao {
                             resultadoFlexibilidade = Constantes.FLEX_SAUDAVEL;
                         }
                         break;
-                }
+                
 
-                switch (idade) {
+                
                     case 8:
                         if (flex < 29.3) {
                             resultadoFlexibilidade = Constantes.FLEX_RISCO;
@@ -3387,9 +3381,7 @@ public class AlgoClassificacao {
                             resultadoFlexibilidade = Constantes.FLEX_SAUDAVEL;
                         }
                         break;
-                }
-
-                switch (idade) {
+    
                     case 9:
                         if (flex < 29.3) {
                             resultadoFlexibilidade = Constantes.FLEX_RISCO;
@@ -3398,9 +3390,9 @@ public class AlgoClassificacao {
                             resultadoFlexibilidade = Constantes.FLEX_SAUDAVEL;
                         }
                         break;
-                }
+            
 
-                switch (idade) {
+              
                     case 10:
                         if (flex < 29.3) {
                             resultadoFlexibilidade = Constantes.FLEX_RISCO;
@@ -3409,9 +3401,7 @@ public class AlgoClassificacao {
                             resultadoFlexibilidade = Constantes.FLEX_SAUDAVEL;
                         }
                         break;
-                }
-
-                switch (idade) {
+              
                     case 11:
                         if (flex < 27.8) {
                             resultadoFlexibilidade = Constantes.FLEX_RISCO;
@@ -3420,9 +3410,7 @@ public class AlgoClassificacao {
                             resultadoFlexibilidade = Constantes.FLEX_SAUDAVEL;
                         }
                         break;
-                }
-
-                switch (idade) {
+              
                     case 12:
                         if (flex < 24.7) {
                             resultadoFlexibilidade = Constantes.FLEX_RISCO;
@@ -3431,9 +3419,7 @@ public class AlgoClassificacao {
                             resultadoFlexibilidade = Constantes.FLEX_SAUDAVEL;
                         }
                         break;
-                }
-
-                switch (idade) {
+              
                     case 13:
                         if (flex < 23.1) {
                             resultadoFlexibilidade = Constantes.FLEX_RISCO;
@@ -3442,8 +3428,7 @@ public class AlgoClassificacao {
                             resultadoFlexibilidade = Constantes.FLEX_SAUDAVEL;
                         }
                         break;
-                }
-                switch (idade) {
+                
                     case 14:
                         if (flex < 22.9) {
                             resultadoFlexibilidade = Constantes.FLEX_RISCO;
@@ -3452,8 +3437,7 @@ public class AlgoClassificacao {
                             resultadoFlexibilidade = Constantes.FLEX_SAUDAVEL;
                         }
                         break;
-                }
-                switch (idade) {
+            
                     case 15:
                         if (flex < 24.3) {
                             resultadoFlexibilidade = Constantes.FLEX_RISCO;
@@ -3462,8 +3446,7 @@ public class AlgoClassificacao {
                             resultadoFlexibilidade = Constantes.FLEX_SAUDAVEL;
                         }
                         break;
-                }
-                switch (idade) {
+               
                     case 16:
                         if (flex < 25.7) {
                             resultadoFlexibilidade = Constantes.FLEX_RISCO;
@@ -3472,8 +3455,7 @@ public class AlgoClassificacao {
                             resultadoFlexibilidade = Constantes.FLEX_SAUDAVEL;
                         }
                         break;
-                }
-                switch (idade) {
+              
                     case 17:
                         if (flex < 25.7) {
                             resultadoFlexibilidade = Constantes.FLEX_RISCO;
@@ -3499,8 +3481,7 @@ public class AlgoClassificacao {
                             resultadoFlexibilidade = Constantes.FLEX_SAUDAVEL;
                         }
                         break;
-                }
-                switch (idade) {
+              
                     case 7:
                         if (flex < 21.4) {
                             resultadoFlexibilidade = Constantes.FLEX_RISCO;
@@ -3509,8 +3490,7 @@ public class AlgoClassificacao {
                             resultadoFlexibilidade = Constantes.FLEX_SAUDAVEL;
                         }
                         break;
-                }
-                switch (idade) {
+               
                     case 8:
                         if (flex < 21.4) {
                             resultadoFlexibilidade = Constantes.FLEX_RISCO;
@@ -3519,8 +3499,7 @@ public class AlgoClassificacao {
                             resultadoFlexibilidade = Constantes.FLEX_SAUDAVEL;
                         }
                         break;
-                }
-                switch (idade) {
+               
                     case 9:
                         if (flex < 21.4) {
                             resultadoFlexibilidade = Constantes.FLEX_RISCO;
@@ -3529,8 +3508,7 @@ public class AlgoClassificacao {
                             resultadoFlexibilidade = Constantes.FLEX_SAUDAVEL;
                         }
                         break;
-                }
-                switch (idade) {
+             
                     case 10:
                         if (flex < 23.5) {
                             resultadoFlexibilidade = Constantes.FLEX_RISCO;
@@ -3539,8 +3517,7 @@ public class AlgoClassificacao {
                             resultadoFlexibilidade = Constantes.FLEX_SAUDAVEL;
                         }
                         break;
-                }
-                switch (idade) {
+              
                     case 11:
                         if (flex < 23.5) {
                             resultadoFlexibilidade = Constantes.FLEX_RISCO;
@@ -3549,8 +3526,7 @@ public class AlgoClassificacao {
                             resultadoFlexibilidade = Constantes.FLEX_SAUDAVEL;
                         }
                         break;
-                }
-                switch (idade) {
+               
                     case 12:
                         if (flex < 23.5) {
                             resultadoFlexibilidade = Constantes.FLEX_RISCO;
@@ -3559,8 +3535,7 @@ public class AlgoClassificacao {
                             resultadoFlexibilidade = Constantes.FLEX_SAUDAVEL;
                         }
                         break;
-                }
-                switch (idade) {
+               
                     case 13:
                         if (flex < 23.5) {
                             resultadoFlexibilidade = Constantes.FLEX_RISCO;
@@ -3569,8 +3544,7 @@ public class AlgoClassificacao {
                             resultadoFlexibilidade = Constantes.FLEX_SAUDAVEL;
                         }
                         break;
-                }
-                switch (idade) {
+              
                     case 14:
                         if (flex < 24.3) {
                             resultadoFlexibilidade = Constantes.FLEX_RISCO;
@@ -3579,8 +3553,7 @@ public class AlgoClassificacao {
                             resultadoFlexibilidade = Constantes.FLEX_SAUDAVEL;
                         }
                         break;
-                }
-                switch (idade) {
+               
                     case 15:
                         if (flex < 24.3) {
                             resultadoFlexibilidade = Constantes.FLEX_RISCO;
@@ -3589,8 +3562,7 @@ public class AlgoClassificacao {
                             resultadoFlexibilidade = Constantes.FLEX_SAUDAVEL;
                         }
                         break;
-                }
-                switch (idade) {
+               
                     case 16:
                         if (flex < 24.3) {
                             resultadoFlexibilidade = Constantes.FLEX_RISCO;
@@ -3599,8 +3571,7 @@ public class AlgoClassificacao {
                             resultadoFlexibilidade = Constantes.FLEX_SAUDAVEL;
                         }
                         break;
-                }
-                switch (idade) {
+                
                     case 17:
                         if (flex < 24.3) {
                             resultadoFlexibilidade = Constantes.FLEX_RISCO;

@@ -6,12 +6,10 @@
 package util;
 
 import beans.Constantes;
-import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.Locale;
 import org.apache.poi.ss.usermodel.Cell;
 
 /**
@@ -19,6 +17,34 @@ import org.apache.poi.ss.usermodel.Cell;
  * @author FelpeSSCA
  */
 public class Validacoes {
+
+    public boolean isPathEmptXlsx(String path) {
+
+        if (path != null) {
+            if (path.isBlank()) {
+                return false;
+            }
+            if (path.isEmpty()) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+    
+    
+    public boolean isPathValidXlsx(String path){
+    
+     if (path != null) {
+            if (path.endsWith("xls") || path.endsWith("xlsx")) {
+                return true;
+            }
+        }
+
+        return false;
+    
+    
+    }
 
     public boolean verificaNumeroInteiro(String s) {
 
@@ -74,8 +100,9 @@ public class Validacoes {
 
         return idade;
     }
-    public int calculaIdadeEpocaProva(java.util.Date dataNasc,Date dataEpocaExame) {
-            
+
+    public int calculaIdadeEpocaProva(java.util.Date dataNasc, Date dataEpocaExame) {
+
         Calendar dataNascimento = Calendar.getInstance();
         dataNascimento.setTime(dataNasc);
         Calendar dataEpocaProva = Calendar.getInstance();
@@ -103,13 +130,14 @@ public class Validacoes {
 
         return idadeAtual;
     }
+
     public int idadeEpocaTeste(String idadeNotFormat, String dataExame) throws Exception {
 
         SimpleDateFormat sdfExame = new SimpleDateFormat("dd/MM/yyyy");
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         Date dataNascimento = sdf.parse(idadeNotFormat);
         Date exame = sdfExame.parse(dataExame);
-        int idadeAtual = calculaIdadeEpocaProva(dataNascimento,exame);
+        int idadeAtual = calculaIdadeEpocaProva(dataNascimento, exame);
         System.out.println(idadeAtual);
 
         return idadeAtual;
@@ -140,15 +168,14 @@ public class Validacoes {
     }
 
     public String truncateValorDoubleString(String value) {
-         if(value==null || value.equals("")){
-         return Constantes.ERROR_TRUCA_DOUBLR;
-         }else{
-             
-             
-        Double valor = Double.parseDouble(value);
-        DecimalFormat df = new DecimalFormat("0.##");
-        return df.format(valor);
-         }
+        if (value == null || value.equals("")) {
+            return Constantes.ERROR_TRUCA_DOUBLR;
+        } else {
+
+            Double valor = Double.parseDouble(value);
+            DecimalFormat df = new DecimalFormat("0.##");
+            return df.format(valor);
+        }
     }
 
     public boolean isNull(String aluno) {

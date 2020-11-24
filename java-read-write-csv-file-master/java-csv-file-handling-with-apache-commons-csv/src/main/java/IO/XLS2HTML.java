@@ -139,9 +139,9 @@ public final class XLS2HTML implements ActionListener, Callback {
 	 * 
 	 * @param args
 	 */
-	public static void main(String[] args) {
-		XLS2HTML.getInstance();
-	}
+	//public static void main(String[] args) {
+	//	XLS2HTML.getInstance();
+///	}
 
 }
 

@@ -15,7 +15,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 /**
  *
- * @author Kabelera
+ * @author Felipessca
  */
 public class TabelaXlsStyle {
     

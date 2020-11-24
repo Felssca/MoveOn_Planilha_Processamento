@@ -10,16 +10,13 @@ import beans.Constantes;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
-import org.apache.poi.hssf.usermodel.HSSFCellStyle;
+import javax.swing.JOptionPane;
 
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 //import org.apache.poi.xssf.usermodel.XSSFCell;
 //import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.CellStyle;
-import org.apache.poi.ss.usermodel.FillPatternType;
-import org.apache.poi.ss.usermodel.IndexedColors;
 import org.apache.poi.ss.usermodel.Row;
 import style.TabelaXlsStyle;
 import util.Legendas;
@@ -335,7 +332,12 @@ public class ExportaTabelaExl {
             System.out.println("Planilha Criada Com Sucesso!!");
 
         } catch (Exception e) {
-            e.printStackTrace();
+            
+             JOptionPane.showMessageDialog(JOptionPane.getRootFrame(),
+                e.getMessage(),
+                "Erro ao criar a planilha! Verifique se o local de exportação está marcado!",
+                JOptionPane.ERROR_MESSAGE);
+             
         }
     }
     

@@ -89,7 +89,7 @@ public class CarreArquivosCompTabelas {
     
     }
     
-    public void processarResultadosTabelasTres()throws IOException,Exception{
+    public void processarResultadosTabelasTres(){
    
         AlgoComparacaoSemestres algoComparacaoSemestres = new AlgoComparacaoSemestres();
         
