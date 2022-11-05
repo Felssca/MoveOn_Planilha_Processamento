@@ -6,12 +6,10 @@
 
 
 import IO.CarreArquivosCompTabelas;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JDialog;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -287,9 +285,9 @@ public class JTela extends javax.swing.JFrame {
 
         painelCaminhosArquivos.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jLabel1.setText("Escolher Planilha 1");
+        jLabel1.setText("Planilha 1");
 
-        jLabel2.setText("Escolher Planilha 2");
+        jLabel2.setText("Planilha 2");
 
         campoPlanilha01.setForeground(new java.awt.Color(51, 153, 0));
         campoPlanilha01.setText("Ecolha o caminho do arquivo 1");
@@ -426,8 +424,9 @@ public class JTela extends javax.swing.JFrame {
 
         painelBotaoClassificar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        btnClassificacao.setBackground(new java.awt.Color(212, 201, 168));
-        btnClassificacao.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnClassificacao.setBackground(javax.swing.UIManager.getDefaults().getColor("List.selectionBackground"));
+        btnClassificacao.setFont(new java.awt.Font("Bell MT", 1, 18)); // NOI18N
+        btnClassificacao.setForeground(new java.awt.Color(255, 255, 255));
         btnClassificacao.setText("Classificar");
         btnClassificacao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -482,7 +481,7 @@ public class JTela extends javax.swing.JFrame {
                             .addComponent(painelCaminhosArquivos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(painelBotaoClassificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(painelSaida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addContainerGap(37, Short.MAX_VALUE))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

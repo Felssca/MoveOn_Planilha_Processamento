@@ -21,9 +21,6 @@ public class Validacoes {
     public boolean isPathEmptXlsx(String path) {
 
         if (path != null) {
-            if (path.isBlank()) {
-                return false;
-            }
             if (path.isEmpty()) {
                 return false;
             }
@@ -31,19 +28,17 @@ public class Validacoes {
 
         return true;
     }
-    
-    
-    public boolean isPathValidXlsx(String path){
-    
-     if (path != null) {
+
+    public boolean isPathValidXlsx(String path) {
+
+        if (path != null) {
             if (path.endsWith("xls") || path.endsWith("xlsx")) {
                 return true;
             }
         }
 
         return false;
-    
-    
+
     }
 
     public boolean verificaNumeroInteiro(String s) {
@@ -72,9 +67,9 @@ public class Validacoes {
 
         boolean isDouble = false;
         try {
-            Double.parseDouble(numero);
+            Double.valueOf(numero);
             isDouble = true;
-        } catch (Exception e) {
+        } catch (NumberFormatException e) {
             isDouble = false;
         }
 
@@ -93,7 +88,8 @@ public class Validacoes {
         if (hoje.get(Calendar.MONTH) < dataNascimento.get(Calendar.MONTH)) {
             idade--;
         } else {
-            if (hoje.get(Calendar.MONTH) == dataNascimento.get(Calendar.MONTH) && hoje.get(Calendar.DAY_OF_MONTH) < dataNascimento.get(Calendar.DAY_OF_MONTH)) {
+            if (hoje.get(Calendar.MONTH) == dataNascimento.get(Calendar.MONTH) && hoje.get(Calendar.DAY_OF_MONTH)
+                    < dataNascimento.get(Calendar.DAY_OF_MONTH)) {
                 idade--;
             }
         }
@@ -162,7 +158,6 @@ public class Validacoes {
         if (value == null || value.equals("")) {
             return 0;
         } else {
-
             return Math.round(value * 100) / 100d;
         }
     }
@@ -172,7 +167,7 @@ public class Validacoes {
             return Constantes.ERROR_TRUCA_DOUBLR;
         } else {
 
-            Double valor = Double.parseDouble(value);
+            Double valor = Double.valueOf(value);
             DecimalFormat df = new DecimalFormat("0.##");
             return df.format(valor);
         }
@@ -204,6 +199,25 @@ public class Validacoes {
         }
 
         return false;
+    }
+
+    public String covertCellToString(final Cell cell,String campoEsperado) {
+        System.out.println("Campo "+campoEsperado+" Tipo da celula " + cell.getCellType());
+        if (null == cell.getCellType() ) {
+            return null;
+        } else {
+            switch (cell.getCellType()) {
+                case STRING:
+                    System.out.println("Valor do campo: " + cell.getStringCellValue());
+                    return cell.getStringCellValue();
+                case NUMERIC:
+                    System.out.println("Valor do campo:" + cell.getNumericCellValue());
+                    return String.valueOf(cell.getNumericCellValue());
+                default:
+                    return null;
+            }
+        }
+
     }
 
 }

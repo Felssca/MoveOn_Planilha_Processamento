@@ -17,7 +17,7 @@ public class AlgoClassificacao {
     private double resultadoClassificacaoRCE;
     private double resultadoMedBall;
     private double resultadoCalculoIMC;
-    DecimalFormat formato = new DecimalFormat("#.##");
+//    private final DecimalFormat formato = new DecimalFormat("#.##");
 
     /*
     Tabela  classificação desportiva OK
@@ -54,6 +54,7 @@ public class AlgoClassificacao {
                             resultado = Constantes.EXCELENCA;
 
                         }
+                        
 
                 }
                 switch (idade) {
@@ -100,7 +101,7 @@ public class AlgoClassificacao {
                 }
                 switch (idade) {
                     case 9:
-
+                        
                         if (arremeco < 200) {
                             resultado = Constantes.FRACO;
                         } else if (arremeco == 200 || arremeco <= 219) {

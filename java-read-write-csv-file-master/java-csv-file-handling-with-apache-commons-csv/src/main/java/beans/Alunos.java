@@ -67,6 +67,7 @@ public class Alunos {
     private String genero;
     private String numeroOrdem;
     private String idade;
+    private String deficienciaReportada;
 
     private String nAvaliacao;
     private String QUANTIDADE_TOTAL_TREINOS;
@@ -76,6 +77,10 @@ public class Alunos {
     private String SERIE;
     private String TURMA;
     private String dtAvaliacao;
+    private String participacaoTestes;
+    
+    
+    
     //---desc classific
     private String PESO;
     private String ALTURA;
@@ -1747,6 +1752,34 @@ public class Alunos {
      */
     public void setResultadoPorcentagemRCEab3(String resultadoPorcentagemRCEab3) {
         this.resultadoPorcentagemRCEab3 = resultadoPorcentagemRCEab3;
+    }
+
+    /**
+     * @return the deficienciaReportada
+     */
+    public String getDeficienciaReportada() {
+        return deficienciaReportada;
+    }
+
+    /**
+     * @param deficienciaReportada the deficienciaReportada to set
+     */
+    public void setDeficienciaReportada(String deficienciaReportada) {
+        this.deficienciaReportada = deficienciaReportada;
+    }
+
+    /**
+     * @return the participacaoTestes
+     */
+    public String getParticipacaoTestes() {
+        return participacaoTestes;
+    }
+
+    /**
+     * @param participacaoTestes the participacaoTestes to set
+     */
+    public void setParticipacaoTestes(String participacaoTestes) {
+        this.participacaoTestes = participacaoTestes;
     }
 
 }

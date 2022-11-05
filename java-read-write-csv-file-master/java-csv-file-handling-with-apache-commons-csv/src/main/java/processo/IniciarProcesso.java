@@ -28,8 +28,7 @@ public class IniciarProcesso {
     }
 
     public void iniciarProcessoLeituraXls(String filePath) throws IOException, Exception {
-
-     
+        
         CarregarArquivo carregarArquivo = new CarregarArquivo();
         carregarArquivo.carregarArquivos(filePath);
         AlgoClassificacao algoClassificacao = new AlgoClassificacao();

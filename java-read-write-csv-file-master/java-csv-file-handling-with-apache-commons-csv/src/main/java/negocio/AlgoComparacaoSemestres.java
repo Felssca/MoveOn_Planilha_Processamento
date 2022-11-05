@@ -79,7 +79,7 @@ public class AlgoComparacaoSemestres {
         switch (tipoIndicador) {
             case Constantes.TIPO_ETIQUETA_MODALIDADES_PESO:
                 if (indicador == Constantes.TIPO_ETIQUETA_NEGATIVO) {
-                    etiquetaIndicador = Constantes.ZONA_CLASSIFICAÇÃO_PESO_PERDA;
+                    etiquetaIndicador = Constantes.ZONA_CLASSIFICACAO_PESO_PERDA;
                 } else if(indicador == Constantes.TIPO_ETIQUETA_POSITIVO){
                     etiquetaIndicador = Constantes.ZONA_CLASSIFICAÇÃO_PESO_GANHO;
                 }else{

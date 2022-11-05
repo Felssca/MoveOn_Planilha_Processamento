@@ -29,16 +29,16 @@ public class CarreArquivosCompTabelas {
     
     //**ALTERAR CAMINHOS AQUI================================
     
-    /*
-    private String INPUTcaminhoPlanilha01 =  Constantes.XLSX_FILE_PATH_SEM1;
-    private String OUTPUTcaminhoPlanilha01 = Constantes.TABELA_XLSX_FILE_OUT+Constantes.TABELA_SEMESTRE_OUT_9_2_1;
     
-    private String INPUTcaminhoPlanilha02 =  Constantes.XLSX_FILE_PATH_SEM2;
-    private String OUTPUTcaminhoPlanilha02 = Constantes.TABELA_XLSX_FILE_OUT+Constantes.TABELA_SEMESTRE_OUT_9_2_2;
+//    private String INPUTcaminhoPlanilha01 =  Constantes.XLSX_FILE_PATH_SEM1;
+//    private String OUTPUTcaminhoPlanilha01 = Constantes.TABELA_XLSX_FILE_OUT+Constantes.TABELA_SEMESTRE_OUT_9_2_1;
+//    
+//    private String INPUTcaminhoPlanilha02 =  Constantes.XLSX_FILE_PATH_SEM2;
+//    private String OUTPUTcaminhoPlanilha02 = Constantes.TABELA_XLSX_FILE_OUT+Constantes.TABELA_SEMESTRE_OUT_9_2_2;
+//    
+//    private String OUTPUTplanilha03 = Constantes.TABELA_XLSX_FILE_OUT+Constantes.TABELA_SEMESTRE_OUT_9_2_3;
     
-    private String OUTPUTplanilha03 = Constantes.TABELA_XLSX_FILE_OUT+Constantes.TABELA_SEMESTRE_OUT_9_2_3;
-    */
-    
+  
     private String INPUTcaminhoPlanilha01;
     private String OUTPUTcaminhoPlanilha01;
     
@@ -46,6 +46,7 @@ public class CarreArquivosCompTabelas {
     private String OUTPUTcaminhoPlanilha02;
     
     private String OUTPUTplanilha03;
+  
     
     //========================================================
     
@@ -92,8 +93,6 @@ public class CarreArquivosCompTabelas {
     public void processarResultadosTabelasTres(){
    
         AlgoComparacaoSemestres algoComparacaoSemestres = new AlgoComparacaoSemestres();
-        
-        
         
     
      for(int i=0;listaAlunosSem1.size()>i;i++){

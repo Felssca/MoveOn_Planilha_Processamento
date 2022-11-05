@@ -145,15 +145,15 @@ public class ExportaTabelaExl {
         Cell caboFeed = rowZero.createCell(cellCount++);
         caboFeed.setCellValue(Constantes.ALIMENTACAO_OBS);
         Cell cabCorrida = rowZero.createCell(cellCount++);
-        cabCorrida.setCellValue(Constantes.PERCEPCAO_DE_ESFORÇO_OBS_1);
+        cabCorrida.setCellValue(Constantes.PERCEPCAO_DE_ESFORCO_OBS_1);
         Cell cabCorrida1 = rowZero.createCell(cellCount++);
-        cabCorrida1.setCellValue(Constantes.PERCEPCAO_DE_ESFORÇO_OBS_2);
+        cabCorrida1.setCellValue(Constantes.PERCEPCAO_DE_ESFORCO_OBS_2);
         Cell cabCorrida2 = rowZero.createCell(cellCount++);
-        cabCorrida2.setCellValue(Constantes.PERCEPCAO_DE_ESFORÇO_OBS_3);
+        cabCorrida2.setCellValue(Constantes.PERCEPCAO_DE_ESFORCO_OBS_3);
         Cell cabCorrida3 = rowZero.createCell(cellCount++);
-        cabCorrida3.setCellValue(Constantes.PERCEPCAO_DE_ESFORÇO_OBS_4);
+        cabCorrida3.setCellValue(Constantes.PERCEPCAO_DE_ESFORCO_OBS_4);
         Cell cabCorrida4 = rowZero.createCell(cellCount++);
-        cabCorrida4.setCellValue(Constantes.PERCEPCAO_DE_ESFORÇO_OBS_5);
+        cabCorrida4.setCellValue(Constantes.PERCEPCAO_DE_ESFORCO_OBS_5);
         
       
      
@@ -565,7 +565,7 @@ public class ExportaTabelaExl {
             Cell cellPeso2 = row.createCell(cellnum++);
             cellPeso2.setCellValue(alunos.getPESO_COMP_2());
             
-            if(alunos.getIndicadoresPeso().equals(Constantes.ZONA_CLASSIFICAÇÃO_PESO_PERDA)){
+            if(alunos.getIndicadoresPeso().equals(Constantes.ZONA_CLASSIFICACAO_PESO_PERDA)){
                     sinalIndicativo = " - ";
             }
             if(alunos.getIndicadoresPeso().equals(Constantes.ZONA_CLASSIFICAÇÃO_PESO_GANHO)){
