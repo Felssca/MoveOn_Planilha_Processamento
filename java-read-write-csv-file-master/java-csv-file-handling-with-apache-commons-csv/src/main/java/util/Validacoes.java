@@ -140,18 +140,12 @@ public class Validacoes {
     }
 
     public boolean isMatricula(String matricula) {
-        boolean isMatricula = false;
         if (matricula == null) {
-
+            return false;
         } else {
-            if (matricula.length() < 5) {
-                isMatricula = false;
-            } else {
-                isMatricula = true;
-            }
+            return matricula.length() >= 5;
         }
 
-        return isMatricula;
     }
 
     public double truncateValorDouble(Double value) {
@@ -201,9 +195,9 @@ public class Validacoes {
         return false;
     }
 
-    public String covertCellToString(final Cell cell,String campoEsperado) {
-        System.out.println("Campo "+campoEsperado+" Tipo da celula " + cell.getCellType());
-        if (null == cell.getCellType() ) {
+    public String covertCellToString(final Cell cell, String campoEsperado) {
+        System.out.println("Campo " + campoEsperado + " Tipo da celula " + cell.getCellType());
+        if (null == cell.getCellType()) {
             return null;
         } else {
             switch (cell.getCellType()) {

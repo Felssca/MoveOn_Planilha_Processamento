@@ -140,7 +140,7 @@ public class JTela extends javax.swing.JFrame {
         if (preCheckagem(paths, 1) == false) {
             painelAviso("Os caminhos das planilhas estão incorretos, favor selecionar um arquivo válido", "Caminhos inválidos");
         } else if (preCheckagem(pathsOut, 2) == false) {
-            painelAviso("A pasta de saida est'a incorreta, selecione um caminho válido", "Caminho Saída");
+            painelAviso("A pasta de saida esta incorreta, selecione um caminho válido", "Caminho Saída");
         } else {
 
             arquivosCompTabelas.setINPUTcaminhoPlanilha01(INPUT_caminhoArquivoNumero_01);

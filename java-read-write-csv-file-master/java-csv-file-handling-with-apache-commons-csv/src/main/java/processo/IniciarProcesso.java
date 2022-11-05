@@ -47,7 +47,9 @@ public class IniciarProcesso {
 
         for (Alunos listaAluno : listaAlunos) {
             totalLidos++;
+            
            if(validacoes.isMatricula(listaAluno.getMatricula())){
+               
                     
            if(validacoes.verificaNumeroInteiro(listaAluno.getIdade())){
            idade = Integer.parseInt(listaAluno.getIdade());
