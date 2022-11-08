@@ -8,6 +8,10 @@ package util;
 import beans.Constantes;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.Month;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
 import org.apache.poi.ss.usermodel.Cell;
@@ -95,6 +99,39 @@ public class Validacoes {
         }
 
         return idade;
+    }
+
+    public int calcularIdadeAtual(String dataNascimento) {
+        if (dataNascimento != null && !dataNascimento.isEmpty()) {
+
+            try {
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+                LocalDate dataAniversario = LocalDate.parse(dataNascimento, formatter);
+                LocalDate dataAtual = LocalDate.of(2016, Month.NOVEMBER, 16);
+
+                return Period.between(dataAniversario, dataAtual).getYears();
+
+            } catch (Exception ex) {
+                System.out.println("Erro ao converter data " + ex.getMessage());
+            }
+        }
+
+        return 0;
+
+    }
+
+    public double transformarCampoDouble(String valor) {
+        String valorAlterado = valor;
+
+        if (valor != null && !valor.isEmpty()) {
+            if (valor.contains(",")) {
+                valorAlterado = valor.replace(",", ".");
+
+            }
+            return Double.parseDouble(valorAlterado);
+        }
+
+        return 0.0;
     }
 
     public int calculaIdadeEpocaProva(java.util.Date dataNasc, Date dataEpocaExame) {

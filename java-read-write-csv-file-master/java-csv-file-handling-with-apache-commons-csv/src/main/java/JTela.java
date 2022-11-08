@@ -4,12 +4,14 @@
  * and open the template in the editor.
  */
 
-
 import IO.CarreArquivosCompTabelas;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -49,6 +51,9 @@ public class JTela extends javax.swing.JFrame {
 
     public JTela() {
         initComponents();
+//        Image image = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/imgages/bola.jpg"));;
+//        ImageIcon icon = new ImageIcon(image);
+//        setIconImage(icon.getImage());
         arquivosCompTabelas = new CarreArquivosCompTabelas();
         limparLog();
     }
@@ -153,12 +158,12 @@ public class JTela extends javax.swing.JFrame {
 
             arquivosCompTabelas.setOUTPUTplanilha03(OUTPUT_planilha03 + "//" + fileNamePlanilha_03);
 
-            acrescentarLogSistema("------------------------------------");
+            acrescentarLogSistema("------------------------");
             acrescentarLogSistema("PROCESSANDO SEMESTRE UM");
 
             try {
                 arquivosCompTabelas.carregarTabelasSemestreUm();
-                acrescentarLogSistema("------------------------------------>>OK");
+                acrescentarLogSistema("------------------OK");
             } catch (Exception e) {
                 painelErro(e.getMessage(), "Erro ao gerar tabela 1");
             }
@@ -168,7 +173,7 @@ public class JTela extends javax.swing.JFrame {
 
             try {
                 arquivosCompTabelas.carregarTabelasSemestreDois();
-                acrescentarLogSistema("------------------------->---------->OK");
+                acrescentarLogSistema("------------------OK");
             } catch (Exception e) {
                 painelErro(e.getMessage(), "Erro ao gerar tabela 2");
             }
@@ -179,7 +184,7 @@ public class JTela extends javax.swing.JFrame {
             try {
                 arquivosCompTabelas.processarResultadosTabelasTres();
                 painelOK("Arquivos criados com sucesso!!!", "Arquivos Criados");
-                acrescentarLogSistema("--------------------------->>OK");
+                acrescentarLogSistema("------------------OK");
             } catch (Exception e) {
                 painelErro(e.getMessage(), "Erro ao gerar tabela final");
             }
@@ -277,11 +282,12 @@ public class JTela extends javax.swing.JFrame {
         btnClassificacao = new javax.swing.JButton();
         menuBar = new javax.swing.JMenuBar();
         helpMenu = new javax.swing.JMenu();
-        contentsMenuItem = new javax.swing.JMenuItem();
         aboutMenuItem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MoveON Planilhas");
+        setAlwaysOnTop(true);
+        setResizable(false);
 
         painelCaminhosArquivos.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -290,7 +296,7 @@ public class JTela extends javax.swing.JFrame {
         jLabel2.setText("Planilha 2");
 
         campoPlanilha01.setForeground(new java.awt.Color(51, 153, 0));
-        campoPlanilha01.setText("Ecolha o caminho do arquivo 1");
+        campoPlanilha01.setText("Ecolha a planilha 1");
         campoPlanilha01.setDisabledTextColor(new java.awt.Color(0, 102, 51));
         campoPlanilha01.setEnabled(false);
         campoPlanilha01.addActionListener(new java.awt.event.ActionListener() {
@@ -299,9 +305,14 @@ public class JTela extends javax.swing.JFrame {
             }
         });
 
-        campoPlanilha02.setText("Ecolha o caminho do arquivo 2");
+        campoPlanilha02.setText("Ecolha a planilha 2");
         campoPlanilha02.setDisabledTextColor(new java.awt.Color(51, 153, 0));
         campoPlanilha02.setEnabled(false);
+        campoPlanilha02.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoPlanilha02ActionPerformed(evt);
+            }
+        });
 
         btnSelecionarCaminho01.setBackground(new java.awt.Color(204, 204, 204));
         btnSelecionarCaminho01.setForeground(new java.awt.Color(0, 102, 102));
@@ -362,7 +373,7 @@ public class JTela extends javax.swing.JFrame {
 
         jLabel4.setText("Escolher Saída");
 
-        campoPlanilha3.setText("Ecolha o caminho do arquivo 1");
+        campoPlanilha3.setText("Caminho dos arquivos que serão copilados");
         campoPlanilha3.setDisabledTextColor(new java.awt.Color(191, 102, 42));
         campoPlanilha3.setEnabled(false);
 
@@ -380,26 +391,29 @@ public class JTela extends javax.swing.JFrame {
             painelSaidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(painelSaidaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46)
-                .addComponent(campoPlanilha3, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnSelecionarCaminhoOut, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(campoPlanilha3, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnSelecionarCaminhoOut, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         painelSaidaLayout.setVerticalGroup(
             painelSaidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(painelSaidaLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(painelSaidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(painelSaidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(campoPlanilha3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4)
                     .addComponent(btnSelecionarCaminhoOut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
+            .addGroup(painelSaidaLayout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(jLabel4)
+                .addGap(18, 18, 18))
         );
 
         jLabel6.setLabelFor(this);
-        jLabel6.setText("Escolha O caminho de saída dos arquivos");
+        jLabel6.setText("Escolha a pasta dos arquivos copilados");
 
         painelLog.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -418,15 +432,14 @@ public class JTela extends javax.swing.JFrame {
         painelLogLayout.setVerticalGroup(
             painelLogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelLogLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(144, 144, 144))
         );
 
         painelBotaoClassificar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        btnClassificacao.setBackground(javax.swing.UIManager.getDefaults().getColor("List.selectionBackground"));
         btnClassificacao.setFont(new java.awt.Font("Bell MT", 1, 18)); // NOI18N
-        btnClassificacao.setForeground(new java.awt.Color(255, 255, 255));
         btnClassificacao.setText("Classificar");
         btnClassificacao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -439,8 +452,8 @@ public class JTela extends javax.swing.JFrame {
         painelBotaoClassificarLayout.setHorizontalGroup(
             painelBotaoClassificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(painelBotaoClassificarLayout.createSequentialGroup()
-                .addGap(133, 133, 133)
-                .addComponent(btnClassificacao, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(107, 107, 107)
+                .addComponent(btnClassificacao, javax.swing.GroupLayout.PREFERRED_SIZE, 499, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         painelBotaoClassificarLayout.setVerticalGroup(
@@ -453,12 +466,8 @@ public class JTela extends javax.swing.JFrame {
         helpMenu.setMnemonic('h');
         helpMenu.setText("Ajuda");
 
-        contentsMenuItem.setMnemonic('c');
-        contentsMenuItem.setText("Contents");
-        helpMenu.add(contentsMenuItem);
-
         aboutMenuItem.setMnemonic('a');
-        aboutMenuItem.setText("About");
+        aboutMenuItem.setText("Sobre");
         helpMenu.add(aboutMenuItem);
 
         menuBar.add(helpMenu);
@@ -478,7 +487,7 @@ public class JTela extends javax.swing.JFrame {
                             .addComponent(jLabel3)
                             .addComponent(jLabel6)
                             .addComponent(painelLog, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(painelCaminhosArquivos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(painelCaminhosArquivos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(painelBotaoClassificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(painelSaida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
@@ -499,8 +508,8 @@ public class JTela extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(painelBotaoClassificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(53, 53, 53)
-                .addComponent(painelLog, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(painelLog, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(152, 152, 152))
         );
 
         pack();
@@ -535,6 +544,10 @@ public class JTela extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_campoPlanilha01ActionPerformed
 
+    private void campoPlanilha02ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoPlanilha02ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoPlanilha02ActionPerformed
+
     //checar antes de processar
     /**
      * @param args the command line arguments
@@ -564,10 +577,8 @@ public class JTela extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new JTela().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new JTela().setVisible(true);
         });
     }
 
@@ -580,7 +591,6 @@ public class JTela extends javax.swing.JFrame {
     private javax.swing.JTextField campoPlanilha01;
     private javax.swing.JTextField campoPlanilha02;
     private javax.swing.JTextField campoPlanilha3;
-    private javax.swing.JMenuItem contentsMenuItem;
     private javax.swing.JMenu helpMenu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

@@ -142,7 +142,7 @@ public class Constantes {
 
     public static final String CAB_SEPARACAO = "       ";
 
-    public static final String CAB_CLASSIFICA플O_FLEXIBILIDADE = "CLASSIFICA플O FLEXIBILIDADE";
+    public static final String CAB_CLASSIFICACAO_FLEXIBILIDADE = "CLASSIFICA플O FLEXIBILIDADE";
     public static final String CAB_ABDOMINAL = "ABDOMINAL EM 1 MIN";
     public static final String CAB_OBSERVA플O_ABDOMINAL = "OBSERVA플O ABDOMINAL";
     public static final String CAB_CLASSIFICA플O_ABDOMINAL = "CLASSIFICA플O ABDOMINAL";

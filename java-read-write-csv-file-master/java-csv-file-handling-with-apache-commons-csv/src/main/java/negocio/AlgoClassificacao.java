@@ -6,7 +6,6 @@
 package negocio;
 
 import beans.Constantes;
-import java.text.DecimalFormat;
 
 /**
  *
@@ -17,15 +16,17 @@ public class AlgoClassificacao {
     private double resultadoClassificacaoRCE;
     private double resultadoMedBall;
     private double resultadoCalculoIMC;
+   
 //    private final DecimalFormat formato = new DecimalFormat("#.##");
 
     /*
-    Tabela  classificação desportiva OK
+    Tabela  classificação desportiva OK 
      */
     public String tabelaMedBall(int idade, String sexo, double arremeco) {
 
         String resultado = "Não informado";
-
+        
+        
         if (arremeco == 0) {
             resultado = Constantes.AUSENTE;
         } else {
@@ -33,7 +34,7 @@ public class AlgoClassificacao {
             /*
         *Genero Masculino 
              */
-            if (sexo.equals("M")) {
+            if (sexo.equals(Constantes.MASCULINO)) {
 
                 switch (idade) {
                     case 6:
@@ -47,14 +48,12 @@ public class AlgoClassificacao {
                             resultado = Constantes.BOM;
 
                         } else if (arremeco == 183 || arremeco <= 239) {
-
                             resultado = Constantes.MUITO_BOM;
 
                         } else if (arremeco >= 240) {
                             resultado = Constantes.EXCELENCA;
 
                         }
-                        
 
                 }
                 switch (idade) {
@@ -69,7 +68,6 @@ public class AlgoClassificacao {
                             resultado = Constantes.BOM;
 
                         } else if (arremeco == 202 || arremeco <= 249) {
-
                             resultado = Constantes.MUITO_BOM;
 
                         } else if (arremeco >= 250) {
@@ -90,7 +88,6 @@ public class AlgoClassificacao {
                             resultado = Constantes.BOM;
 
                         } else if (arremeco == 225 || arremeco <= 269) {
-
                             resultado = Constantes.MUITO_BOM;
 
                         } else if (arremeco >= 270) {
@@ -101,7 +98,7 @@ public class AlgoClassificacao {
                 }
                 switch (idade) {
                     case 9:
-                        
+
                         if (arremeco < 200) {
                             resultado = Constantes.FRACO;
                         } else if (arremeco == 200 || arremeco <= 219) {
@@ -111,7 +108,6 @@ public class AlgoClassificacao {
                             resultado = Constantes.BOM;
 
                         } else if (arremeco == 250 || arremeco <= 299) {
-
                             resultado = Constantes.MUITO_BOM;
 
                         } else if (arremeco >= 300) {
@@ -132,7 +128,6 @@ public class AlgoClassificacao {
                             resultado = Constantes.BOM;
 
                         } else if (arremeco == 270 || arremeco <= 329) {
-
                             resultado = Constantes.MUITO_BOM;
 
                         } else if (arremeco >= 330) {
@@ -153,7 +148,6 @@ public class AlgoClassificacao {
                             resultado = Constantes.BOM;
 
                         } else if (arremeco == 294 || arremeco <= 361) {
-
                             resultado = Constantes.MUITO_BOM;
 
                         } else if (arremeco >= 362) {
@@ -174,7 +168,6 @@ public class AlgoClassificacao {
                             resultado = Constantes.BOM;
 
                         } else if (arremeco == 330 || arremeco <= 422) {
-
                             resultado = Constantes.MUITO_BOM;
 
                         } else if (arremeco >= 423) {
@@ -195,7 +188,6 @@ public class AlgoClassificacao {
                             resultado = Constantes.BOM;
 
                         } else if (arremeco == 390 || arremeco <= 499) {
-
                             resultado = Constantes.MUITO_BOM;
 
                         } else if (arremeco >= 500) {
@@ -216,7 +208,6 @@ public class AlgoClassificacao {
                             resultado = Constantes.BOM;
 
                         } else if (arremeco == 450 || arremeco <= 561) {
-
                             resultado = Constantes.MUITO_BOM;
 
                         } else if (arremeco >= 562) {
@@ -227,7 +218,6 @@ public class AlgoClassificacao {
                 }
                 switch (idade) {
                     case 15:
-
                         if (arremeco < 400) {
                             resultado = Constantes.FRACO;
                         } else if (arremeco == 400 || arremeco <= 439) {
@@ -237,7 +227,6 @@ public class AlgoClassificacao {
                             resultado = Constantes.BOM;
 
                         } else if (arremeco == 500 || arremeco <= 608) {
-
                             resultado = Constantes.MUITO_BOM;
 
                         } else if (arremeco >= 562) {
@@ -566,7 +555,7 @@ public class AlgoClassificacao {
             /*
         *Genero Masculino 
              */
-            if (sexo.equals("M")) {
+            if (sexo.equals(Constantes.MASCULINO)) {
 
                 switch (idade) {
                     case 6:
@@ -961,7 +950,7 @@ public class AlgoClassificacao {
 
                             resultado = Constantes.MUITO_BOM;
                         } else if (salto >= 180) {
-                           resultado = Constantes.EXCELENCA;
+                            resultado = Constantes.EXCELENCA;
 
                         }
                         break;
@@ -980,7 +969,7 @@ public class AlgoClassificacao {
 
                         } else if (salto == 155 || salto <= 184) {
 
-                             resultado = Constantes.MUITO_BOM;
+                            resultado = Constantes.MUITO_BOM;
 
                         } else if (salto >= 185) {
                             resultado = Constantes.EXCELENCA;
@@ -995,17 +984,17 @@ public class AlgoClassificacao {
                         if (salto < 133) {
                             resultado = Constantes.FRACO;
                         } else if (salto == 133 || salto <= 144) {
-                          resultado = Constantes.RAZOAVEL;
+                            resultado = Constantes.RAZOAVEL;
 
                         } else if (salto == 145 || salto <= 159) {
                             resultado = Constantes.BOM;
 
                         } else if (salto == 160 || salto <= 189) {
 
-                           resultado = Constantes.MUITO_BOM;
+                            resultado = Constantes.MUITO_BOM;
 
                         } else if (salto >= 190) {
-                          resultado = Constantes.EXCELENCA;
+                            resultado = Constantes.EXCELENCA;
 
                         }
                         break;
@@ -1017,14 +1006,14 @@ public class AlgoClassificacao {
                         if (salto < 134) {
                             resultado = Constantes.FRACO;
                         } else if (salto == 134 || salto <= 146) {
-                           resultado = Constantes.RAZOAVEL;
+                            resultado = Constantes.RAZOAVEL;
 
                         } else if (salto == 147 || salto <= 160) {
                             resultado = Constantes.BOM;
 
                         } else if (salto == 161 || salto <= 198) {
 
-                             resultado = Constantes.MUITO_BOM;
+                            resultado = Constantes.MUITO_BOM;
 
                         } else if (salto >= 199) {
                             resultado = Constantes.EXCELENCA;
@@ -1039,7 +1028,7 @@ public class AlgoClassificacao {
                         if (salto < 135) {
                             resultado = Constantes.FRACO;
                         } else if (salto == 135 || salto <= 147) {
-                           resultado = Constantes.RAZOAVEL;
+                            resultado = Constantes.RAZOAVEL;
 
                         } else if (salto == 148 || salto <= 162) {
                             resultado = Constantes.BOM;
@@ -1049,7 +1038,7 @@ public class AlgoClassificacao {
                             resultado = Constantes.MUITO_BOM;
 
                         } else if (salto >= 199) {
-                          resultado = Constantes.EXCELENCA;
+                            resultado = Constantes.EXCELENCA;
 
                         }
                         break;
@@ -1071,7 +1060,7 @@ public class AlgoClassificacao {
                             resultado = Constantes.MUITO_BOM;
 
                         } else if (salto >= 192) {
-                           resultado = Constantes.EXCELENCA;
+                            resultado = Constantes.EXCELENCA;
 
                         }
                         break;
@@ -1121,7 +1110,7 @@ public class AlgoClassificacao {
             /*
         *Genero Masculino 
              */
-            if (sexo.equals("M")) {
+            if (sexo.equals(Constantes.MASCULINO)) {
 
                 switch (idade) {
                     case 6:
@@ -1134,7 +1123,7 @@ public class AlgoClassificacao {
                             resultado = Constantes.BOM;
                         } else if (agilidade == 7.80 || agilidade <= 8.19) {
 
-                             resultado = Constantes.RAZOAVEL;
+                            resultado = Constantes.RAZOAVEL;
 
                         } else if (agilidade > 8.19) {
                             resultado = Constantes.FRACO;
@@ -1147,7 +1136,7 @@ public class AlgoClassificacao {
                     case 7:
 
                         if (agilidade <= 6.07) {
-                              resultado = Constantes.EXCELENCA;
+                            resultado = Constantes.EXCELENCA;
                         } else if (agilidade == 6.08 || agilidade <= 7.00) {
                             resultado = Constantes.MUITO_BOM;
 
@@ -1156,7 +1145,7 @@ public class AlgoClassificacao {
 
                         } else if (agilidade == 7.44 || agilidade <= 7.76) {
 
-                           resultado = Constantes.RAZOAVEL;
+                            resultado = Constantes.RAZOAVEL;
 
                         } else if (agilidade > 7.76) {
                             resultado = Constantes.FRACO;
@@ -1169,19 +1158,19 @@ public class AlgoClassificacao {
                     case 8:
 
                         if (agilidade <= 5.97) {
-                              resultado = Constantes.EXCELENCA;
+                            resultado = Constantes.EXCELENCA;
                         } else if (agilidade == 5.98 || agilidade <= 6.78) {
-                          resultado = Constantes.MUITO_BOM;
+                            resultado = Constantes.MUITO_BOM;
 
                         } else if (agilidade == 6.79 || agilidade <= 7.20) {
                             resultado = Constantes.BOM;
 
                         } else if (agilidade == 7.21 || agilidade <= 7.59) {
 
-                           resultado = Constantes.RAZOAVEL;
+                            resultado = Constantes.RAZOAVEL;
 
                         } else if (agilidade > 7.59) {
-                           resultado = Constantes.FRACO;
+                            resultado = Constantes.FRACO;
 
                         }
                         break;
@@ -1191,16 +1180,16 @@ public class AlgoClassificacao {
                     case 9:
 
                         if (agilidade <= 5.81) {
-                               resultado = Constantes.EXCELENCA;
+                            resultado = Constantes.EXCELENCA;
                         } else if (agilidade == 5.82 || agilidade <= 6.50) {
-                             resultado = Constantes.MUITO_BOM;
+                            resultado = Constantes.MUITO_BOM;
 
                         } else if (agilidade == 6.51 || agilidade <= 6.89) {
                             resultado = Constantes.BOM;
 
                         } else if (agilidade == 6.90 || agilidade <= 7.19) {
 
-                           resultado = Constantes.RAZOAVEL;
+                            resultado = Constantes.RAZOAVEL;
 
                         } else if (agilidade > 7.19) {
                             resultado = Constantes.FRACO;
@@ -1213,9 +1202,9 @@ public class AlgoClassificacao {
                     case 10:
 
                         if (agilidade <= 5.58) {
-                               resultado = Constantes.EXCELENCA;
+                            resultado = Constantes.EXCELENCA;
                         } else if (agilidade == 5.59 || agilidade <= 6.25) {
-                           resultado = Constantes.MUITO_BOM;
+                            resultado = Constantes.MUITO_BOM;
                         } else if (agilidade == 6.26 || agilidade <= 6.66) {
                             resultado = Constantes.BOM;
 
@@ -1234,7 +1223,7 @@ public class AlgoClassificacao {
                     case 11:
 
                         if (agilidade <= 5.39) {
-                               resultado = Constantes.EXCELENCA;
+                            resultado = Constantes.EXCELENCA;
                         } else if (agilidade == 5.40 || agilidade <= 6.10) {
                             resultado = Constantes.MUITO_BOM;
 
@@ -1243,7 +1232,7 @@ public class AlgoClassificacao {
 
                         } else if (agilidade == 6.51 || agilidade <= 6.87) {
 
-                           resultado = Constantes.RAZOAVEL;
+                            resultado = Constantes.RAZOAVEL;
 
                         } else if (agilidade > 6.87) {
                             resultado = Constantes.FRACO;
@@ -1256,9 +1245,9 @@ public class AlgoClassificacao {
                     case 12:
 
                         if (agilidade <= 5.17) {
-                               resultado = Constantes.EXCELENCA;
+                            resultado = Constantes.EXCELENCA;
                         } else if (agilidade == 5.18 || agilidade <= 6.00) {
-                           resultado = Constantes.MUITO_BOM;
+                            resultado = Constantes.MUITO_BOM;
 
                         } else if (agilidade == 6.01 || agilidade <= 6.34) {
                             resultado = Constantes.BOM;
@@ -1278,9 +1267,9 @@ public class AlgoClassificacao {
                     case 13:
 
                         if (agilidade <= 5.00) {
-                          resultado = Constantes.EXCELENCA;
+                            resultado = Constantes.EXCELENCA;
                         } else if (agilidade == 5.01 || agilidade <= 5.86) {
-                           resultado = Constantes.MUITO_BOM;
+                            resultado = Constantes.MUITO_BOM;
 
                         } else if (agilidade == 5.87 || agilidade <= 6.16) {
                             resultado = Constantes.BOM;
@@ -1300,16 +1289,16 @@ public class AlgoClassificacao {
                     case 14:
 
                         if (agilidade <= 5.00) {
-                          resultado = Constantes.EXCELENCA;
+                            resultado = Constantes.EXCELENCA;
                         } else if (agilidade == 5.01 || agilidade <= 5.69) {
-                          resultado = Constantes.MUITO_BOM;
+                            resultado = Constantes.MUITO_BOM;
 
                         } else if (agilidade == 5.70 || agilidade <= 6.00) {
                             resultado = Constantes.BOM;
 
                         } else if (agilidade == 6.01 || agilidade <= 6.37) {
 
-                           resultado = Constantes.RAZOAVEL;
+                            resultado = Constantes.RAZOAVEL;
 
                         } else if (agilidade > 6.37) {
                             resultado = Constantes.FRACO;
@@ -1322,7 +1311,7 @@ public class AlgoClassificacao {
                     case 15:
 
                         if (agilidade <= 4.91) {
-                              resultado = Constantes.EXCELENCA;
+                            resultado = Constantes.EXCELENCA;
                         } else if (agilidade == 4.92 || agilidade <= 5.59) {
                             resultado = Constantes.MUITO_BOM;
 
@@ -1344,7 +1333,7 @@ public class AlgoClassificacao {
                     case 16:
 
                         if (agilidade < 4.90) {
-                               resultado = Constantes.EXCELENCA;
+                            resultado = Constantes.EXCELENCA;
                         } else if (agilidade == 4.91 || agilidade <= 5.42) {
                             resultado = Constantes.MUITO_BOM;
 
@@ -1375,10 +1364,10 @@ public class AlgoClassificacao {
 
                         } else if (agilidade == 5.76 || agilidade <= 6.03) {
 
-                         resultado = Constantes.RAZOAVEL;
+                            resultado = Constantes.RAZOAVEL;
 
                         } else if (agilidade > 6.04) {
-                             resultado = Constantes.FRACO;
+                            resultado = Constantes.FRACO;
 
                         }
                         break;
@@ -1393,7 +1382,7 @@ public class AlgoClassificacao {
                     case 6:
 
                         if (agilidade <= 6.58) {
-                              resultado = Constantes.EXCELENCA;
+                            resultado = Constantes.EXCELENCA;
                         } else if (agilidade == 6.59 || agilidade <= 7.66) {
                             resultado = Constantes.MUITO_BOM;
 
@@ -1402,10 +1391,10 @@ public class AlgoClassificacao {
 
                         } else if (agilidade == 8.27 || agilidade <= 8.68) {
 
-                           resultado = Constantes.RAZOAVEL;
+                            resultado = Constantes.RAZOAVEL;
 
                         } else if (agilidade > 8.68) {
-                           resultado = Constantes.FRACO;
+                            resultado = Constantes.FRACO;
 
                         }
                         break;
@@ -1415,7 +1404,7 @@ public class AlgoClassificacao {
                     case 7:
 
                         if (agilidade <= 6.56) {
-                              resultado = Constantes.EXCELENCA;
+                            resultado = Constantes.EXCELENCA;
                         } else if (agilidade == 6.57 || agilidade <= 7.56) {
                             resultado = Constantes.MUITO_BOM;
 
@@ -1424,7 +1413,7 @@ public class AlgoClassificacao {
 
                         } else if (agilidade == 8.01 || agilidade <= 8.41) {
 
-                           resultado = Constantes.RAZOAVEL;
+                            resultado = Constantes.RAZOAVEL;
 
                         } else if (agilidade > 8.41) {
                             resultado = Constantes.FRACO;
@@ -1437,9 +1426,9 @@ public class AlgoClassificacao {
                     case 8:
 
                         if (agilidade <= 6.40) {
-                              resultado = Constantes.EXCELENCA;
+                            resultado = Constantes.EXCELENCA;
                         } else if (agilidade == 6.41 || agilidade <= 7.22) {
-                             resultado = Constantes.MUITO_BOM;
+                            resultado = Constantes.MUITO_BOM;
 
                         } else if (agilidade == 7.23 || agilidade <= 7.59) {
                             resultado = Constantes.BOM;
@@ -1449,8 +1438,7 @@ public class AlgoClassificacao {
                             resultado = Constantes.RAZOAVEL;
 
                         } else if (agilidade > 7.98) {
-                              resultado = Constantes.FRACO;
-
+                            resultado = Constantes.FRACO;
 
                         }
                         break;
@@ -1460,9 +1448,9 @@ public class AlgoClassificacao {
                     case 9:
 
                         if (agilidade <= 6.03) {
-                              resultado = Constantes.EXCELENCA;
+                            resultado = Constantes.EXCELENCA;
                         } else if (agilidade == 6.04 || agilidade <= 6.89) {
-                           resultado = Constantes.MUITO_BOM;
+                            resultado = Constantes.MUITO_BOM;
 
                         } else if (agilidade == 6.90 || agilidade <= 7.25) {
                             resultado = Constantes.BOM;
@@ -1482,7 +1470,7 @@ public class AlgoClassificacao {
                     case 10:
 
                         if (agilidade <= 5.88) {
-                              resultado = Constantes.EXCELENCA;
+                            resultado = Constantes.EXCELENCA;
                         } else if (agilidade == 5.89 || agilidade <= 6.60) {
                             resultado = Constantes.MUITO_BOM;
 
@@ -1491,7 +1479,7 @@ public class AlgoClassificacao {
 
                         } else if (agilidade == 7.01 || agilidade <= 7.35) {
 
-                           resultado = Constantes.RAZOAVEL;
+                            resultado = Constantes.RAZOAVEL;
 
                         } else if (agilidade > 7.35) {
                             resultado = Constantes.FRACO;
@@ -1504,7 +1492,7 @@ public class AlgoClassificacao {
                     case 11:
 
                         if (agilidade <= 5.72) {
-                              resultado = Constantes.EXCELENCA;
+                            resultado = Constantes.EXCELENCA;
                         } else if (agilidade == 5.73 || agilidade <= 6.49) {
                             resultado = Constantes.MUITO_BOM;
 
@@ -1513,9 +1501,9 @@ public class AlgoClassificacao {
 
                         } else if (agilidade == 6.91 || agilidade <= 7.24) {
 
-                           resultado = Constantes.RAZOAVEL;
+                            resultado = Constantes.RAZOAVEL;
                         } else if (agilidade > 7.24) {
-                           resultado = Constantes.FRACO;
+                            resultado = Constantes.FRACO;
 
                         }
                         break;
@@ -1525,7 +1513,7 @@ public class AlgoClassificacao {
                     case 12:
 
                         if (agilidade <= 5.63) {
-                              resultado = Constantes.EXCELENCA;
+                            resultado = Constantes.EXCELENCA;
                         } else if (agilidade == 5.64 || agilidade <= 6.36) {
                             resultado = Constantes.MUITO_BOM;
 
@@ -1534,7 +1522,7 @@ public class AlgoClassificacao {
 
                         } else if (agilidade == 6.81 || agilidade <= 7.17) {
 
-                          resultado = Constantes.RAZOAVEL;
+                            resultado = Constantes.RAZOAVEL;
 
                         } else if (agilidade > 7.17) {
                             resultado = Constantes.FRACO;
@@ -1547,20 +1535,19 @@ public class AlgoClassificacao {
                     case 13:
 
                         if (agilidade <= 5.57) {
-                              resultado = Constantes.EXCELENCA;
+                            resultado = Constantes.EXCELENCA;
                         } else if (agilidade == 5.58 || agilidade <= 6.28) {
-                           resultado = Constantes.MUITO_BOM;
+                            resultado = Constantes.MUITO_BOM;
 
                         } else if (agilidade == 6.29 || agilidade <= 6.70) {
                             resultado = Constantes.BOM;
 
                         } else if (agilidade == 6.71 || agilidade <= 7.10) {
 
-                           resultado = Constantes.RAZOAVEL;
+                            resultado = Constantes.RAZOAVEL;
 
                         } else if (agilidade > 7.10) {
                             resultado = Constantes.FRACO;
-
 
                         }
                         break;
@@ -1570,7 +1557,7 @@ public class AlgoClassificacao {
                     case 14:
 
                         if (agilidade <= 5.49) {
-                              resultado = Constantes.EXCELENCA;
+                            resultado = Constantes.EXCELENCA;
                         } else if (agilidade == 5.50 || agilidade <= 6.22) {
                             resultado = Constantes.MUITO_BOM;
 
@@ -1579,10 +1566,10 @@ public class AlgoClassificacao {
 
                         } else if (agilidade == 6.69 || agilidade <= 7.03) {
 
-                          resultado = Constantes.RAZOAVEL;
+                            resultado = Constantes.RAZOAVEL;
 
                         } else if (agilidade > 7.03) {
-                             resultado = Constantes.FRACO;
+                            resultado = Constantes.FRACO;
 
                         }
                         break;
@@ -1592,9 +1579,9 @@ public class AlgoClassificacao {
                     case 15:
 
                         if (agilidade <= 5.33) {
-                              resultado = Constantes.EXCELENCA;
+                            resultado = Constantes.EXCELENCA;
                         } else if (agilidade == 5.33 || agilidade <= 6.19) {
-                           resultado = Constantes.MUITO_BOM;
+                            resultado = Constantes.MUITO_BOM;
 
                         } else if (agilidade == 6.20 || agilidade <= 6.66) {
                             resultado = Constantes.BOM;
@@ -1604,7 +1591,7 @@ public class AlgoClassificacao {
                             resultado = Constantes.RAZOAVEL;
 
                         } else if (agilidade > 7.00) {
-                           resultado = Constantes.FRACO;
+                            resultado = Constantes.FRACO;
 
                         }
                         break;
@@ -1614,9 +1601,9 @@ public class AlgoClassificacao {
                     case 16:
 
                         if (agilidade <= 5.41) {
-                              resultado = Constantes.EXCELENCA;
+                            resultado = Constantes.EXCELENCA;
                         } else if (agilidade == 5.42 || agilidade <= 6.15) {
-                           resultado = Constantes.MUITO_BOM;
+                            resultado = Constantes.MUITO_BOM;
 
                         } else if (agilidade == 6.16 || agilidade <= 6.55) {
                             resultado = Constantes.BOM;
@@ -1627,7 +1614,6 @@ public class AlgoClassificacao {
                         } else if (agilidade > 6.94) {
                             resultado = Constantes.FRACO;
 
-
                         }
                         break;
 
@@ -1636,7 +1622,7 @@ public class AlgoClassificacao {
                     case 17:
 
                         if (agilidade <= 5.54) {
-                              resultado = Constantes.EXCELENCA;
+                            resultado = Constantes.EXCELENCA;
                         } else if (agilidade == 5.55 || agilidade <= 6.22) {
                             resultado = Constantes.MUITO_BOM;
 
@@ -1645,11 +1631,10 @@ public class AlgoClassificacao {
 
                         } else if (agilidade == 6.59 || agilidade <= 7.00) {
 
-                           resultado = Constantes.RAZOAVEL;
+                            resultado = Constantes.RAZOAVEL;
 
                         } else if (agilidade > 7.00) {
-                             resultado = Constantes.FRACO;
-
+                            resultado = Constantes.FRACO;
 
                         }
                         break;
@@ -1678,7 +1663,7 @@ public class AlgoClassificacao {
             /*
         *Genero Masculino 
              */
-            if (sexo.equals("M")) {
+            if (sexo.equals(Constantes.MASCULINO)) {
 
                 switch (idade) {
                     case 6:
@@ -1693,7 +1678,6 @@ public class AlgoClassificacao {
                             resultado = Constantes.MUITO_BOM;
                         } else if (corrida >= 879) {
                             resultado = Constantes.EXCELENCA;
-                              
 
                         }
                         break;
@@ -1705,17 +1689,17 @@ public class AlgoClassificacao {
                         if (corrida < 735) {
                             resultado = Constantes.FRACO;
                         } else if (corrida == 735 || corrida <= 785) {
-                           resultado = Constantes.RAZOAVEL;
+                            resultado = Constantes.RAZOAVEL;
 
                         } else if (corrida == 786 || corrida <= 824) {
                             resultado = Constantes.BOM;
 
                         } else if (corrida == 825 || corrida <= 923) {
 
-                              resultado = Constantes.MUITO_BOM;
+                            resultado = Constantes.MUITO_BOM;
 
                         } else if (corrida >= 924) {
-                             resultado = Constantes.EXCELENCA;
+                            resultado = Constantes.EXCELENCA;
 
                         }
                         break;
@@ -1734,10 +1718,10 @@ public class AlgoClassificacao {
 
                         } else if (corrida == 879 || corrida <= 1009) {
 
-                             resultado = Constantes.MUITO_BOM;
+                            resultado = Constantes.MUITO_BOM;
 
                         } else if (corrida >= 1010) {
-                             resultado = Constantes.EXCELENCA;
+                            resultado = Constantes.EXCELENCA;
 
                         }
                         break;
@@ -1747,9 +1731,9 @@ public class AlgoClassificacao {
                     case 9:
 
                         if (corrida < 845) {
-                           resultado = Constantes.FRACO;
+                            resultado = Constantes.FRACO;
                         } else if (corrida == 845 || corrida <= 899) {
-                           resultado = Constantes.RAZOAVEL;
+                            resultado = Constantes.RAZOAVEL;
 
                         } else if (corrida == 900 || corrida <= 965) {
                             resultado = Constantes.BOM;
@@ -1769,9 +1753,9 @@ public class AlgoClassificacao {
                     case 10:
 
                         if (corrida < 880) {
-                             resultado = Constantes.FRACO;
+                            resultado = Constantes.FRACO;
                         } else if (corrida == 881 || corrida <= 941) {
-                           resultado = Constantes.RAZOAVEL;
+                            resultado = Constantes.RAZOAVEL;
 
                         } else if (corrida == 942 || corrida <= 1009) {
                             resultado = Constantes.BOM;
@@ -1783,7 +1767,6 @@ public class AlgoClassificacao {
                         } else if (corrida >= 1158) {
                             resultado = Constantes.EXCELENCA;
 
-
                         }
                         break;
 
@@ -1794,17 +1777,17 @@ public class AlgoClassificacao {
                         if (corrida < 915) {
                             resultado = Constantes.FRACO;
                         } else if (corrida == 915 || corrida <= 977) {
-                           resultado = Constantes.RAZOAVEL;
+                            resultado = Constantes.RAZOAVEL;
 
                         } else if (corrida == 978 || corrida <= 1049) {
                             resultado = Constantes.BOM;
 
                         } else if (corrida == 1050 || corrida <= 1189) {
 
-                              resultado = Constantes.MUITO_BOM;
+                            resultado = Constantes.MUITO_BOM;
 
                         } else if (corrida >= 1190) {
-                           resultado = Constantes.EXCELENCA;
+                            resultado = Constantes.EXCELENCA;
 
                         }
                         break;
@@ -1814,7 +1797,7 @@ public class AlgoClassificacao {
                     case 12:
 
                         if (corrida < 965) {
-                           resultado = Constantes.FRACO;
+                            resultado = Constantes.FRACO;
                         } else if (corrida == 965 || corrida <= 1029) {
                             resultado = Constantes.RAZOAVEL;
 
@@ -1823,7 +1806,7 @@ public class AlgoClassificacao {
 
                         } else if (corrida == 1110 || corrida <= 1254) {
 
-                             resultado = Constantes.MUITO_BOM;
+                            resultado = Constantes.MUITO_BOM;
 
                         } else if (corrida >= 1255) {
                             resultado = Constantes.EXCELENCA;
@@ -1845,7 +1828,7 @@ public class AlgoClassificacao {
 
                         } else if (corrida == 1159 || corrida <= 1319) {
 
-                             resultado = Constantes.MUITO_BOM;
+                            resultado = Constantes.MUITO_BOM;
 
                         } else if (corrida >= 1320) {
                             resultado = Constantes.EXCELENCA;
@@ -1860,7 +1843,7 @@ public class AlgoClassificacao {
                         if (corrida < 1068) {
                             resultado = Constantes.FRACO;
                         } else if (corrida == 1069 || corrida <= 1134) {
-                           resultado = Constantes.RAZOAVEL;
+                            resultado = Constantes.RAZOAVEL;
 
                         } else if (corrida == 1135 || corrida <= 1209) {
                             resultado = Constantes.BOM;
@@ -1882,7 +1865,7 @@ public class AlgoClassificacao {
                         if (corrida < 1120) {
                             resultado = Constantes.FRACO;
                         } else if (corrida == 1121 || corrida <= 1186) {
-                             resultado = Constantes.RAZOAVEL;
+                            resultado = Constantes.RAZOAVEL;
 
                         } else if (corrida == 1187 || corrida <= 1261) {
                             resultado = Constantes.BOM;
@@ -1892,7 +1875,7 @@ public class AlgoClassificacao {
                             resultado = Constantes.MUITO_BOM;
 
                         } else if (corrida >= 1435) {
-                           resultado = Constantes.EXCELENCA;
+                            resultado = Constantes.EXCELENCA;
 
                         }
                         break;
@@ -1926,7 +1909,7 @@ public class AlgoClassificacao {
                         if (corrida < 1156) {
                             resultado = Constantes.FRACO;
                         } else if (corrida == 1156 || corrida <= 1219) {
-                             resultado = Constantes.RAZOAVEL;
+                            resultado = Constantes.RAZOAVEL;
 
                         } else if (corrida == 1220 || corrida <= 1288) {
                             resultado = Constantes.BOM;
@@ -1936,7 +1919,7 @@ public class AlgoClassificacao {
                             resultado = Constantes.MUITO_BOM;
 
                         } else if (corrida >= 1506) {
-                             resultado = Constantes.EXCELENCA;
+                            resultado = Constantes.EXCELENCA;
 
                         }
                         break;
@@ -1951,9 +1934,9 @@ public class AlgoClassificacao {
                     case 6:
 
                         if (corrida < 612) {
-                           resultado = Constantes.FRACO;
+                            resultado = Constantes.FRACO;
                         } else if (corrida == 612 || corrida <= 640) {
-                           resultado = Constantes.RAZOAVEL;
+                            resultado = Constantes.RAZOAVEL;
 
                         } else if (corrida == 641 || corrida <= 680) {
                             resultado = Constantes.BOM;
@@ -1975,14 +1958,14 @@ public class AlgoClassificacao {
                         if (corrida < 652) {
                             resultado = Constantes.FRACO;
                         } else if (corrida == 652 || corrida <= 682) {
-                             resultado = Constantes.RAZOAVEL;
+                            resultado = Constantes.RAZOAVEL;
 
                         } else if (corrida == 683 || corrida <= 729) {
                             resultado = Constantes.BOM;
 
                         } else if (corrida == 730 || corrida <= 851) {
 
-                             resultado = Constantes.MUITO_BOM;
+                            resultado = Constantes.MUITO_BOM;
 
                         } else if (corrida >= 852) {
                             resultado = Constantes.EXCELENCA;
@@ -1995,9 +1978,9 @@ public class AlgoClassificacao {
                     case 8:
 
                         if (corrida < 700) {
-                           resultado = Constantes.FRACO;
+                            resultado = Constantes.FRACO;
                         } else if (corrida == 700 || corrida <= 734) {
-                           resultado = Constantes.RAZOAVEL;
+                            resultado = Constantes.RAZOAVEL;
 
                         } else if (corrida == 735 || corrida <= 777) {
                             resultado = Constantes.BOM;
@@ -2019,7 +2002,7 @@ public class AlgoClassificacao {
                         if (corrida < 750) {
                             resultado = Constantes.FRACO;
                         } else if (corrida == 750 || corrida <= 789) {
-                             resultado = Constantes.RAZOAVEL;
+                            resultado = Constantes.RAZOAVEL;
 
                         } else if (corrida == 790 || corrida <= 840) {
                             resultado = Constantes.BOM;
@@ -2029,7 +2012,7 @@ public class AlgoClassificacao {
                             resultado = Constantes.MUITO_BOM;
 
                         } else if (corrida >= 966) {
-                           resultado = Constantes.EXCELENCA;
+                            resultado = Constantes.EXCELENCA;
 
                         }
                         break;
@@ -2051,7 +2034,7 @@ public class AlgoClassificacao {
                             resultado = Constantes.MUITO_BOM;
 
                         } else if (corrida >= 1027) {
-                           resultado = Constantes.EXCELENCA;
+                            resultado = Constantes.EXCELENCA;
 
                         }
                         break;
@@ -2063,7 +2046,7 @@ public class AlgoClassificacao {
                         if (corrida < 822) {
                             resultado = Constantes.FRACO;
                         } else if (corrida == 822 || corrida <= 867) {
-                             resultado = Constantes.RAZOAVEL;
+                            resultado = Constantes.RAZOAVEL;
 
                         } else if (corrida == 868 || corrida <= 919) {
                             resultado = Constantes.BOM;
@@ -2083,7 +2066,7 @@ public class AlgoClassificacao {
                     case 12:
 
                         if (corrida < 855) {
-                           resultado = Constantes.FRACO;
+                            resultado = Constantes.FRACO;
                         } else if (corrida == 856 || corrida <= 900) {
                             resultado = Constantes.RAZOAVEL;
 
@@ -2095,7 +2078,7 @@ public class AlgoClassificacao {
                             resultado = Constantes.MUITO_BOM;
 
                         } else if (corrida >= 1081) {
-                             resultado = Constantes.EXCELENCA;
+                            resultado = Constantes.EXCELENCA;
 
                         }
                         break;
@@ -2105,7 +2088,7 @@ public class AlgoClassificacao {
                     case 13:
 
                         if (corrida < 887) {
-                           resultado = Constantes.FRACO;
+                            resultado = Constantes.FRACO;
                         } else if (corrida == 887 || corrida <= 934) {
                             resultado = Constantes.RAZOAVEL;
 
@@ -2114,7 +2097,7 @@ public class AlgoClassificacao {
 
                         } else if (corrida == 997 || corrida <= 1128) {
 
-                             resultado = Constantes.MUITO_BOM;
+                            resultado = Constantes.MUITO_BOM;
 
                         } else if (corrida >= 1129) {
                             resultado = Constantes.EXCELENCA;
@@ -2135,11 +2118,10 @@ public class AlgoClassificacao {
 
                         } else if (corrida == 1024 || corrida <= 1163) {
 
-                           resultado = Constantes.MUITO_BOM;
-
+                            resultado = Constantes.MUITO_BOM;
 
                         } else if (corrida >= 1163) {
-                           resultado = Constantes.EXCELENCA;
+                            resultado = Constantes.EXCELENCA;
 
                         }
                         break;
@@ -2151,7 +2133,7 @@ public class AlgoClassificacao {
                         if (corrida < 955) {
                             resultado = Constantes.FRACO;
                         } else if (corrida == 955 || corrida <= 999) {
-                           resultado = Constantes.RAZOAVEL;
+                            resultado = Constantes.RAZOAVEL;
 
                         } else if (corrida == 1000 || corrida <= 1043) {
                             resultado = Constantes.BOM;
@@ -2180,10 +2162,10 @@ public class AlgoClassificacao {
 
                         } else if (corrida == 1055 || corrida <= 1155) {
 
-                         resultado = Constantes.MUITO_BOM;
+                            resultado = Constantes.MUITO_BOM;
 
                         } else if (corrida >= 1156) {
-                           resultado = Constantes.EXCELENCA;
+                            resultado = Constantes.EXCELENCA;
 
                         }
                         break;
@@ -2195,17 +2177,17 @@ public class AlgoClassificacao {
                         if (corrida < 982) {
                             resultado = Constantes.FRACO;
                         } else if (corrida == 982 || corrida <= 1022) {
-                             resultado = Constantes.RAZOAVEL;
+                            resultado = Constantes.RAZOAVEL;
 
                         } else if (corrida == 1023 || corrida <= 1062) {
                             resultado = Constantes.BOM;
 
                         } else if (corrida == 1063 || corrida <= 1206) {
 
-                          resultado = Constantes.MUITO_BOM;
+                            resultado = Constantes.MUITO_BOM;
 
                         } else if (corrida >= 1207) {
-                              resultado = Constantes.EXCELENCA;
+                            resultado = Constantes.EXCELENCA;
 
                         }
                         break;
@@ -2218,24 +2200,24 @@ public class AlgoClassificacao {
         return resultado;
 
     }
-    
-    public String tabelaCorridaResistencia6MinSaude(int idade, String sexo, double corrida){
-    String resultadoSaude = Constantes.NAO_AFERIDO;
-    
-      if (corrida == 0) {
+
+    public String tabelaCorridaResistencia6MinSaude(int idade, String sexo, double corrida) {
+        String resultadoSaude = Constantes.NAO_AFERIDO;
+
+        if (corrida == 0) {
             resultadoSaude = Constantes.AUSENTE;
         } else {
-      //Genero Masculino 
-       if (sexo.equals("M")) {
+            //Genero Masculino 
+            if (sexo.equals(Constantes.MASCULINO)) {
 
                 switch (idade) {
                     case 6:
                         if (corrida < 675) {
                             resultadoSaude = Constantes.CORRIDA_6M_SAUDE_RISCO;
-                        } else if(corrida == 675) {
+                        } else if (corrida == 675) {
                             resultadoSaude = Constantes.CORRIDA_6M_SAUDE_SEM_ALTERA;
-                        }else{
-                         resultadoSaude = Constantes.CORRIDA_6M_SAUDE_DIMINUICAO;   
+                        } else {
+                            resultadoSaude = Constantes.CORRIDA_6M_SAUDE_DIMINUICAO;
                         }
                         break;
                 }
@@ -2243,10 +2225,10 @@ public class AlgoClassificacao {
                     case 7:
                         if (corrida < 730) {
                             resultadoSaude = Constantes.CORRIDA_6M_SAUDE_RISCO;
-                        } else if(corrida == 730) {
+                        } else if (corrida == 730) {
                             resultadoSaude = Constantes.CORRIDA_6M_SAUDE_SEM_ALTERA;
-                        }else{
-                         resultadoSaude = Constantes.CORRIDA_6M_SAUDE_DIMINUICAO;   
+                        } else {
+                            resultadoSaude = Constantes.CORRIDA_6M_SAUDE_DIMINUICAO;
                         }
                         break;
                 }
@@ -2254,10 +2236,10 @@ public class AlgoClassificacao {
                     case 8:
                         if (corrida < 768) {
                             resultadoSaude = Constantes.CORRIDA_6M_SAUDE_RISCO;
-                        } else if(corrida == 768) {
+                        } else if (corrida == 768) {
                             resultadoSaude = Constantes.CORRIDA_6M_SAUDE_SEM_ALTERA;
-                        }else{
-                         resultadoSaude = Constantes.CORRIDA_6M_SAUDE_DIMINUICAO;   
+                        } else {
+                            resultadoSaude = Constantes.CORRIDA_6M_SAUDE_DIMINUICAO;
                         }
                         break;
                 }
@@ -2265,10 +2247,10 @@ public class AlgoClassificacao {
                     case 9:
                         if (corrida < 820) {
                             resultadoSaude = Constantes.CORRIDA_6M_SAUDE_RISCO;
-                        } else if(corrida == 820) {
+                        } else if (corrida == 820) {
                             resultadoSaude = Constantes.CORRIDA_6M_SAUDE_SEM_ALTERA;
-                        }else{
-                         resultadoSaude = Constantes.CORRIDA_6M_SAUDE_DIMINUICAO;   
+                        } else {
+                            resultadoSaude = Constantes.CORRIDA_6M_SAUDE_DIMINUICAO;
                         }
                         break;
                 }
@@ -2276,10 +2258,10 @@ public class AlgoClassificacao {
                     case 10:
                         if (corrida < 856) {
                             resultadoSaude = Constantes.CORRIDA_6M_SAUDE_RISCO;
-                        } else if(corrida == 856) {
+                        } else if (corrida == 856) {
                             resultadoSaude = Constantes.CORRIDA_6M_SAUDE_SEM_ALTERA;
-                        }else{
-                         resultadoSaude = Constantes.CORRIDA_6M_SAUDE_DIMINUICAO;   
+                        } else {
+                            resultadoSaude = Constantes.CORRIDA_6M_SAUDE_DIMINUICAO;
                         }
                         break;
                 }
@@ -2287,10 +2269,10 @@ public class AlgoClassificacao {
                     case 11:
                         if (corrida < 930) {
                             resultadoSaude = Constantes.CORRIDA_6M_SAUDE_RISCO;
-                        } else if(corrida == 930) {
+                        } else if (corrida == 930) {
                             resultadoSaude = Constantes.CORRIDA_6M_SAUDE_SEM_ALTERA;
-                        }else{
-                         resultadoSaude = Constantes.CORRIDA_6M_SAUDE_DIMINUICAO;   
+                        } else {
+                            resultadoSaude = Constantes.CORRIDA_6M_SAUDE_DIMINUICAO;
                         }
                         break;
                 }
@@ -2298,10 +2280,10 @@ public class AlgoClassificacao {
                     case 12:
                         if (corrida < 966) {
                             resultadoSaude = Constantes.CORRIDA_6M_SAUDE_RISCO;
-                        } else if(corrida == 966) {
+                        } else if (corrida == 966) {
                             resultadoSaude = Constantes.CORRIDA_6M_SAUDE_SEM_ALTERA;
-                        }else{
-                         resultadoSaude = Constantes.CORRIDA_6M_SAUDE_DIMINUICAO;   
+                        } else {
+                            resultadoSaude = Constantes.CORRIDA_6M_SAUDE_DIMINUICAO;
                         }
                         break;
                 }
@@ -2309,10 +2291,10 @@ public class AlgoClassificacao {
                     case 13:
                         if (corrida < 995) {
                             resultadoSaude = Constantes.CORRIDA_6M_SAUDE_RISCO;
-                        } else if(corrida == 995) {
+                        } else if (corrida == 995) {
                             resultadoSaude = Constantes.CORRIDA_6M_SAUDE_SEM_ALTERA;
-                        }else{
-                         resultadoSaude = Constantes.CORRIDA_6M_SAUDE_DIMINUICAO;   
+                        } else {
+                            resultadoSaude = Constantes.CORRIDA_6M_SAUDE_DIMINUICAO;
                         }
                         break;
                 }
@@ -2320,10 +2302,10 @@ public class AlgoClassificacao {
                     case 14:
                         if (corrida < 1060) {
                             resultadoSaude = Constantes.CORRIDA_6M_SAUDE_RISCO;
-                        } else if(corrida == 1060) {
+                        } else if (corrida == 1060) {
                             resultadoSaude = Constantes.CORRIDA_6M_SAUDE_SEM_ALTERA;
-                        }else{
-                         resultadoSaude = Constantes.CORRIDA_6M_SAUDE_DIMINUICAO;   
+                        } else {
+                            resultadoSaude = Constantes.CORRIDA_6M_SAUDE_DIMINUICAO;
                         }
                         break;
                 }
@@ -2331,10 +2313,10 @@ public class AlgoClassificacao {
                     case 15:
                         if (corrida < 1130) {
                             resultadoSaude = Constantes.CORRIDA_6M_SAUDE_RISCO;
-                        } else if(corrida == 1130) {
+                        } else if (corrida == 1130) {
                             resultadoSaude = Constantes.CORRIDA_6M_SAUDE_SEM_ALTERA;
-                        }else{
-                         resultadoSaude = Constantes.CORRIDA_6M_SAUDE_DIMINUICAO;   
+                        } else {
+                            resultadoSaude = Constantes.CORRIDA_6M_SAUDE_DIMINUICAO;
                         }
                         break;
                 }
@@ -2342,38 +2324,38 @@ public class AlgoClassificacao {
                     case 16:
                         if (corrida < 1190) {
                             resultadoSaude = Constantes.CORRIDA_6M_SAUDE_RISCO;
-                        } else if(corrida == 1190) {
+                        } else if (corrida == 1190) {
                             resultadoSaude = Constantes.CORRIDA_6M_SAUDE_SEM_ALTERA;
-                        }else{
-                         resultadoSaude = Constantes.CORRIDA_6M_SAUDE_DIMINUICAO;   
+                        } else {
+                            resultadoSaude = Constantes.CORRIDA_6M_SAUDE_DIMINUICAO;
                         }
                         break;
                 }
-               
+
                 switch (idade) {
                     case 17:
                         if (corrida < 1190) {
                             resultadoSaude = Constantes.CORRIDA_6M_SAUDE_RISCO;
-                        } else if(corrida == 1190) {
+                        } else if (corrida == 1190) {
                             resultadoSaude = Constantes.CORRIDA_6M_SAUDE_SEM_ALTERA;
-                        }else{
-                         resultadoSaude = Constantes.CORRIDA_6M_SAUDE_DIMINUICAO;   
+                        } else {
+                            resultadoSaude = Constantes.CORRIDA_6M_SAUDE_DIMINUICAO;
                         }
                         break;
                 }
-       }
-               
-      //Genero Feminino
-       if (sexo.equals("F")) {
+            }
+
+            //Genero Feminino
+            if (sexo.equals(Constantes.FEMININO)) {
 
                 switch (idade) {
                     case 6:
                         if (corrida < 630) {
                             resultadoSaude = Constantes.CORRIDA_6M_SAUDE_RISCO;
-                        } else if(corrida == 630) {
+                        } else if (corrida == 630) {
                             resultadoSaude = Constantes.CORRIDA_6M_SAUDE_SEM_ALTERA;
-                        }else{
-                         resultadoSaude = Constantes.CORRIDA_6M_SAUDE_DIMINUICAO;   
+                        } else {
+                            resultadoSaude = Constantes.CORRIDA_6M_SAUDE_DIMINUICAO;
                         }
                         break;
                 }
@@ -2381,10 +2363,10 @@ public class AlgoClassificacao {
                     case 7:
                         if (corrida < 683) {
                             resultadoSaude = Constantes.CORRIDA_6M_SAUDE_RISCO;
-                        } else if(corrida == 683) {
+                        } else if (corrida == 683) {
                             resultadoSaude = Constantes.CORRIDA_6M_SAUDE_SEM_ALTERA;
-                        }else{
-                         resultadoSaude = Constantes.CORRIDA_6M_SAUDE_DIMINUICAO;   
+                        } else {
+                            resultadoSaude = Constantes.CORRIDA_6M_SAUDE_DIMINUICAO;
                         }
                         break;
                 }
@@ -2392,10 +2374,10 @@ public class AlgoClassificacao {
                     case 8:
                         if (corrida < 715) {
                             resultadoSaude = Constantes.CORRIDA_6M_SAUDE_RISCO;
-                        } else if(corrida == 715) {
+                        } else if (corrida == 715) {
                             resultadoSaude = Constantes.CORRIDA_6M_SAUDE_SEM_ALTERA;
-                        }else{
-                         resultadoSaude = Constantes.CORRIDA_6M_SAUDE_DIMINUICAO;   
+                        } else {
+                            resultadoSaude = Constantes.CORRIDA_6M_SAUDE_DIMINUICAO;
                         }
                         break;
                 }
@@ -2403,10 +2385,10 @@ public class AlgoClassificacao {
                     case 9:
                         if (corrida < 745) {
                             resultadoSaude = Constantes.CORRIDA_6M_SAUDE_RISCO;
-                        } else if(corrida == 745) {
+                        } else if (corrida == 745) {
                             resultadoSaude = Constantes.CORRIDA_6M_SAUDE_SEM_ALTERA;
-                        }else{
-                         resultadoSaude = Constantes.CORRIDA_6M_SAUDE_DIMINUICAO;   
+                        } else {
+                            resultadoSaude = Constantes.CORRIDA_6M_SAUDE_DIMINUICAO;
                         }
                         break;
                 }
@@ -2414,10 +2396,10 @@ public class AlgoClassificacao {
                     case 10:
                         if (corrida < 790) {
                             resultadoSaude = Constantes.CORRIDA_6M_SAUDE_RISCO;
-                        } else if(corrida == 790) {
+                        } else if (corrida == 790) {
                             resultadoSaude = Constantes.CORRIDA_6M_SAUDE_SEM_ALTERA;
-                        }else{
-                         resultadoSaude = Constantes.CORRIDA_6M_SAUDE_DIMINUICAO;   
+                        } else {
+                            resultadoSaude = Constantes.CORRIDA_6M_SAUDE_DIMINUICAO;
                         }
                         break;
                 }
@@ -2425,10 +2407,10 @@ public class AlgoClassificacao {
                     case 11:
                         if (corrida < 840) {
                             resultadoSaude = Constantes.CORRIDA_6M_SAUDE_RISCO;
-                        } else if(corrida == 840) {
+                        } else if (corrida == 840) {
                             resultadoSaude = Constantes.CORRIDA_6M_SAUDE_SEM_ALTERA;
-                        }else{
-                         resultadoSaude = Constantes.CORRIDA_6M_SAUDE_DIMINUICAO;   
+                        } else {
+                            resultadoSaude = Constantes.CORRIDA_6M_SAUDE_DIMINUICAO;
                         }
                         break;
                 }
@@ -2436,10 +2418,10 @@ public class AlgoClassificacao {
                     case 12:
                         if (corrida < 900) {
                             resultadoSaude = Constantes.CORRIDA_6M_SAUDE_RISCO;
-                        } else if(corrida == 900) {
+                        } else if (corrida == 900) {
                             resultadoSaude = Constantes.CORRIDA_6M_SAUDE_SEM_ALTERA;
-                        }else{
-                         resultadoSaude = Constantes.CORRIDA_6M_SAUDE_DIMINUICAO;   
+                        } else {
+                            resultadoSaude = Constantes.CORRIDA_6M_SAUDE_DIMINUICAO;
                         }
                         break;
                 }
@@ -2447,10 +2429,10 @@ public class AlgoClassificacao {
                     case 13:
                         if (corrida < 940) {
                             resultadoSaude = Constantes.CORRIDA_6M_SAUDE_RISCO;
-                        } else if(corrida == 940) {
+                        } else if (corrida == 940) {
                             resultadoSaude = Constantes.CORRIDA_6M_SAUDE_SEM_ALTERA;
-                        }else{
-                         resultadoSaude = Constantes.CORRIDA_6M_SAUDE_DIMINUICAO;   
+                        } else {
+                            resultadoSaude = Constantes.CORRIDA_6M_SAUDE_DIMINUICAO;
                         }
                         break;
                 }
@@ -2458,10 +2440,10 @@ public class AlgoClassificacao {
                     case 14:
                         if (corrida < 985) {
                             resultadoSaude = Constantes.CORRIDA_6M_SAUDE_RISCO;
-                        } else if(corrida == 985) {
+                        } else if (corrida == 985) {
                             resultadoSaude = Constantes.CORRIDA_6M_SAUDE_SEM_ALTERA;
-                        }else{
-                         resultadoSaude = Constantes.CORRIDA_6M_SAUDE_DIMINUICAO;   
+                        } else {
+                            resultadoSaude = Constantes.CORRIDA_6M_SAUDE_DIMINUICAO;
                         }
                         break;
                 }
@@ -2469,10 +2451,10 @@ public class AlgoClassificacao {
                     case 15:
                         if (corrida < 1005) {
                             resultadoSaude = Constantes.CORRIDA_6M_SAUDE_RISCO;
-                        } else if(corrida == 1005) {
+                        } else if (corrida == 1005) {
                             resultadoSaude = Constantes.CORRIDA_6M_SAUDE_SEM_ALTERA;
-                        }else{
-                         resultadoSaude = Constantes.CORRIDA_6M_SAUDE_DIMINUICAO;   
+                        } else {
+                            resultadoSaude = Constantes.CORRIDA_6M_SAUDE_DIMINUICAO;
                         }
                         break;
                 }
@@ -2480,33 +2462,30 @@ public class AlgoClassificacao {
                     case 16:
                         if (corrida < 1070) {
                             resultadoSaude = Constantes.CORRIDA_6M_SAUDE_RISCO;
-                        } else if(corrida == 1070) {
+                        } else if (corrida == 1070) {
                             resultadoSaude = Constantes.CORRIDA_6M_SAUDE_SEM_ALTERA;
-                        }else{
-                         resultadoSaude = Constantes.CORRIDA_6M_SAUDE_DIMINUICAO;   
+                        } else {
+                            resultadoSaude = Constantes.CORRIDA_6M_SAUDE_DIMINUICAO;
                         }
                         break;
                 }
-               
+
                 switch (idade) {
                     case 17:
                         if (corrida < 1110) {
                             resultadoSaude = Constantes.CORRIDA_6M_SAUDE_RISCO;
-                        } else if(corrida == 1110) {
+                        } else if (corrida == 1110) {
                             resultadoSaude = Constantes.CORRIDA_6M_SAUDE_SEM_ALTERA;
-                        }else{
-                         resultadoSaude = Constantes.CORRIDA_6M_SAUDE_DIMINUICAO;   
+                        } else {
+                            resultadoSaude = Constantes.CORRIDA_6M_SAUDE_DIMINUICAO;
                         }
                         break;
                 }
-               
-    
-    
-    
-    
-      }}
-    return resultadoSaude ;
-    
+
+            }
+        }
+        return resultadoSaude;
+
     }
 
     /*
@@ -2524,7 +2503,7 @@ public class AlgoClassificacao {
         *Genero Masculino 
         
              */
-            if (sexo.equals("M")) {
+            if (sexo.equals(Constantes.MASCULINO)) {
 
                 switch (idade) {
                     case 6:
@@ -3076,7 +3055,7 @@ public class AlgoClassificacao {
             /*
         *Genero Masculino 
              */
-            if (sexo.equals("M")) {
+            if (sexo.equals(Constantes.MASCULINO)) {
 
                 switch (idade) {
                     case 6:
@@ -3087,9 +3066,7 @@ public class AlgoClassificacao {
                             resultadoIMC = Constantes.IMC_RISCO;
                         }
                         break;
-                
 
-                
                     case 7:
                         if (imc <= 17.8) {
                             resultadoIMC = Constantes.IMC_SAUDAVEL;
@@ -3098,9 +3075,7 @@ public class AlgoClassificacao {
                             resultadoIMC = Constantes.IMC_RISCO;
                         }
                         break;
-                
 
-                
                     case 8:
                         if (imc <= 19.2) {
                             resultadoIMC = Constantes.IMC_SAUDAVEL;
@@ -3109,9 +3084,7 @@ public class AlgoClassificacao {
                             resultadoIMC = Constantes.IMC_RISCO;
                         }
                         break;
-                
 
-              
                     case 9:
                         if (imc <= 19.3) {
                             resultadoIMC = Constantes.IMC_SAUDAVEL;
@@ -3120,9 +3093,7 @@ public class AlgoClassificacao {
                             resultadoIMC = Constantes.IMC_RISCO;
                         }
                         break;
-                
 
-              
                     case 10:
                         if (imc <= 20.7) {
                             resultadoIMC = Constantes.IMC_SAUDAVEL;
@@ -3131,9 +3102,7 @@ public class AlgoClassificacao {
                             resultadoIMC = Constantes.IMC_RISCO;
                         }
                         break;
-                
 
-                
                     case 11:
                         if (imc <= 22.1) {
                             resultadoIMC = Constantes.IMC_SAUDAVEL;
@@ -3142,9 +3111,7 @@ public class AlgoClassificacao {
                             resultadoIMC = Constantes.IMC_RISCO;
                         }
                         break;
-                
 
-                
                     case 12:
                         if (imc <= 22.2) {
                             resultadoIMC = Constantes.IMC_SAUDAVEL;
@@ -3153,9 +3120,7 @@ public class AlgoClassificacao {
                             resultadoIMC = Constantes.IMC_RISCO;
                         }
                         break;
-                
 
-               
                     case 13:
                         if (imc <= 22) {
                             resultadoIMC = Constantes.IMC_SAUDAVEL;
@@ -3164,8 +3129,7 @@ public class AlgoClassificacao {
                             resultadoIMC = Constantes.IMC_RISCO;
                         }
                         break;
-                
-                
+
                     case 14:
                         if (imc <= 22.2) {
                             resultadoIMC = Constantes.IMC_SAUDAVEL;
@@ -3174,8 +3138,7 @@ public class AlgoClassificacao {
                             resultadoIMC = Constantes.IMC_RISCO;
                         }
                         break;
-                
-              
+
                     case 15:
                         if (imc <= 23) {
                             resultadoIMC = Constantes.IMC_SAUDAVEL;
@@ -3184,7 +3147,7 @@ public class AlgoClassificacao {
                             resultadoIMC = Constantes.IMC_RISCO;
                         }
                         break;
-                
+
                     case 16:
                         if (imc <= 24) {
                             resultadoIMC = Constantes.IMC_SAUDAVEL;
@@ -3193,8 +3156,7 @@ public class AlgoClassificacao {
                             resultadoIMC = Constantes.IMC_RISCO;
                         }
                         break;
-            
-               
+
                     case 17:
                         if (imc <= 25.4) {
                             resultadoIMC = Constantes.IMC_SAUDAVEL;
@@ -3209,7 +3171,7 @@ public class AlgoClassificacao {
             /*
         *Genero Feminino
              */
-            if (sexo.equals("F")) {
+            if (sexo.equals(Constantes.FEMININO)) {
 
                 switch (idade) {
                     case 6:
@@ -3220,7 +3182,7 @@ public class AlgoClassificacao {
                             resultadoIMC = Constantes.IMC_RISCO;
                         }
                         break;
-               
+
                     case 7:
                         if (imc < 17.1) {
                             resultadoIMC = Constantes.IMC_SAUDAVEL;
@@ -3229,7 +3191,7 @@ public class AlgoClassificacao {
                             resultadoIMC = Constantes.IMC_RISCO;
                         }
                         break;
-                
+
                     case 8:
                         if (imc < 18.2) {
                             resultadoIMC = Constantes.IMC_SAUDAVEL;
@@ -3238,7 +3200,7 @@ public class AlgoClassificacao {
                             resultadoIMC = Constantes.IMC_RISCO;
                         }
                         break;
-                
+
                     case 9:
                         if (imc < 19.1) {
                             resultadoIMC = Constantes.IMC_SAUDAVEL;
@@ -3247,7 +3209,7 @@ public class AlgoClassificacao {
                             resultadoIMC = Constantes.IMC_RISCO;
                         }
                         break;
-                   case 10:
+                    case 10:
                         if (imc < 20.9) {
                             resultadoIMC = Constantes.IMC_SAUDAVEL;
                         } else {
@@ -3255,8 +3217,7 @@ public class AlgoClassificacao {
                             resultadoIMC = Constantes.IMC_RISCO;
                         }
                         break;
-                
-                
+
                     case 11:
                         if (imc < 22.3) {
                             resultadoIMC = Constantes.IMC_SAUDAVEL;
@@ -3265,7 +3226,7 @@ public class AlgoClassificacao {
                             resultadoIMC = Constantes.IMC_RISCO;
                         }
                         break;
-                
+
                     case 12:
                         if (imc < 22.6) {
                             resultadoIMC = Constantes.IMC_SAUDAVEL;
@@ -3274,8 +3235,7 @@ public class AlgoClassificacao {
                             resultadoIMC = Constantes.IMC_RISCO;
                         }
                         break;
-                
-                
+
                     case 13:
                         if (imc < 22) {
                             resultadoIMC = Constantes.IMC_SAUDAVEL;
@@ -3284,8 +3244,7 @@ public class AlgoClassificacao {
                             resultadoIMC = Constantes.IMC_RISCO;
                         }
                         break;
-                
-                
+
                     case 14:
                         if (imc < 22) {
                             resultadoIMC = Constantes.IMC_SAUDAVEL;
@@ -3294,8 +3253,7 @@ public class AlgoClassificacao {
                             resultadoIMC = Constantes.IMC_RISCO;
                         }
                         break;
-                
-                
+
                     case 15:
                         if (imc < 22.4) {
                             resultadoIMC = Constantes.IMC_SAUDAVEL;
@@ -3304,8 +3262,7 @@ public class AlgoClassificacao {
                             resultadoIMC = Constantes.IMC_RISCO;
                         }
                         break;
-                
-                
+
                     case 16:
                         if (imc < 24) {
                             resultadoIMC = Constantes.IMC_SAUDAVEL;
@@ -3314,9 +3271,7 @@ public class AlgoClassificacao {
                             resultadoIMC = Constantes.IMC_RISCO;
                         }
                         break;
-                
-                
-                
+
                     case 17:
                         if (imc < 24) {
                             resultadoIMC = Constantes.IMC_SAUDAVEL;
@@ -3349,7 +3304,7 @@ public class AlgoClassificacao {
             /*
         *Genero Masculino 
              */
-            if (sexo.equals("M")) {
+            if (sexo.equals(Constantes.MASCULINO)) {
 
                 switch (idade) {
                     case 6:
@@ -3360,9 +3315,7 @@ public class AlgoClassificacao {
                             resultadoFlexibilidade = Constantes.FLEX_SAUDAVEL;
                         }
                         break;
-                
 
-                
                     case 7:
                         if (flex < 29.3) {
                             resultadoFlexibilidade = Constantes.FLEX_RISCO;
@@ -3371,9 +3324,7 @@ public class AlgoClassificacao {
                             resultadoFlexibilidade = Constantes.FLEX_SAUDAVEL;
                         }
                         break;
-                
 
-                
                     case 8:
                         if (flex < 29.3) {
                             resultadoFlexibilidade = Constantes.FLEX_RISCO;
@@ -3382,7 +3333,7 @@ public class AlgoClassificacao {
                             resultadoFlexibilidade = Constantes.FLEX_SAUDAVEL;
                         }
                         break;
-    
+
                     case 9:
                         if (flex < 29.3) {
                             resultadoFlexibilidade = Constantes.FLEX_RISCO;
@@ -3391,9 +3342,7 @@ public class AlgoClassificacao {
                             resultadoFlexibilidade = Constantes.FLEX_SAUDAVEL;
                         }
                         break;
-            
 
-              
                     case 10:
                         if (flex < 29.3) {
                             resultadoFlexibilidade = Constantes.FLEX_RISCO;
@@ -3402,7 +3351,7 @@ public class AlgoClassificacao {
                             resultadoFlexibilidade = Constantes.FLEX_SAUDAVEL;
                         }
                         break;
-              
+
                     case 11:
                         if (flex < 27.8) {
                             resultadoFlexibilidade = Constantes.FLEX_RISCO;
@@ -3411,7 +3360,7 @@ public class AlgoClassificacao {
                             resultadoFlexibilidade = Constantes.FLEX_SAUDAVEL;
                         }
                         break;
-              
+
                     case 12:
                         if (flex < 24.7) {
                             resultadoFlexibilidade = Constantes.FLEX_RISCO;
@@ -3420,7 +3369,7 @@ public class AlgoClassificacao {
                             resultadoFlexibilidade = Constantes.FLEX_SAUDAVEL;
                         }
                         break;
-              
+
                     case 13:
                         if (flex < 23.1) {
                             resultadoFlexibilidade = Constantes.FLEX_RISCO;
@@ -3429,7 +3378,7 @@ public class AlgoClassificacao {
                             resultadoFlexibilidade = Constantes.FLEX_SAUDAVEL;
                         }
                         break;
-                
+
                     case 14:
                         if (flex < 22.9) {
                             resultadoFlexibilidade = Constantes.FLEX_RISCO;
@@ -3438,7 +3387,7 @@ public class AlgoClassificacao {
                             resultadoFlexibilidade = Constantes.FLEX_SAUDAVEL;
                         }
                         break;
-            
+
                     case 15:
                         if (flex < 24.3) {
                             resultadoFlexibilidade = Constantes.FLEX_RISCO;
@@ -3447,7 +3396,7 @@ public class AlgoClassificacao {
                             resultadoFlexibilidade = Constantes.FLEX_SAUDAVEL;
                         }
                         break;
-               
+
                     case 16:
                         if (flex < 25.7) {
                             resultadoFlexibilidade = Constantes.FLEX_RISCO;
@@ -3456,7 +3405,7 @@ public class AlgoClassificacao {
                             resultadoFlexibilidade = Constantes.FLEX_SAUDAVEL;
                         }
                         break;
-              
+
                     case 17:
                         if (flex < 25.7) {
                             resultadoFlexibilidade = Constantes.FLEX_RISCO;
@@ -3471,7 +3420,7 @@ public class AlgoClassificacao {
             /*
         *Genero Feminino
              */
-            if (sexo.equals("F")) {
+            if (sexo.equals(Constantes.FEMININO)) {
 
                 switch (idade) {
                     case 6:
@@ -3482,7 +3431,7 @@ public class AlgoClassificacao {
                             resultadoFlexibilidade = Constantes.FLEX_SAUDAVEL;
                         }
                         break;
-              
+
                     case 7:
                         if (flex < 21.4) {
                             resultadoFlexibilidade = Constantes.FLEX_RISCO;
@@ -3491,7 +3440,7 @@ public class AlgoClassificacao {
                             resultadoFlexibilidade = Constantes.FLEX_SAUDAVEL;
                         }
                         break;
-               
+
                     case 8:
                         if (flex < 21.4) {
                             resultadoFlexibilidade = Constantes.FLEX_RISCO;
@@ -3500,7 +3449,7 @@ public class AlgoClassificacao {
                             resultadoFlexibilidade = Constantes.FLEX_SAUDAVEL;
                         }
                         break;
-               
+
                     case 9:
                         if (flex < 21.4) {
                             resultadoFlexibilidade = Constantes.FLEX_RISCO;
@@ -3509,7 +3458,7 @@ public class AlgoClassificacao {
                             resultadoFlexibilidade = Constantes.FLEX_SAUDAVEL;
                         }
                         break;
-             
+
                     case 10:
                         if (flex < 23.5) {
                             resultadoFlexibilidade = Constantes.FLEX_RISCO;
@@ -3518,7 +3467,7 @@ public class AlgoClassificacao {
                             resultadoFlexibilidade = Constantes.FLEX_SAUDAVEL;
                         }
                         break;
-              
+
                     case 11:
                         if (flex < 23.5) {
                             resultadoFlexibilidade = Constantes.FLEX_RISCO;
@@ -3527,7 +3476,7 @@ public class AlgoClassificacao {
                             resultadoFlexibilidade = Constantes.FLEX_SAUDAVEL;
                         }
                         break;
-               
+
                     case 12:
                         if (flex < 23.5) {
                             resultadoFlexibilidade = Constantes.FLEX_RISCO;
@@ -3536,7 +3485,7 @@ public class AlgoClassificacao {
                             resultadoFlexibilidade = Constantes.FLEX_SAUDAVEL;
                         }
                         break;
-               
+
                     case 13:
                         if (flex < 23.5) {
                             resultadoFlexibilidade = Constantes.FLEX_RISCO;
@@ -3545,7 +3494,7 @@ public class AlgoClassificacao {
                             resultadoFlexibilidade = Constantes.FLEX_SAUDAVEL;
                         }
                         break;
-              
+
                     case 14:
                         if (flex < 24.3) {
                             resultadoFlexibilidade = Constantes.FLEX_RISCO;
@@ -3554,7 +3503,7 @@ public class AlgoClassificacao {
                             resultadoFlexibilidade = Constantes.FLEX_SAUDAVEL;
                         }
                         break;
-               
+
                     case 15:
                         if (flex < 24.3) {
                             resultadoFlexibilidade = Constantes.FLEX_RISCO;
@@ -3563,7 +3512,7 @@ public class AlgoClassificacao {
                             resultadoFlexibilidade = Constantes.FLEX_SAUDAVEL;
                         }
                         break;
-               
+
                     case 16:
                         if (flex < 24.3) {
                             resultadoFlexibilidade = Constantes.FLEX_RISCO;
@@ -3572,7 +3521,7 @@ public class AlgoClassificacao {
                             resultadoFlexibilidade = Constantes.FLEX_SAUDAVEL;
                         }
                         break;
-                
+
                     case 17:
                         if (flex < 24.3) {
                             resultadoFlexibilidade = Constantes.FLEX_RISCO;
@@ -3620,7 +3569,7 @@ public class AlgoClassificacao {
             /*
         *Genero Masculino 
              */
-            if (sexo.equals("M")) {
+            if (sexo.equals(Constantes.MASCULINO)) {
 
                 switch (idade) {
                     case 6:
@@ -3741,8 +3690,8 @@ public class AlgoClassificacao {
             /*
         *Genero Feminino
              */
-            if (sexo.equals("F")) {
-
+            if (sexo.equals(Constantes.FEMININO)) {
+                
                 switch (idade) {
                     case 6:
                         if (abdomem < 20) {

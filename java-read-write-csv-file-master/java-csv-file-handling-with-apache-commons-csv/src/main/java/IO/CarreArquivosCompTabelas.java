@@ -9,6 +9,7 @@ import beans.Alunos;
 import beans.Constantes;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import negocio.AlgoComparacaoSemestres;
 import processo.IniciarProcesso;
 
@@ -19,19 +20,12 @@ import processo.IniciarProcesso;
 public class CarreArquivosCompTabelas {
 
     // private static CarreArquivosCompTabelas arquivosCompTabelas;
-    private ArrayList<Alunos> listaAlunosSem1;
-    private ArrayList<Alunos> listaAlunosSem2;
-    private ArrayList<Alunos> listaAlunosResult = new ArrayList<>();
+    private List<Alunos> listaAlunosSem1;
+    private List<Alunos> listaAlunosSem2;
+    private List<Alunos> listaAlunosResult = new ArrayList<>();
+    private List<Alunos> alunosNaoProcessados;
     private Alunos alunoResultado;
 
-    //**ALTERAR CAMINHOS AQUI================================
-//    private String INPUTcaminhoPlanilha01 =  Constantes.XLSX_FILE_PATH_SEM1;
-//    private String OUTPUTcaminhoPlanilha01 = Constantes.TABELA_XLSX_FILE_OUT+Constantes.TABELA_SEMESTRE_OUT_9_2_1;
-//    
-//    private String INPUTcaminhoPlanilha02 =  Constantes.XLSX_FILE_PATH_SEM2;
-//    private String OUTPUTcaminhoPlanilha02 = Constantes.TABELA_XLSX_FILE_OUT+Constantes.TABELA_SEMESTRE_OUT_9_2_2;
-//    
-//    private String OUTPUTplanilha03 = Constantes.TABELA_XLSX_FILE_OUT+Constantes.TABELA_SEMESTRE_OUT_9_2_3;
     private String INPUTcaminhoPlanilha01;
     private String OUTPUTcaminhoPlanilha01;
 
@@ -45,18 +39,6 @@ public class CarreArquivosCompTabelas {
 
     }
 
-    /*
-    private static synchronized CarreArquivosCompTabelas getInstance(){
-    
-        if(arquivosCompTabelas == null){
-        arquivosCompTabelas = new CarreArquivosCompTabelas();
-        
-        }
-        return arquivosCompTabelas;
-    
-    
-    }
-     */
     public void carregarTabelasSemestreUm() throws IOException, Exception {
 
         IniciarProcesso iniciarProcesso = new IniciarProcesso();
@@ -75,9 +57,37 @@ public class CarreArquivosCompTabelas {
 
     }
 
+    private Alunos acharAlunoSemestreDois(String matricula) {
+
+        return listaAlunosSem2.stream()
+                .filter(x -> x.getMatricula().equals(matricula))
+                .findFirst().orElse(null);
+
+    }
+
     public void processarResultadosTabelasTres() {
 
         AlgoComparacaoSemestres algoComparacaoSemestres = new AlgoComparacaoSemestres();
+        listaAlunosSem1.forEach((alunoSem1) -> {
+
+            Alunos alunoSemestre2 = acharAlunoSemestreDois(alunoSem1.getMatricula());
+
+            if (alunoSemestre2 != null) {
+                
+                alunoResultado = new Alunos();
+                alunoResultado.setMatricula(alunoSem1.getMatricula());
+                alunoResultado.setNome(alunoSem1.getNome());
+                
+                algoComparacaoSemestres.tabelaComparativa(alunoSem1.getPESO(), alunoSemestre2.getPESO(),
+                        Constantes.TIPO_ETIQUETA_MODALIDADES_PESO);
+
+            }else{
+            
+            //TODO LISTA DE ALUNOS NÃO PROCESSADOS IO File LOG
+            }
+
+            
+        });
 
         for (int i = 0; listaAlunosSem1.size() > i; i++) {
             if (i == 0) {
@@ -240,14 +250,14 @@ public class CarreArquivosCompTabelas {
 
     }
 
-    private void exportarTabelasXlsx(ArrayList<Alunos> resultadoAlunos, String pathOut) {
+    private void exportarTabelasXlsx(List<Alunos> resultadoAlunos, String pathOut) {
 
         ExportaTabelaExl exportaTabelaExl = new ExportaTabelaExl();
         exportaTabelaExl.exportarExel(resultadoAlunos, pathOut);
 
     }
 
-    private void exportarTabelasXlsxResultado(ArrayList<Alunos> resultadoAlunos, String pathOut) {
+    private void exportarTabelasXlsxResultado(List<Alunos> resultadoAlunos, String pathOut) {
 
         ExportaTabelaExl exportaTabelaExl = new ExportaTabelaExl();
         exportaTabelaExl.exportarExelComparacaoSemestres(resultadoAlunos, pathOut);
@@ -257,7 +267,7 @@ public class CarreArquivosCompTabelas {
     /**
      * @return the listaAlunosSem1
      */
-    public ArrayList<Alunos> getListaAlunosSem1() {
+    public List<Alunos> getListaAlunosSem1() {
         return listaAlunosSem1;
     }
 
@@ -271,7 +281,7 @@ public class CarreArquivosCompTabelas {
     /**
      * @return the listaAlunosSem2
      */
-    public ArrayList<Alunos> getListaAlunosSem2() {
+    public List<Alunos> getListaAlunosSem2() {
         return listaAlunosSem2;
     }
 

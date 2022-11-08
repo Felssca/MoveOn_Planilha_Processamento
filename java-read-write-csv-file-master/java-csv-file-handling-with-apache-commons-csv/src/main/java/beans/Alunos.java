@@ -9,7 +9,7 @@ package beans;
  *
  * @author FelipeSSCA
  */
-public class Alunos {
+public  class Alunos {
 
     /**
      * @return the indicadoresRCESemestre_1
