@@ -8,6 +8,10 @@ package util;
 import beans.Constantes;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.Month;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
 import org.apache.poi.ss.usermodel.Cell;
@@ -21,9 +25,6 @@ public class Validacoes {
     public boolean isPathEmptXlsx(String path) {
 
         if (path != null) {
-            if (path.isBlank()) {
-                return false;
-            }
             if (path.isEmpty()) {
                 return false;
             }
@@ -31,19 +32,17 @@ public class Validacoes {
 
         return true;
     }
-    
-    
-    public boolean isPathValidXlsx(String path){
-    
-     if (path != null) {
+
+    public boolean isPathValidXlsx(String path) {
+
+        if (path != null) {
             if (path.endsWith("xls") || path.endsWith("xlsx")) {
                 return true;
             }
         }
 
         return false;
-    
-    
+
     }
 
     public boolean verificaNumeroInteiro(String s) {
@@ -72,9 +71,9 @@ public class Validacoes {
 
         boolean isDouble = false;
         try {
-            Double.parseDouble(numero);
+            Double.valueOf(numero);
             isDouble = true;
-        } catch (Exception e) {
+        } catch (NumberFormatException e) {
             isDouble = false;
         }
 
@@ -93,12 +92,46 @@ public class Validacoes {
         if (hoje.get(Calendar.MONTH) < dataNascimento.get(Calendar.MONTH)) {
             idade--;
         } else {
-            if (hoje.get(Calendar.MONTH) == dataNascimento.get(Calendar.MONTH) && hoje.get(Calendar.DAY_OF_MONTH) < dataNascimento.get(Calendar.DAY_OF_MONTH)) {
+            if (hoje.get(Calendar.MONTH) == dataNascimento.get(Calendar.MONTH) && hoje.get(Calendar.DAY_OF_MONTH)
+                    < dataNascimento.get(Calendar.DAY_OF_MONTH)) {
                 idade--;
             }
         }
 
         return idade;
+    }
+
+    public int calcularIdadeAtual(String dataNascimento) {
+        if (dataNascimento != null && !dataNascimento.isEmpty()) {
+
+            try {
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+                LocalDate dataAniversario = LocalDate.parse(dataNascimento, formatter);
+                LocalDate dataAtual = LocalDate.of(2016, Month.NOVEMBER, 16);
+
+                return Period.between(dataAniversario, dataAtual).getYears();
+
+            } catch (Exception ex) {
+                System.out.println("Erro ao converter data " + ex.getMessage());
+            }
+        }
+
+        return 0;
+
+    }
+
+    public double transformarCampoDouble(String valor) {
+        String valorAlterado = valor;
+
+        if (valor != null && !valor.isEmpty()) {
+            if (valor.contains(",")) {
+                valorAlterado = valor.replace(",", ".");
+
+            }
+            return Double.parseDouble(valorAlterado);
+        }
+
+        return 0.0;
     }
 
     public int calculaIdadeEpocaProva(java.util.Date dataNasc, Date dataEpocaExame) {
@@ -144,25 +177,18 @@ public class Validacoes {
     }
 
     public boolean isMatricula(String matricula) {
-        boolean isMatricula = false;
         if (matricula == null) {
-
+            return false;
         } else {
-            if (matricula.length() < 5) {
-                isMatricula = false;
-            } else {
-                isMatricula = true;
-            }
+            return matricula.length() >= 5;
         }
 
-        return isMatricula;
     }
 
     public double truncateValorDouble(Double value) {
         if (value == null || value.equals("")) {
             return 0;
         } else {
-
             return Math.round(value * 100) / 100d;
         }
     }
@@ -172,7 +198,7 @@ public class Validacoes {
             return Constantes.ERROR_TRUCA_DOUBLR;
         } else {
 
-            Double valor = Double.parseDouble(value);
+            Double valor = Double.valueOf(value);
             DecimalFormat df = new DecimalFormat("0.##");
             return df.format(valor);
         }
@@ -204,6 +230,25 @@ public class Validacoes {
         }
 
         return false;
+    }
+
+    public String covertCellToString(final Cell cell, String campoEsperado) {
+        System.out.println("Campo " + campoEsperado + " Tipo da celula " + cell.getCellType());
+        if (null == cell.getCellType()) {
+            return null;
+        } else {
+            switch (cell.getCellType()) {
+                case STRING:
+                    System.out.println("Valor do campo: " + cell.getStringCellValue());
+                    return cell.getStringCellValue();
+                case NUMERIC:
+                    System.out.println("Valor do campo:" + cell.getNumericCellValue());
+                    return String.valueOf(cell.getNumericCellValue());
+                default:
+                    return null;
+            }
+        }
+
     }
 
 }

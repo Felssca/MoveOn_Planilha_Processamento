@@ -153,7 +153,7 @@ public class TabelaXlsStyle {
             cellStyle.setFont(font);
     }
   
-    if(classificacao.equals(Constantes.ZONA_CLASSIFICAÇÃO_PESO_PERDA)){
+    if(classificacao.equals(Constantes.ZONA_CLASSIFICACAO_PESO_PERDA)){
                     cellStyle.setFillForegroundColor(IndexedColors.RED.getIndex());
             cellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
             font.setColor(IndexedColors.WHITE1.index);

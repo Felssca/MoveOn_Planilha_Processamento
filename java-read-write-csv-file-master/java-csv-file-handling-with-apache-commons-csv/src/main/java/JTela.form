@@ -17,16 +17,10 @@
             <Property name="text" type="java.lang.String" value="Ajuda"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="contentsMenuItem">
-              <Properties>
-                <Property name="mnemonic" type="int" value="99"/>
-                <Property name="text" type="java.lang.String" value="Contents"/>
-              </Properties>
-            </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="aboutMenuItem">
               <Properties>
                 <Property name="mnemonic" type="int" value="97"/>
-                <Property name="text" type="java.lang.String" value="About"/>
+                <Property name="text" type="java.lang.String" value="Sobre"/>
               </Properties>
             </MenuItem>
           </SubComponents>
@@ -37,6 +31,8 @@
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
     <Property name="title" type="java.lang.String" value="MoveON Planilhas"/>
+    <Property name="alwaysOnTop" type="boolean" value="true"/>
+    <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="menuBar" type="java.lang.String" value="menuBar"/>
@@ -67,11 +63,11 @@
                           <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="painelLog" alignment="0" max="32767" attributes="0"/>
-                          <Component id="painelCaminhosArquivos" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="painelCaminhosArquivos" alignment="0" max="32767" attributes="0"/>
                           <Component id="painelBotaoClassificar" alignment="0" max="32767" attributes="0"/>
                           <Component id="painelSaida" alignment="0" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="37" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -93,8 +89,8 @@
               <EmptySpace max="32767" attributes="0"/>
               <Component id="painelBotaoClassificar" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-              <Component id="painelLog" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <Component id="painelLog" min="-2" pref="220" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="152" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -155,12 +151,12 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Escolher Planilha 1"/>
+            <Property name="text" type="java.lang.String" value="Planilha 1"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Escolher Planilha 2"/>
+            <Property name="text" type="java.lang.String" value="Planilha 2"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="campoPlanilha01">
@@ -168,7 +164,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="99" red="33" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Ecolha o caminho do arquivo 1"/>
+            <Property name="text" type="java.lang.String" value="Ecolha a planilha 1"/>
             <Property name="disabledTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="66" red="0" type="rgb"/>
             </Property>
@@ -180,12 +176,15 @@
         </Component>
         <Component class="javax.swing.JTextField" name="campoPlanilha02">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Ecolha o caminho do arquivo 2"/>
+            <Property name="text" type="java.lang.String" value="Ecolha a planilha 2"/>
             <Property name="disabledTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="99" red="33" type="rgb"/>
             </Property>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="campoPlanilha02ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnSelecionarCaminho01">
           <Properties>
@@ -241,11 +240,11 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jLabel4" min="-2" pref="107" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
-                  <Component id="campoPlanilha3" min="-2" pref="450" max="-2" attributes="0"/>
+                  <Component id="jLabel4" min="-2" pref="95" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="btnSelecionarCaminhoOut" min="-2" pref="130" max="-2" attributes="0"/>
+                  <Component id="campoPlanilha3" min="-2" pref="453" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="btnSelecionarCaminhoOut" min="-2" pref="127" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -254,12 +253,16 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="campoPlanilha3" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
-                      <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnSelecionarCaminhoOut" alignment="3" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="2" attributes="0">
+                      <Component id="campoPlanilha3" alignment="2" min="-2" pref="38" max="-2" attributes="0"/>
+                      <Component id="btnSelecionarCaminhoOut" alignment="2" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="17" pref="17" max="-2" attributes="0"/>
+                  <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -272,7 +275,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="campoPlanilha3">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Ecolha o caminho do arquivo 1"/>
+            <Property name="text" type="java.lang.String" value="Caminho dos arquivos que ser&#xe3;o copilados"/>
             <Property name="disabledTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="2a" green="66" red="bf" type="rgb"/>
             </Property>
@@ -297,7 +300,7 @@
         <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
           <ComponentRef name="Form"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Escolha O caminho de sa&#xed;da dos arquivos"/>
+        <Property name="text" type="java.lang.String" value="Escolha a pasta dos arquivos copilados"/>
       </Properties>
     </Component>
     <Container class="javax.swing.JPanel" name="painelLog">
@@ -318,8 +321,9 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  <Component id="jScrollPane2" min="-2" pref="356" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="jScrollPane2" min="-2" pref="212" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="144" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -361,8 +365,8 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="133" max="-2" attributes="0"/>
-                  <Component id="btnClassificacao" min="-2" pref="473" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="107" max="-2" attributes="0"/>
+                  <Component id="btnClassificacao" min="-2" pref="499" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -376,11 +380,8 @@
       <SubComponents>
         <Component class="javax.swing.JButton" name="btnClassificacao">
           <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="a8" green="c9" red="d4" type="rgb"/>
-            </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="18" style="1"/>
+              <Font name="Bell MT" size="18" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Classificar"/>
           </Properties>

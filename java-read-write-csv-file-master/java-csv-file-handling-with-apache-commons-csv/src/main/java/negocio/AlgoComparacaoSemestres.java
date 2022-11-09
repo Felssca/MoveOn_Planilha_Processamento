@@ -41,12 +41,12 @@ public class AlgoComparacaoSemestres {
             resultado = 0;
         } else {
 
-            double resultado1conv1 = Double.parseDouble(resultado1);
-            double resultado1conv2 = Double.parseDouble(resultado2);
+            double resultado1conv1 = validacoes.transformarCampoDouble((resultado1));
+            double resultado1conv2 = validacoes.transformarCampoDouble(resultado2);
             
             // negativo 2/ 
             // postivo 1 / 
-            //estavel 0
+            //estavel 0 
 
             if (resultado1conv1 > resultado1conv2) {
                 setIndicador(etiquetasIndicadores(tipoExercicio, 2));
@@ -64,7 +64,7 @@ public class AlgoComparacaoSemestres {
 
         }
     }
-
+    
     /**
      * Indica o label das classificações
      *
@@ -79,7 +79,7 @@ public class AlgoComparacaoSemestres {
         switch (tipoIndicador) {
             case Constantes.TIPO_ETIQUETA_MODALIDADES_PESO:
                 if (indicador == Constantes.TIPO_ETIQUETA_NEGATIVO) {
-                    etiquetaIndicador = Constantes.ZONA_CLASSIFICAÇÃO_PESO_PERDA;
+                    etiquetaIndicador = Constantes.ZONA_CLASSIFICACAO_PESO_PERDA;
                 } else if(indicador == Constantes.TIPO_ETIQUETA_POSITIVO){
                     etiquetaIndicador = Constantes.ZONA_CLASSIFICAÇÃO_PESO_GANHO;
                 }else{
