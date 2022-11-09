@@ -8,7 +8,6 @@ package processo;
 import IO.CarregarArquivo;
 import beans.Alunos;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import negocio.AlgoClassificacao;
 import util.Legendas;       

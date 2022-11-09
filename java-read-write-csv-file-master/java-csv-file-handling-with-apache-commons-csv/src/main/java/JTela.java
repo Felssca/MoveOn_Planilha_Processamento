@@ -51,9 +51,9 @@ public class JTela extends javax.swing.JFrame {
 
     public JTela() {
         initComponents();
-//        Image image = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/imgages/bola.jpg"));;
-//        ImageIcon icon = new ImageIcon(image);
-//        setIconImage(icon.getImage());
+    //    Image image = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/imgages/bola.jpg"));;
+   //     ImageIcon icon = new ImageIcon(image);
+    //    setIconImage(icon.getImage());
         arquivosCompTabelas = new CarreArquivosCompTabelas();
         limparLog();
     }
@@ -149,10 +149,10 @@ public class JTela extends javax.swing.JFrame {
         } else {
 
             arquivosCompTabelas.setINPUTcaminhoPlanilha01(INPUT_caminhoArquivoNumero_01);
-            arquivosCompTabelas.setOUTPUTcaminhoPlanilha01(OUTPUT_caminhoPlanilha01 + "//" + "Prc_" + fileNamePlanilha_01);
+            arquivosCompTabelas.setOUTPUTcaminhoPlanilha01(OUTPUT_caminhoPlanilha01 + "//" + "PROCESSADO_" + fileNamePlanilha_01);
 
             arquivosCompTabelas.setINPUTcaminhoPlanilha02(INPUT_caminhoArquivoNumero_02);
-            arquivosCompTabelas.setOUTPUTcaminhoPlanilha02(OUTPUT_caminhoPlanilha02 + "//" + "Prc_" + fileNamePlanilha_02);
+            arquivosCompTabelas.setOUTPUTcaminhoPlanilha02(OUTPUT_caminhoPlanilha02 + "//" + "PROCESSADO_" + fileNamePlanilha_02);
 
             fileNamePlanilha_03 = "Resultado_Final.xlsx";
 
