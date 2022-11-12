@@ -48,7 +48,7 @@ public class IniciarProcesso {
 
             if (validacoes.isMatricula(listaAluno.getMatricula())) {
 
-                idade = validacoes.calcularIdadeAtual(listaAluno.getDtNascimento());
+                idade = validacoes.calcularIdadeAtual(listaAluno.getDtNascimento(),listaAluno.getDtAvaliacao());
                 altura = validacoes.transformarCampoDouble(listaAluno.getALTURA());
                 peso = validacoes.transformarCampoDouble(listaAluno.getPESO());
                 cintura = validacoes.transformarCampoDouble(listaAluno.getCINTURA());
@@ -143,13 +143,7 @@ public class IniciarProcesso {
             }
 
             if (total == totalLidos) {
-
                 return;
-                //exportar tabelas duplas comp
-
-                //Exportar uma tabela
-                //ExportaTabelaExl exportaTabelaExl = new ExportaTabelaExl();
-                //exportaTabelaExl.exportarExel(listaAlunos);
             }
 
         }

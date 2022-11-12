@@ -9,7 +9,6 @@ import beans.Constantes;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.time.Month;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
@@ -101,15 +100,15 @@ public class Validacoes {
         return idade;
     }
 
-    public int calcularIdadeAtual(String dataNascimento) {
+    public int calcularIdadeAtual(String dataNascimento, String dataAvaliacaoExame) {
         if (dataNascimento != null && !dataNascimento.isEmpty()) {
 
             try {
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
                 LocalDate dataAniversario = LocalDate.parse(dataNascimento, formatter);
-                LocalDate dataAtual = LocalDate.of(2016, Month.NOVEMBER, 16);
+                LocalDate dataAvaliacao = LocalDate.parse(dataAvaliacaoExame,formatter);
 
-                return Period.between(dataAniversario, dataAtual).getYears();
+                return Period.between(dataAniversario, dataAvaliacao).getYears();
 
             } catch (Exception ex) {
                 System.out.println("Erro ao converter data " + ex.getMessage());
@@ -155,7 +154,6 @@ public class Validacoes {
 
     public int idadeFinal(String idadeNotFormat) throws Exception {
 
-        //   SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
         Date dataNascimento = sdf.parse(idadeNotFormat);
         int idadeAtual = calculaIdadeAtual(dataNascimento);
@@ -208,7 +206,6 @@ public class Validacoes {
         boolean isNull = true;
 
         if (aluno == null || aluno.equals("null")) {
-
             isNull = false;
 
         }

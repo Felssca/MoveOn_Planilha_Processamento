@@ -7,6 +7,7 @@ package IO;
 
 import beans.Alunos;
 import beans.Constantes;
+import exceptions.NegocioException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -28,34 +29,45 @@ import util.Validacoes;
  * @author FelipeSSCA
  */
 public class CarregarArquivo {
-    
+
     private Alunos alunos;
     private ArrayList<Alunos> listaAlunos = new ArrayList();
     private final Validacoes validacao = new Validacoes();
-    
+    private String dataAvaliacaoExame = null;
+
     public void carregarArquivos(String pathName) throws IOException, Exception {
-        
+
         try (final FileInputStream arquivo = new FileInputStream(new File(pathName))) {
 
             //     HSSFWorkbook workbook = new HSSFWorkbook(arquivo);
             XSSFWorkbook workbook = new XSSFWorkbook(arquivo);
             XSSFSheet sheetAlunos = workbook.getSheetAt(0);
-            
+
             for (Row row : sheetAlunos) {
                 Iterator<Cell> cellIterator = row.cellIterator();
                 int max = row.getLastCellNum();
                 alunos = new Alunos();
+
+                if (row.getRowNum() == 0) {
+                    dataAvaliacaoExame = validacao.covertCellToString(row.getCell(0), "Data do teste");
+                    if (!dataAvaliacaoExame.contains("/")) {
+                        throw new NegocioException(" A data do teste é inválida,Não será possível saber a idade do aluno  -  processamento será interrompido!");
+                    }
+
+                }
+
                 if (row.getRowNum() < 2) {
-                    System.out.println("Cabeçalho!");
+                    System.out.println("Linha de Cabeçalho! ");
                 } else if (max == row.getRowNum()) {
                     break;
                 } else {
-                    
+
                     while (cellIterator.hasNext()) {
                         Cell cell = cellIterator.next();
                         switch (cell.getColumnIndex()) {
                             case 0:
                                 alunos.setMatricula(validacao.covertCellToString(cell, Constantes.CAB_MATRICULA));
+                                alunos.setDtAvaliacao(dataAvaliacaoExame);
                                 break;
                             case 1:
                                 SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
@@ -66,7 +78,7 @@ public class CarregarArquivo {
                                 } else {
                                     alunos.setDtNascimento(null);
                                 }
-                                
+
                                 break;
                             case 2:
                                 alunos.setGenero(validacao.covertCellToString(cell, Constantes.CAB_GENERO));
@@ -114,16 +126,16 @@ public class CarregarArquivo {
                                 alunos.setParticipacaoTestes(validacao.covertCellToString(cell, Constantes.PARTICIPACAO_TESTE));
                                 break;
                         }
-                        
+
                     }
-                }   
+                }
                 getListaAlunos().add(alunos);
             }
-            
+
         } catch (FileNotFoundException e) {
             System.out.println("Arquivo Excel não encontrado!");
         }
-        
+
     }
 
     /**
@@ -139,5 +151,5 @@ public class CarregarArquivo {
     public void setListaAlunos(ArrayList<Alunos> listaAlunos) {
         this.listaAlunos = listaAlunos;
     }
-    
+
 }

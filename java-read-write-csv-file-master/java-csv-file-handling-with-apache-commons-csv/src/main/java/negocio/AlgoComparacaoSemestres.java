@@ -19,7 +19,7 @@ public class AlgoComparacaoSemestres {
     private double porcentagem = 0;
     Validacoes validacoes = new Validacoes();
 
-    public void tabelaComparativa(String resultado1, String resultado2, int tipoExercicio) {
+        public void tabelaComparativa(String resultado1, String resultado2, int tipoExercicio) {
 
         if (validacoes.isNull(resultado2) == false || validacoes.isNull(resultado1) == false) {
             setIndicador(Constantes.NAO_AFERIDO);

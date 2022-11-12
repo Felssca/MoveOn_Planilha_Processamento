@@ -5,6 +5,7 @@
  */
 
 import IO.CarreArquivosCompTabelas;
+import exceptions.NegocioException;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.util.ArrayList;
@@ -51,9 +52,9 @@ public class JTela extends javax.swing.JFrame {
 
     public JTela() {
         initComponents();
-    //    Image image = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/imgages/bola.jpg"));;
-   //     ImageIcon icon = new ImageIcon(image);
-    //    setIconImage(icon.getImage());
+        //    Image image = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/imgages/bola.jpg"));;
+        //     ImageIcon icon = new ImageIcon(image);
+        //    setIconImage(icon.getImage());
         arquivosCompTabelas = new CarreArquivosCompTabelas();
         limparLog();
     }
@@ -131,7 +132,7 @@ public class JTela extends javax.swing.JFrame {
         }
     }
 
-    private void processarArquivo() {
+    private void processarArquivo() throws NegocioException {
 
         CarreArquivosCompTabelas arquivosCompTabelas = new CarreArquivosCompTabelas();
         List<String> paths = new ArrayList<>();
@@ -157,15 +158,20 @@ public class JTela extends javax.swing.JFrame {
             fileNamePlanilha_03 = "Resultado_Final.xlsx";
 
             arquivosCompTabelas.setOUTPUTplanilha03(OUTPUT_planilha03 + "//" + fileNamePlanilha_03);
+            
+            limparLog();
 
             acrescentarLogSistema("------------------------");
             acrescentarLogSistema("PROCESSANDO SEMESTRE UM");
 
             try {
                 arquivosCompTabelas.carregarTabelasSemestreUm();
-                acrescentarLogSistema("------------------OK");
+                acrescentarLogSistema("----------OK----------");
             } catch (Exception e) {
                 painelErro(e.getMessage(), "Erro ao gerar tabela 1");
+                acrescentarLogSistema("--------ERRO TABELA 1----------");
+                throw new NegocioException(e.getMessage());
+
             }
 
             acrescentarLogSistema("-------------------------");
@@ -173,9 +179,11 @@ public class JTela extends javax.swing.JFrame {
 
             try {
                 arquivosCompTabelas.carregarTabelasSemestreDois();
-                acrescentarLogSistema("------------------OK");
+                acrescentarLogSistema("----------OK----------");
             } catch (Exception e) {
                 painelErro(e.getMessage(), "Erro ao gerar tabela 2");
+                acrescentarLogSistema("--------ERRO TABELA 2----------");
+                throw new NegocioException(e.getMessage());
             }
 
             acrescentarLogSistema("-------------------------");
@@ -184,9 +192,11 @@ public class JTela extends javax.swing.JFrame {
             try {
                 arquivosCompTabelas.processarResultadosTabelasTres();
                 painelOK("Arquivos criados com sucesso!!!", "Arquivos Criados");
-                acrescentarLogSistema("------------------OK");
+                acrescentarLogSistema("----------OK----------");
             } catch (Exception e) {
                 painelErro(e.getMessage(), "Erro ao gerar tabela final");
+                acrescentarLogSistema("--------ERRO TABELA FINAL----------");
+                throw new NegocioException(e.getMessage());
             }
         }
 
