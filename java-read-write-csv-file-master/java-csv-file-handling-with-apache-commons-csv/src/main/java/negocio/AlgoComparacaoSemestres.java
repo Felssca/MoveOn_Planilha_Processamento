@@ -81,9 +81,9 @@ public class AlgoComparacaoSemestres {
                 if (indicador == Constantes.TIPO_ETIQUETA_NEGATIVO) {
                     etiquetaIndicador = Constantes.ZONA_CLASSIFICACAO_PESO_PERDA;
                 } else if(indicador == Constantes.TIPO_ETIQUETA_POSITIVO){
-                    etiquetaIndicador = Constantes.ZONA_CLASSIFICAÇÃO_PESO_GANHO;
+                    etiquetaIndicador = Constantes.ZONA_CLASSIFICACAO_PESO_GANHO;
                 }else{
-                     etiquetaIndicador = Constantes.ZONA_CLASSIFICAÇÃO_PESO_ESTAVEL;
+                     etiquetaIndicador = Constantes.ZONA_CLASSIFICACAO_PESO_ESTAVEL;
                 }
                 break;
             case Constantes.TIPO_ETIQUETA_MODALIDADES_GERAL:

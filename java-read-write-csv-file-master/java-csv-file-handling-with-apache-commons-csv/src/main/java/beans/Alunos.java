@@ -12,6 +12,48 @@ package beans;
 public  class Alunos {
 
     /**
+     * @return the VO2_VELOCIDADE_MEDIA_MS
+     */
+    public String getVO2_VELOCIDADE_MEDIA_MS() {
+        return VO2_VELOCIDADE_MEDIA_MS;
+    }
+
+    /**
+     * @param VO2_VELOCIDADE_MEDIA_MS the VO2_VELOCIDADE_MEDIA_MS to set
+     */
+    public void setVO2_VELOCIDADE_MEDIA_MS(String VO2_VELOCIDADE_MEDIA_MS) {
+        this.VO2_VELOCIDADE_MEDIA_MS = VO2_VELOCIDADE_MEDIA_MS;
+    }
+
+    /**
+     * @return the VO2_VELOCIDADE_MEDIA_KM
+     */
+    public String getVO2_VELOCIDADE_MEDIA_KM() {
+        return VO2_VELOCIDADE_MEDIA_KM;
+    }
+
+    /**
+     * @param VO2_VELOCIDADE_MEDIA_KM the VO2_VELOCIDADE_MEDIA_KM to set
+     */
+    public void setVO2_VELOCIDADE_MEDIA_KM(String VO2_VELOCIDADE_MEDIA_KM) {
+        this.VO2_VELOCIDADE_MEDIA_KM = VO2_VELOCIDADE_MEDIA_KM;
+    }
+
+    /**
+     * @return the VO2_MAX
+     */
+    public String getVO2_MAX() {
+        return VO2_MAX;
+    }
+
+    /**
+     * @param VO2_MAX the VO2_MAX to set
+     */
+    public void setVO2_MAX(String VO2_MAX) {
+        this.VO2_MAX = VO2_MAX;
+    }
+
+    /**
      * @return the indicadoresRCESemestre_1
      */
     public String getIndicadoresRCESemestre_1() {
@@ -128,6 +170,10 @@ public  class Alunos {
     private String CLASSIFICACAO_6MIN;
     private String VALOR_CLASSIFICACAO_6MIN;
     private String CLASSIFICACAO_6MIN_SAUDE;
+    
+    private String VO2_VELOCIDADE_MEDIA_MS;
+    private String VO2_VELOCIDADE_MEDIA_KM;
+    private String VO2_MAX;
 
 
 

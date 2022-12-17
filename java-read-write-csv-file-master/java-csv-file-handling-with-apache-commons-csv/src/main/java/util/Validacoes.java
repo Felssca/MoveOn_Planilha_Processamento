@@ -184,7 +184,7 @@ public class Validacoes {
     }
 
     public double truncateValorDouble(Double value) {
-        if (value == null || value.equals("")) {
+        if (value == null) {
             return 0;
         } else {
             return Math.round(value * 100) / 100d;
@@ -239,6 +239,9 @@ public class Validacoes {
                     System.out.println("Valor do campo: " + cell.getStringCellValue());
                     return cell.getStringCellValue();
                 case NUMERIC:
+                    System.out.println("Valor do campo:" + cell.getNumericCellValue());
+                    return String.valueOf(cell.getNumericCellValue());
+                case FORMULA:
                     System.out.println("Valor do campo:" + cell.getNumericCellValue());
                     return String.valueOf(cell.getNumericCellValue());
                 default:

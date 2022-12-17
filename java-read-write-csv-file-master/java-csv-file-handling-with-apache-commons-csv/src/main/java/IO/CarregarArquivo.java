@@ -114,7 +114,7 @@ public class CarregarArquivo {
                                 alunos.setSALTO(validacao.covertCellToString(cell, Constantes.CAB_SALTO));
                                 break;
                             case 13:
-                                alunos.setAGILIDADE(validacao.covertCellToString(cell, Constantes.CAB_AGILIDADE));
+                                alunos.setAGILIDADE(validacao.covertCellToString(cell, Constantes.CAB_AGILIDADE_1));
                                 break;
                             case 14:
                                 alunos.setVELOCIDADE(validacao.covertCellToString(cell, Constantes.CAB_VELOCIDADE));
@@ -124,6 +124,15 @@ public class CarregarArquivo {
                                 break;
                             case 16:
                                 alunos.setParticipacaoTestes(validacao.covertCellToString(cell, Constantes.PARTICIPACAO_TESTE));
+                                break;
+                            case 17:
+                                alunos.setVO2_VELOCIDADE_MEDIA_MS(validacao.covertCellToString(cell, Constantes.CAB_VOMAX_MS));
+                                break;
+                            case 18:
+                                alunos.setVO2_VELOCIDADE_MEDIA_KM(validacao.covertCellToString(cell, Constantes.CAB_VOMAX_KM));
+                                break;
+                            case 19:
+                                alunos.setVO2_MAX(validacao.covertCellToString(cell, Constantes.CAB_VOMAX));
                                 break;
                         }
 

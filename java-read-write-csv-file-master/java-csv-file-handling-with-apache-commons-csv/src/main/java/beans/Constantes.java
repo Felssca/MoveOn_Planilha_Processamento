@@ -120,50 +120,82 @@ public class Constantes {
 
     //cabeçalhio 
     public static final String CAB_MATRICULA = "MATRÍCULA";
+    public static final String CAB_IDENTIFICACAO_DISCENTE = "IDENTIFICAÇÃO DISCENTE";
     public static final String CAB_NUM = "N";
     public static final String CAB_NOME = "NOME";
     public static final String CAB_DT_NASCIMENTO = "DATA DE NASCIMENTO";
     public static final String CAB_IDADE = "IDADE";
     public static final String CAB_GENERO = "GÊNERO";
     public static final String CAB_N_AVALIACAOO = "N° AVALIAÇÃO";
-    public static final String CAB_DT_AVALIACAO = "DATA AVALIAÇÃO"; 
+    public static final String CAB_DT_AVALIACAO = "DATA AVALIAÇÃO";
     public static final String CAB_SERIE = "SÉRIE";
     public static final String CAB_TURMA = "TURMA";
     public static final String CAB_PESO = "PESO";
+    public static final String CAB_PESO_1 = "PESO 1";
+    public static final String CAB_PESO_2 = "PESO 2";
     public static final String CAB_ALTURA = "ALTURA";
+    public static final String CAB_ALTURA_1 = "ALTURA 1";
+    public static final String CAB_ALTURA_2 = "ALTURA 2";
     public static final String CAB_IMC = "IMC";
     public static final String CAB_IMC_POEST = "Classificação IMC POEST";
     public static final String CAB_CINTURA = "CINTURA";
+    public static final String CAB_CINTURA_1 = "CINTURA 1";
+    public static final String CAB_CINTURA_2 = "CINTURA 2";
     public static final String CAB_RCE_NUMB = "RCE";
     public static final String CAB_RCE = "CLASSIFICAÇÃO RCE";
-    public static final String CAB_ENVERGADURA = "ENVERGADURA";
+    public static final String CAB_ENVERGADURA = "ENVERGADURA 1";
+    public static final String CAB_ENVERGADURA_1 = "ENVERGADURA 2";
+    public static final String CAB_ENVERGADURA_2 = "ENVERGADURA";
+    public static final String CAB_FLEXIBILIDADE_1 = "FLEXIBILIDADE 1 ";
+    public static final String CAB_FLEXIBILIDADE_2 = "FLEXIBILIDADE 2";
     public static final String CAB_FLEXIBILIDADE = "FLEXIBILIDADE";
     public static final String CAB_DEFICIENCIA_REPOT = "Deficiência Repostada";
+    public static final String CAB_ARREMESSO_1 = "ARREMESSO 1";
+    public static final String CAB_ARREMESSO_2 = "ARREMESSO 2";
+    public static final String CAB_SALTO_1 = "SALTO 1";
+    public static final String CAB_SALTO_2 = "SALTO 2";
+    public static final String CAB_VELOCIDADE_1 = "VELOCIDADE 1";
+    public static final String CAB_VELOCIDADE_2 = "VELOCIDADE 2";
+    public static final String CAB_RESISTENCIA_1 = "RESISTENCIA 1";
+    public static final String CAB_RESISTENCIA_2 = "RESISTENCIA 2";
+    public static final String CAB_VOMAX_MS = "VO2 MÁXIMO M/S";
+    public static final String CAB_VOMAX_KM = "VO2 MÁXIMO Km/h";
+    public static final String CAB_VOMAX = "VO2 MÁXIMO";
+
+    public static final String CAB_PESO_KG = " (Kg)";
+    public static final String CAB_CM = " (cm)";
+    public static final String CAB_MAX = " -MAX";
+    public static final String CAB_METRO = " (m)";
+    public static final String CAB_SEGUNDO = " (s)";
 
     public static final String CAB_SEPARACAO = "       ";
 
     public static final String CAB_CLASSIFICACAO_FLEXIBILIDADE = "CLASSIFICAÇÃO FLEXIBILIDADE";
     public static final String CAB_ABDOMINAL = "ABDOMINAL EM 1 MIN";
-    public static final String CAB_OBSERVAÇÃO_ABDOMINAL = "OBSERVAÇÃO ABDOMINAL";
-    public static final String CAB_CLASSIFICAÇÃO_ABDOMINAL = "CLASSIFICAÇÃO ABDOMINAL";
+    public static final String CAB_ABDOMINAL_1 = "ABDOMINAL 1";
+    public static final String CAB_ABDOMINAL_2 = "ABDOMINAL 2";
+    public static final String CAB_OBSERVACAO_ABDOMINAL = "OBSERVAÇÃO ABDOMINAL";
+    public static final String CAB_CLASSIFICACAO_ABDOMINAL = "CLASSIFICAÇÃO ABDOMINAL";
     public static final String CAB_SALTO = "SALTO";
-    public static final String CAB_CLASSIFICAÇÃO_SALTO_HORIZONTAL = "CLASSIFICAÇÃO SALTO HORIZONTAL";
+    public static final String CAB_CLASSIFICACAO_SALTO_HORIZONTAL = "CLASSIFICAÇÃO SALTO HORIZONTAL";
     public static final String CAB_MEDICINIBALL = "MEDICINIBALL";
-    public static final String CAB_CLASSIFICAÇÃO_MEDICINIBALL = "CLASSIFICAÇÃO MEDICINIBALL";
+    public static final String CAB_CLASSIFICACAO_MEDICINIBALL = "CLASSIFICAÇÃO MEDICINIBALL";
     public static final String CAB_VELOCIDADE = "VELOCIDADE";
-    public static final String CAB_CLASSIFICAÇÃO_VELOCIDADE = "CLASSIFICAÇÃO VELOCIDADE";
-    public static final String CAB_AGILIDADE = "AGILIDADE";
-    public static final String CAB_CLASSIFICAÇÃO_AGILIDADE = "CLASSIFICAÇÃO AGILIDADE";
+    public static final String CAB_CLASSIFICACAO_VELOCIDADE = "CLASSIFICAÇÃO VELOCIDADE";
+    public static final String CAB_AGILIDADE_1 = "AGILIDADE 1";
+    public static final String CAB_AGILIDADE_2 = "AGILIDADE 2";
+    public static final String CAB_CLASSIFICACAO_AGILIDADE = "CLASSIFICAÇÃO AGILIDADE";
     public static final String CAB_CORRIDA_6_MIN = "CORRIDA 6 MIN";
-    public static final String CAB_CLASSIFICAÇÃO_6MIN_ESPORTE = "CORRIDA 6 MINUTOS VS ESPORTE";
+    public static final String CAB_CLASSIFICACAO_6MIN_ESPORTE = "CORRIDA 6 MINUTOS VS ESPORTE";
     public static final String CAB_CORRIDA_6_MIN_DESEMPENHO_ESPORTIVO = "CORRIDA 6 MINUTOS VS DESEMPENHO ESPORTIVO";
     public static final String CAB_CORRIDA_CLASSIFICACAO_6_MIN_DESEMPENHO_ESPORTIVO = "CLASSIFICAÇÃO CORRIDA 6 MINUTOS VS DESEMPENHO ESPORTIVO";
-    public static final String CAB_CLASSIFICAÇÃO_6MIN = "CLASSIFICAÇÃO 6MIN";
-    public static final String CAB_CLASSIFICAÇÃO_6MIN_SAUDE = " CORRIDA 6 MINUTOS VS SAÚDE ";
-    public static final String CAB_CLASS_CLASSIFICAÇÃO_6MIN_SAUDE = " CLASSIFICAÇÃO CORRIDA 6 MINUTOS VS SAÚDE ";
+    public static final String CAB_CLASSIFICACAO_6MIN = "CLASSIFICAÇÃO 6MIN";
+    public static final String CAB_CLASSIFICACAO_6MIN_SAUDE = " CORRIDA 6 MINUTOS VS SAÚDE ";
+    public static final String CAB_CLASS_CLASSIFICACAO_6MIN_SAUDE = " CLASSIFICAÇÃO CORRIDA 6 MINUTOS VS SAÚDE ";
 
     //Enunciados exportacao 
     public static final String CAB_RESULTADO = "RESULTADO";
+    public static final String CAB_DIFERENCA = "DIFERENÇA";
     public static final String CAB_INDICADORES = "INDICADORES";
     public static final String CAB_PERCENTUAL = "PERCENTUAL";
     public static final String CAB_SEMESTRE_UM = "1 SEMESTRE";
@@ -187,8 +219,8 @@ public class Constantes {
 
     //ZONA CLASSIFICACAO PESO
     public static final String ZONA_CLASSIFICACAO_PESO_PERDA = "DIMINUIÇÃO DE MASSA CORPORAL";
-    public static final String ZONA_CLASSIFICAÇÃO_PESO_GANHO = "AUMENTO DE MASSA CORPORAL";
-    public static final String ZONA_CLASSIFICAÇÃO_PESO_ESTAVEL = "SEM ALTERAÇÃO DE MASSA CORPORAL";
+    public static final String ZONA_CLASSIFICACAO_PESO_GANHO = "AUMENTO DE MASSA CORPORAL";
+    public static final String ZONA_CLASSIFICACAO_PESO_ESTAVEL = "SEM ALTERAÇÃO DE MASSA CORPORAL";
     //ZONA CLASSIFICACAO ALTURA
     public static final String ZONA_CLASSIFICAÇÃO_ALTURA_DIMINUICAO = "DIMINUIÇÃO DA ESTATURA";
     public static final String ZONA_CLASSIFICAÇÃO_ALTURA_AUMENTO = "AUMENTO DA ESTATURA";

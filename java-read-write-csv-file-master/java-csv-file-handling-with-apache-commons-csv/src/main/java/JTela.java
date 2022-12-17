@@ -6,8 +6,6 @@
 
 import IO.CarreArquivosCompTabelas;
 import exceptions.NegocioException;
-import java.awt.Image;
-import java.awt.Toolkit;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -51,10 +49,10 @@ public class JTela extends javax.swing.JFrame {
     CarreArquivosCompTabelas arquivosCompTabelas;
 
     public JTela() {
+      
+//        ImageIcon icon = new ImageIcon("ts.png");
+//        setIconImage(icon.getImage());
         initComponents();
-        //    Image image = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/imgages/bola.jpg"));;
-        //     ImageIcon icon = new ImageIcon(image);
-        //    setIconImage(icon.getImage());
         arquivosCompTabelas = new CarreArquivosCompTabelas();
         limparLog();
     }
@@ -158,13 +156,14 @@ public class JTela extends javax.swing.JFrame {
             fileNamePlanilha_03 = "Resultado_Final.xlsx";
 
             arquivosCompTabelas.setOUTPUTplanilha03(OUTPUT_planilha03 + "//" + fileNamePlanilha_03);
-            
+
             limparLog();
 
             acrescentarLogSistema("------------------------");
             acrescentarLogSistema("PROCESSANDO SEMESTRE UM");
 
             try {
+                
                 arquivosCompTabelas.carregarTabelasSemestreUm();
                 acrescentarLogSistema("----------OK----------");
             } catch (Exception e) {
