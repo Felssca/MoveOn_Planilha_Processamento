@@ -9,7 +9,9 @@ import beans.Constantes;
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.FillPatternType;
 import org.apache.poi.ss.usermodel.Font;
+import org.apache.poi.ss.usermodel.HorizontalAlignment;
 import org.apache.poi.ss.usermodel.IndexedColors;
+import org.apache.poi.ss.usermodel.VerticalAlignment;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 /**
@@ -23,6 +25,8 @@ public class TabelaXlsStyle {
         CellStyle cellStyle = null;
         cellStyle = workbook.createCellStyle();
         Font font = workbook.createFont();
+        cellStyle.setAlignment(HorizontalAlignment.CENTER);
+        font.setBold(true);
 
         if (classificacao == null) {
             cellStyle.setFillForegroundColor(IndexedColors.WHITE.getIndex());
@@ -80,13 +84,20 @@ public class TabelaXlsStyle {
             /**
              * Classifica豫o TABELA 1 E 2
              */
+            
+             if (classificacao.equals(Constantes.MUITO_FRACO)) {
+                cellStyle.setFillForegroundColor(IndexedColors.DARK_RED.getIndex());
+                cellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+                font.setColor(IndexedColors.WHITE.index);
+                cellStyle.setFont(font);
+            }
             if (classificacao.equals(Constantes.FRACO)) {
                 cellStyle.setFillForegroundColor(IndexedColors.RED.getIndex());
                 cellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
                 font.setColor(IndexedColors.WHITE.index);
                 cellStyle.setFont(font);
             }
-            if (classificacao.equals(Constantes.RAZOAVEL)) {
+            if (classificacao.equals(Constantes.RAZOAVEL)||classificacao.equals(Constantes.REGULAR)) {
                 cellStyle.setFillForegroundColor(IndexedColors.ORANGE.getIndex());
                 cellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
                 font.setColor(IndexedColors.WHITE.index);
@@ -111,6 +122,7 @@ public class TabelaXlsStyle {
                 font.setColor(IndexedColors.WHITE1.index);
                 cellStyle.setFont(font);
             }
+
             /**
              * Resultado
              */
@@ -168,21 +180,21 @@ public class TabelaXlsStyle {
              * Resultado ALTURA
              */
 
-            if (classificacao.equals(Constantes.ZONA_CLASSIFICA플O_ALTURA_AUMENTO)) {
+            if (classificacao.equals(Constantes.ZONA_CLASSIFICACAO_ALTURA_AUMENTO)) {
                 cellStyle.setFillForegroundColor(IndexedColors.BLUE.getIndex());
                 cellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
                 font.setColor(IndexedColors.WHITE.index);
                 cellStyle.setFont(font);
             }
 
-            if (classificacao.equals(Constantes.ZONA_CLASSIFICA플O_ALTURA_DIMINUICAO)) {
+            if (classificacao.equals(Constantes.ZONA_CLASSIFICACAO_ALTURA_DIMINUICAO)) {
                 cellStyle.setFillForegroundColor(IndexedColors.RED.getIndex());
                 cellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
                 font.setColor(IndexedColors.WHITE1.index);
                 cellStyle.setFont(font);
 
             }
-            if (classificacao.equals(Constantes.ZONA_CLASSIFICA플O_ALTURA_ESTAVEL)) {
+            if (classificacao.equals(Constantes.ZONA_CLASSIFICACAO_ALTURA_ESTAVEL)) {
                 cellStyle.setFillForegroundColor(IndexedColors.YELLOW.getIndex());
                 cellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
                 font.setColor(IndexedColors.BLACK.index);
@@ -216,21 +228,21 @@ public class TabelaXlsStyle {
             /**
              * Resultado CINTURA
              */
-            if (classificacao.equals(Constantes.ZONA_CLASSIFICA플O_CINTURA_AUMENTO)) {
+            if (classificacao.equals(Constantes.ZONA_CLASSIFICACAO_CINTURA_AUMENTO)) {
                 cellStyle.setFillForegroundColor(IndexedColors.RED.getIndex());
                 cellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
                 font.setColor(IndexedColors.WHITE.index);
                 cellStyle.setFont(font);
             }
 
-            if (classificacao.equals(Constantes.ZONA_CLASSIFICA플O_CINTURA_DIMINUICAO)) {
+            if (classificacao.equals(Constantes.ZONA_CLASSIFICACAO_CINTURA_DIMINUICAO)) {
                 cellStyle.setFillForegroundColor(IndexedColors.BLUE.getIndex());
                 cellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
                 font.setColor(IndexedColors.WHITE1.index);
                 cellStyle.setFont(font);
 
             }
-            if (classificacao.equals(Constantes.ZONA_CLASSIFICA플O_CINTURA_ESTAVEL)) {
+            if (classificacao.equals(Constantes.ZONA_CLASSIFICACAO_CINTURA_ESTAVEL)) {
                 cellStyle.setFillForegroundColor(IndexedColors.YELLOW.getIndex());
                 cellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
                 font.setColor(IndexedColors.BLACK.index);
@@ -241,21 +253,21 @@ public class TabelaXlsStyle {
              * ENVERGADURA
              */
 
-            if (classificacao.equals(Constantes.ZONA_CLASSIFICA플O_ENVERGADURA_AUMENTO)) {
+            if (classificacao.equals(Constantes.ZONA_CLASSIFICACAO_ENVERGADURA_AUMENTO)) {
                 cellStyle.setFillForegroundColor(IndexedColors.BLUE.getIndex());
                 cellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
                 font.setColor(IndexedColors.WHITE.index);
                 cellStyle.setFont(font);
             }
 
-            if (classificacao.equals(Constantes.ZONA_CLASSIFICA플O_ENVERGADURA_DIMINUICAO)) {
+            if (classificacao.equals(Constantes.ZONA_CLASSIFICACAO_ENVERGADURA_DIMINUICAO)) {
                 cellStyle.setFillForegroundColor(IndexedColors.RED.getIndex());
                 cellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
                 font.setColor(IndexedColors.WHITE1.index);
                 cellStyle.setFont(font);
 
             }
-            if (classificacao.equals(Constantes.ZONA_CLASSIFICA플O_ENVERGADURA_ESTAVEL)) {
+            if (classificacao.equals(Constantes.ZONA_CLASSIFICACAO_ENVERGADURA_ESTAVEL)) {
                 cellStyle.setFillForegroundColor(IndexedColors.YELLOW.getIndex());
                 cellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
                 font.setColor(IndexedColors.BLACK.index);
@@ -291,21 +303,21 @@ public class TabelaXlsStyle {
              * ABDOMEM
              */
 
-            if (classificacao.equals(Constantes.ZONA_CLASSIFICA플O_ABDOMINAL_DIMINUICAO)) {
+            if (classificacao.equals(Constantes.ZONA_CLASSIFICACAO_ABDOMINAL_DIMINUICAO)) {
                 cellStyle.setFillForegroundColor(IndexedColors.RED.getIndex());
                 cellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
                 font.setColor(IndexedColors.WHITE.index);
                 cellStyle.setFont(font);
             }
 
-            if (classificacao.equals(Constantes.ZONA_CLASSIFICA플O_ABDOMINAL_AUMENTO)) {
+            if (classificacao.equals(Constantes.ZONA_CLASSIFICACAO_ABDOMINAL_AUMENTO)) {
                 cellStyle.setFillForegroundColor(IndexedColors.BLUE.getIndex());
                 cellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
                 font.setColor(IndexedColors.WHITE1.index);
                 cellStyle.setFont(font);
 
             }
-            if (classificacao.equals(Constantes.ZONA_CLASSIFICA플O_ABDOMINAL_ESTAVEL)) {
+            if (classificacao.equals(Constantes.ZONA_CLASSIFICACAO_ABDOMINAL_ESTAVEL)) {
                 cellStyle.setFillForegroundColor(IndexedColors.YELLOW.getIndex());
                 cellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
                 font.setColor(IndexedColors.BLACK.index);
@@ -437,6 +449,33 @@ public class TabelaXlsStyle {
                 cellStyle.setFont(font);
 
             }
+            
+            
+             /**
+             * vo2Cm
+             */
+
+            if (classificacao.equals(Constantes.ZONA_CLASSIFICACAO_VO2_AUMENTO)) {
+                cellStyle.setFillForegroundColor(IndexedColors.BLUE.getIndex());
+                cellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+                font.setColor(IndexedColors.WHITE.index);
+                cellStyle.setFont(font);
+            }
+
+            if (classificacao.equals(Constantes.ZONA_CLASSIFICACAO_V02_DIMINUICAO)) {
+                cellStyle.setFillForegroundColor(IndexedColors.RED.getIndex());
+                cellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+                font.setColor(IndexedColors.WHITE1.index);
+                cellStyle.setFont(font);
+
+            }
+            if (classificacao.equals(Constantes.ZONA_CLASSIFICACAO_VO2_ESTAVEL)) {
+                cellStyle.setFillForegroundColor(IndexedColors.YELLOW.getIndex());
+                cellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+                font.setColor(IndexedColors.BLACK.index);
+                cellStyle.setFont(font);
+
+            }
         }
 
         return cellStyle;
@@ -450,6 +489,8 @@ public class TabelaXlsStyle {
 
         cellStyle.setFillForegroundColor(IndexedColors.GREY_80_PERCENT.index);
         cellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+        cellStyle.setAlignment(HorizontalAlignment.CENTER);
+        cellStyle.setVerticalAlignment(VerticalAlignment.CENTER);
         font.setColor(IndexedColors.WHITE1.getIndex());
         cellStyle.setFont(font);
 
@@ -468,7 +509,8 @@ public class TabelaXlsStyle {
         Font font = workbook.createFont();
         font.setColor(IndexedColors.BLACK.getIndex());
         font.setBold(true);
-        
+        cellStyle.setAlignment(HorizontalAlignment.CENTER);
+        cellStyle.setVerticalAlignment(VerticalAlignment.CENTER);
         cellStyle.setFillForegroundColor(cores);
         cellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
         cellStyle.setRotation((short) 90);

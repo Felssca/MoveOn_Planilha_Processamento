@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -49,7 +48,7 @@ public class JTela extends javax.swing.JFrame {
     CarreArquivosCompTabelas arquivosCompTabelas;
 
     public JTela() {
-      
+
 //        ImageIcon icon = new ImageIcon("ts.png");
 //        setIconImage(icon.getImage());
         initComponents();
@@ -92,6 +91,7 @@ public class JTela extends javax.swing.JFrame {
                 fileNamePlanilha_01 = fileDialog.getSelectedFile().getName();
                 jTexField.setText(INPUT_caminhoArquivoNumero_01);
                 acrescentarLogSistema(INPUT_caminhoArquivoNumero_01);
+                
             } else {
                 INPUT_caminhoArquivoNumero_02 = fileDialog.getSelectedFile().toString();
                 fileNamePlanilha_02 = fileDialog.getSelectedFile().getName();
@@ -153,7 +153,7 @@ public class JTela extends javax.swing.JFrame {
             arquivosCompTabelas.setINPUTcaminhoPlanilha02(INPUT_caminhoArquivoNumero_02);
             arquivosCompTabelas.setOUTPUTcaminhoPlanilha02(OUTPUT_caminhoPlanilha02 + "//" + "PROCESSADO_" + fileNamePlanilha_02);
 
-            fileNamePlanilha_03 = "Resultado_Final.xlsx";
+            fileNamePlanilha_03 = "RESULTADO_FINAL".toUpperCase().concat(".xlsx");
 
             arquivosCompTabelas.setOUTPUTplanilha03(OUTPUT_planilha03 + "//" + fileNamePlanilha_03);
 
@@ -163,7 +163,6 @@ public class JTela extends javax.swing.JFrame {
             acrescentarLogSistema("PROCESSANDO SEMESTRE UM");
 
             try {
-                
                 arquivosCompTabelas.carregarTabelasSemestreUm();
                 acrescentarLogSistema("----------OK----------");
             } catch (Exception e) {

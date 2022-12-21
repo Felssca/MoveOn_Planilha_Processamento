@@ -11,13 +11,16 @@ package beans;
  */
 public class Constantes {
 
+    public static String MUITO_FRACO = "MUITO FRACO";
     public static String FRACO = "FRACO";
     public static String RAZOAVEL = "RAZOAVEL";
+    public static String REGULAR = "REGULAR";
     public static String BOM = "BOM";
     public static String MUITO_BOM = "MUITO BOM";
     public static String EXCELENCA = "EXCELENCIA";
 
     public static String AUSENTE = "AUSENTE";
+    public static String IDADE_FORA_RANGE = "IDADE ABAIXO DO PERMITIDO PARA CLASSIFICAÇÃO";
 
     public static final String IMC_RISCO = "ZONA DE RISCO À SAUDE";
     public static final String IMC_SAUDAVEL = "ZONA SAUDÁVEL";
@@ -158,10 +161,19 @@ public class Constantes {
     public static final String CAB_VELOCIDADE_2 = "VELOCIDADE 2";
     public static final String CAB_RESISTENCIA_1 = "RESISTENCIA 1";
     public static final String CAB_RESISTENCIA_2 = "RESISTENCIA 2";
-    public static final String CAB_VOMAX_MS = "VO2 MÁXIMO M/S";
-    public static final String CAB_VOMAX_KM = "VO2 MÁXIMO Km/h";
-    public static final String CAB_VOMAX = "VO2 MÁXIMO";
-
+    public static final String CAB_VOMAX_MS_1 = "VO2 MÁXIMO 1 (M/S)";
+    public static final String CAB_VOMAX_MS_2 = "VO2 MÁXIMO 2 (M/S)";
+    public static final String CAB_VOMAX_KM_1 = "VO2 MÁXIMO 1 (Km/h)";
+    public static final String CAB_VOMAX_KM_2 = "VO2 MÁXIMO 2 (Km/h)";
+    public static final String CAB_VOMAX_01 = "VO2 MÁXIMO 1";
+    public static final String CAB_VOMAX_02 = "VO2 MÁXIMO 2";
+    public static final String CAB_VOMAX_DESEMPENHO = "VO2 MÁXIMO DESEMPENHO";
+    public static final String CAB_VOMAX_DESEMPENHO_MEDIA = "VO2 MÁXIMO MÉDIO";
+    
+    public static final String CAB_VOMAX_MAS_MS = "VELOCIDADE MÉDIA M/S (MAS) vVO2MAX";
+    public static final String CAB_VOMAX_MAS_KM = "VELOCIDADE MÉDIA KM/H (MAS) vVO2MAX";
+    
+    
     public static final String CAB_PESO_KG = " (Kg)";
     public static final String CAB_CM = " (cm)";
     public static final String CAB_MAX = " -MAX";
@@ -216,30 +228,33 @@ public class Constantes {
     public static final int TIPO_ETIQUETA_MODALIDADES_CORRIDA6_SAUDE = 12;
     public static final int TIPO_ETIQUETA_MODALIDADES_IMC = 13;
     public static final int TIPO_ETIQUETA_MODALIDADES_RCE = 14;
+    public static final int TIPO_ETIQUETA_MODALIDADES_VO_MS = 15;
+    public static final int TIPO_ETIQUETA_MODALIDADES_VO_KM = 16;
+    public static final int TIPO_ETIQUETA_MODALIDADES_VO_MAX = 17;
 
     //ZONA CLASSIFICACAO PESO
     public static final String ZONA_CLASSIFICACAO_PESO_PERDA = "DIMINUIÇÃO DE MASSA CORPORAL";
     public static final String ZONA_CLASSIFICACAO_PESO_GANHO = "AUMENTO DE MASSA CORPORAL";
     public static final String ZONA_CLASSIFICACAO_PESO_ESTAVEL = "SEM ALTERAÇÃO DE MASSA CORPORAL";
     //ZONA CLASSIFICACAO ALTURA
-    public static final String ZONA_CLASSIFICAÇÃO_ALTURA_DIMINUICAO = "DIMINUIÇÃO DA ESTATURA";
-    public static final String ZONA_CLASSIFICAÇÃO_ALTURA_AUMENTO = "AUMENTO DA ESTATURA";
-    public static final String ZONA_CLASSIFICAÇÃO_ALTURA_ESTAVEL = "SEM ALTERAÇÃO DE ESTATURA";
+    public static final String ZONA_CLASSIFICACAO_ALTURA_DIMINUICAO = "DIMINUIÇÃO DA ESTATURA";
+    public static final String ZONA_CLASSIFICACAO_ALTURA_AUMENTO = "AUMENTO DA ESTATURA";
+    public static final String ZONA_CLASSIFICACAO_ALTURA_ESTAVEL = "SEM ALTERAÇÃO DE ESTATURA";
 
     //ZONA CLASSIFICACAO CINTURA
-    public static final String ZONA_CLASSIFICAÇÃO_CINTURA_DIMINUICAO = "DIMINUIÇÃO DE RISCO À SAÚDE";
-    public static final String ZONA_CLASSIFICAÇÃO_CINTURA_AUMENTO = "AUMENTO DE RISCO À SAÚDE";
-    public static final String ZONA_CLASSIFICAÇÃO_CINTURA_ESTAVEL = "SEM ALTERAÇÃO DE RISCO À SAÚDE";
+    public static final String ZONA_CLASSIFICACAO_CINTURA_DIMINUICAO = "DIMINUIÇÃO DE RISCO À SAÚDE";
+    public static final String ZONA_CLASSIFICACAO_CINTURA_AUMENTO = "AUMENTO DE RISCO À SAÚDE";
+    public static final String ZONA_CLASSIFICACAO_CINTURA_ESTAVEL = "SEM ALTERAÇÃO DE RISCO À SAÚDE";
 
     //ZONA CLASSIFICACAO ENVERGADUERA
-    public static final String ZONA_CLASSIFICAÇÃO_ENVERGADURA_DIMINUICAO = "DIMINUIÇÃO DA ENVERGADURA";
-    public static final String ZONA_CLASSIFICAÇÃO_ENVERGADURA_AUMENTO = "AUMENTO DA ENVERGADURA";
-    public static final String ZONA_CLASSIFICAÇÃO_ENVERGADURA_ESTAVEL = "SEM ALTERAÇÃO DE ENVERGADURA";
+    public static final String ZONA_CLASSIFICACAO_ENVERGADURA_DIMINUICAO = "DIMINUIÇÃO DA ENVERGADURA";
+    public static final String ZONA_CLASSIFICACAO_ENVERGADURA_AUMENTO = "AUMENTO DA ENVERGADURA";
+    public static final String ZONA_CLASSIFICACAO_ENVERGADURA_ESTAVEL = "SEM ALTERAÇÃO DE ENVERGADURA";
 
     //ZONA CLASSIFICACAO ABDOMINAL
-    public static final String ZONA_CLASSIFICAÇÃO_ABDOMINAL_DIMINUICAO = "AUMENTO DE RISCO À SAÚDE ";
-    public static final String ZONA_CLASSIFICAÇÃO_ABDOMINAL_AUMENTO = "DIMINUIÇÃO DE RISCO À SAÚDE";
-    public static final String ZONA_CLASSIFICAÇÃO_ABDOMINAL_ESTAVEL = "SEM ALTERAÇÃO DE RISCO À SAÚDE";
+    public static final String ZONA_CLASSIFICACAO_ABDOMINAL_DIMINUICAO = "AUMENTO DE RISCO À SAÚDE ";
+    public static final String ZONA_CLASSIFICACAO_ABDOMINAL_AUMENTO = "DIMINUIÇÃO DE RISCO À SAÚDE";
+    public static final String ZONA_CLASSIFICACAO_ABDOMINAL_ESTAVEL = "SEM ALTERAÇÃO DE RISCO À SAÚDE";
 
     //ZONA CLASSIFICACAO MEDBALL
     public static final String ZONA_CLASSIFICAÇÃO_MEDBALL_DIMINUICAO = "DIMINUIÇÃO DE DESEMPENHO";
@@ -284,6 +299,11 @@ public class Constantes {
     public static final String ZONA_CLASSIFICAÇÃO_RCE_DIMINUICAO = "DIMINUIÇÃO DE RISCO À SAÚDE ";
     public static final String ZONA_CLASSIFICAÇÃO_RCE_AUMENTO = "AUMENTO DE RISCO À SAÚDE";
     public static final String ZONA_CLASSIFICAÇÃO_RCE_ESTAVEL = "SEM ALTERAÇÃO DE RISCO À SAÚDE ";
+    
+    //ZONA CLASSIFICACAO VO2
+    public static final String ZONA_CLASSIFICACAO_V02_DIMINUICAO = "DIMINUIÇÃO DO V02";
+    public static final String ZONA_CLASSIFICACAO_VO2_AUMENTO = "AUMENTO DO V02";
+    public static final String ZONA_CLASSIFICACAO_VO2_ESTAVEL = "SEM ALTERAÇÃO NO VO2";
 
     //indicadores
     public static final String INDICADOR_POSITIVO = "INDICADOR POSITIVO";

@@ -18,8 +18,11 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 //import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;
+import org.apache.poi.ss.usermodel.FillPatternType;
+import org.apache.poi.ss.usermodel.HorizontalAlignment;
 import org.apache.poi.ss.usermodel.IndexedColors;
 import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.VerticalAlignment;
 import org.apache.poi.ss.util.CellRangeAddress;
 import style.TabelaXlsStyle;
 import util.Legendas;
@@ -31,6 +34,7 @@ import util.Validacoes;
  */
 public class ExportaTabelaExl {
 
+    //exporta planilha 01 e 02 isoladamente
     public void exportarExel(List<Alunos> listaAluno, String pathOut) {
         //Blank workbook
         XSSFWorkbook workbook = new XSSFWorkbook();
@@ -341,7 +345,7 @@ public class ExportaTabelaExl {
     }
 
     /*
-    Expota tabelas comparativas 
+    Expota tabelas comparativas semestre 01 x semestre 02
      */
     public void exportarExelComparacaoSemestres(List<Alunos> listaAluno, String pathOut) {
         //Blank workbook
@@ -355,7 +359,8 @@ public class ExportaTabelaExl {
         XSSFSheet sheetAlunos = workbook.createSheet("Alunos");
         Validacoes validacoes = new Validacoes();
 
-        sheetAlunos.createFreezePane(3, 1);
+        sheetAlunos.createFreezePane(4, 3);
+
         int cell = 0;
 
         //LINHA 0
@@ -365,18 +370,21 @@ public class ExportaTabelaExl {
         Row rowInit = sheetAlunos.createRow(0);
         Cell cabcabecalho = rowInit.createCell(0);
 
-        cellStyle.setFillBackgroundColor(IndexedColors.GREY_25_PERCENT.getIndex());
+        cellStyle.setFillForegroundColor(IndexedColors.LIGHT_TURQUOISE1.getIndex());
+        cellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
         cabcabecalho.setCellStyle(cellStyle);
         cabcabecalho.setCellValue(Constantes.CAB_IDENTIFICACAO_DISCENTE);
 
         //linha dois cabeçalho
-        sheetAlunos.addMergedRegion(CellRangeAddress.valueOf("A1:C1"));
+        sheetAlunos.addMergedRegion(CellRangeAddress.valueOf("A1:BU1"));
 
         //AVALIAÇÃO GERAL 
         // sheetAlunos.addMergedRegion(CellRangeAddress.valueOf("D1:BK"));
         Short laranja = IndexedColors.ORANGE.getIndex();
         Short azul = IndexedColors.AQUA.getIndex();
         Short marfim = IndexedColors.LIGHT_YELLOW.getIndex();
+
+
 
         //LINHA CABECALHO 2
         Row rowZero = sheetAlunos.createRow(1);
@@ -392,6 +400,10 @@ public class ExportaTabelaExl {
         Cell nome = rowZero.createCell(cell++);
         nome.setCellStyle(tabelaXlsStyle.cellTabelaResultadoCabecalho02(workbook, Constantes.CAB_NOME));
         nome.setCellValue(Constantes.CAB_NOME);
+
+        Cell idade = rowZero.createCell(cell++);
+        idade.setCellStyle(tabelaXlsStyle.cellTabelaResultadoCabecalho02(workbook, Constantes.CAB_IDADE));
+        idade.setCellValue(Constantes.CAB_IDADE);
 
         //PESO
         Cell cab2 = rowZero.createCell(cell++);
@@ -624,19 +636,25 @@ public class ExportaTabelaExl {
         resistenciaCell5.setCellValue(Constantes.CAB_RESULTADO);
         resistenciaCell5.setCellStyle(tabelaXlsStyle.cellTabelaResultadoCabecalhoReultado(workbook, marfim));
 
-        //VOMAX
+        //VOMAX CM 
         Cell v02Cell = rowZero.createCell(cell++);
-        v02Cell.setCellValue(Constantes.CAB_VOMAX_MS);
+        v02Cell.setCellValue(Constantes.CAB_VOMAX_MS_1);
         v02Cell.setCellStyle(tabelaXlsStyle.cellTabelaResultadoCabecalhoReultado(workbook, azul));
 
         Cell v02Cell2 = rowZero.createCell(cell++);
-        v02Cell.setCellValue(Constantes.CAB_VOMAX_KM);
+        v02Cell2.setCellValue(Constantes.CAB_VOMAX_MS_2);
         v02Cell2.setCellStyle(tabelaXlsStyle.cellTabelaResultadoCabecalhoReultado(workbook, laranja));
 
-        Cell v02CellMax = rowZero.createCell(cell++);
-        v02CellMax.setCellValue(Constantes.CAB_VOMAX);
-        v02CellMax.setCellStyle(tabelaXlsStyle.cellTabelaResultadoCabecalhoReultado(workbook, laranja));
+        //VOMAX KM 
+        Cell v02CellKm = rowZero.createCell(cell++);
+        v02CellKm.setCellValue(Constantes.CAB_VOMAX_KM_1);
+        v02CellKm.setCellStyle(tabelaXlsStyle.cellTabelaResultadoCabecalhoReultado(workbook, azul));
 
+        Cell v02Cell2Km = rowZero.createCell(cell++);
+        v02Cell2Km.setCellValue(Constantes.CAB_VOMAX_KM_2);
+        v02Cell2Km.setCellStyle(tabelaXlsStyle.cellTabelaResultadoCabecalhoReultado(workbook, laranja));
+
+        //VO KM E CM RESULTADO UNIFICADO 
         Cell v02Cell3 = rowZero.createCell(cell++);
         v02Cell3.setCellValue(Constantes.CAB_DIFERENCA);
         v02Cell3.setCellStyle(tabelaXlsStyle.cellTabelaResultadoCabecalhoReultado(workbook, marfim));
@@ -648,6 +666,36 @@ public class ExportaTabelaExl {
         Cell v02Cell5 = rowZero.createCell(cell++);
         v02Cell5.setCellValue(Constantes.CAB_RESULTADO);
         v02Cell5.setCellStyle(tabelaXlsStyle.cellTabelaResultadoCabecalhoReultado(workbook, marfim));
+
+        //VO MAX
+        Cell vomaxCell01 = rowZero.createCell(cell++);
+        vomaxCell01.setCellValue(Constantes.CAB_VOMAX_01);
+        vomaxCell01.setCellStyle(tabelaXlsStyle.cellTabelaResultadoCabecalhoReultado(workbook, azul));
+
+        Cell voMaxCell2 = rowZero.createCell(cell++);
+        voMaxCell2.setCellValue(Constantes.CAB_VOMAX_02);
+        voMaxCell2.setCellStyle(tabelaXlsStyle.cellTabelaResultadoCabecalhoReultado(workbook, laranja));
+
+        Cell voMaxCell3 = rowZero.createCell(cell++);
+        voMaxCell3.setCellValue(Constantes.CAB_DIFERENCA);
+        voMaxCell3.setCellStyle(tabelaXlsStyle.cellTabelaResultadoCabecalhoReultado(workbook, marfim));
+
+        Cell voMaxCell4 = rowZero.createCell(cell++);
+        voMaxCell4.setCellValue(Constantes.CAB_PERCENTUAL);
+        voMaxCell4.setCellStyle(tabelaXlsStyle.cellTabelaResultadoCabecalhoReultado(workbook, marfim));
+
+        Cell voMaxCell5 = rowZero.createCell(cell++);
+        voMaxCell5.setCellValue(Constantes.CAB_RESULTADO);
+        voMaxCell5.setCellStyle(tabelaXlsStyle.cellTabelaResultadoCabecalhoReultado(workbook, marfim));
+
+        //VO MAX desempenho EXPERimental
+        Cell voDesempenhoCell01 = rowZero.createCell(cell++);
+        voDesempenhoCell01.setCellValue(Constantes.CAB_VOMAX_DESEMPENHO_MEDIA);
+        voDesempenhoCell01.setCellStyle(tabelaXlsStyle.cellTabelaResultadoCabecalhoReultado(workbook, azul));
+
+        Cell voDesempenhoCell02 = rowZero.createCell(cell++);
+        voDesempenhoCell02.setCellValue(Constantes.CAB_RESULTADO);
+        voDesempenhoCell02.setCellStyle(tabelaXlsStyle.cellTabelaResultadoCabecalhoReultado(workbook, marfim));
 
         int rowNum = 3;
 
@@ -664,6 +712,9 @@ public class ExportaTabelaExl {
 
             Cell cellNome = row.createCell(cellnum++);
             cellNome.setCellValue(alunos.getNome());
+
+            Cell cellIdade = row.createCell(cellnum++);
+            cellIdade.setCellValue(alunos.getIdade());
 
             //=========================================PESO
             //PESO01
@@ -701,10 +752,10 @@ public class ExportaTabelaExl {
             cellAltura2.setCellValue(alunos.getALTURA_COMP_2());
             sinalIndicativo = " ";
 
-            if (alunos.getIndicadoresAltura().equals(Constantes.ZONA_CLASSIFICAÇÃO_ALTURA_DIMINUICAO)) {
+            if (alunos.getIndicadoresAltura().equals(Constantes.ZONA_CLASSIFICACAO_ALTURA_DIMINUICAO)) {
                 sinalIndicativo = " - ";
             }
-            if (alunos.getIndicadoresAltura().equals(Constantes.ZONA_CLASSIFICAÇÃO_ALTURA_AUMENTO)) {
+            if (alunos.getIndicadoresAltura().equals(Constantes.ZONA_CLASSIFICACAO_ALTURA_AUMENTO)) {
                 sinalIndicativo = " + ";
             }
 
@@ -735,10 +786,10 @@ public class ExportaTabelaExl {
             //  cellRCEClassificadorSem2.setCellStyle(tabelaXlsStyle.cellDesempenhoFraco(workbook,alunos.getIndicadoresRCESemestre_2()));
             sinalIndicativo = " ";
 
-            if (alunos.getIndicadoresCintura().equals(Constantes.ZONA_CLASSIFICAÇÃO_CINTURA_DIMINUICAO)) {
+            if (alunos.getIndicadoresCintura().equals(Constantes.ZONA_CLASSIFICACAO_CINTURA_DIMINUICAO)) {
                 sinalIndicativo = " - ";
             }
-            if (alunos.getIndicadoresCintura().equals(Constantes.ZONA_CLASSIFICAÇÃO_CINTURA_AUMENTO)) {
+            if (alunos.getIndicadoresCintura().equals(Constantes.ZONA_CLASSIFICACAO_CINTURA_AUMENTO)) {
                 sinalIndicativo = " + ";
             }
 
@@ -760,10 +811,10 @@ public class ExportaTabelaExl {
             Cell cellEnvergadura2 = row.createCell(cellnum++);
             cellEnvergadura2.setCellValue(alunos.getENVERGADURA_COMP2());
 
-            if (alunos.getIndicadoresEnvergadura().equals(Constantes.ZONA_CLASSIFICAÇÃO_ENVERGADURA_DIMINUICAO)) {
+            if (alunos.getIndicadoresEnvergadura().equals(Constantes.ZONA_CLASSIFICACAO_ENVERGADURA_DIMINUICAO)) {
                 sinalIndicativo = " - ";
             }
-            if (alunos.getIndicadoresEnvergadura().equals(Constantes.ZONA_CLASSIFICAÇÃO_ENVERGADURA_AUMENTO)) {
+            if (alunos.getIndicadoresEnvergadura().equals(Constantes.ZONA_CLASSIFICACAO_ENVERGADURA_AUMENTO)) {
                 sinalIndicativo = " + ";
             }
 
@@ -863,10 +914,10 @@ public class ExportaTabelaExl {
             Cell cellAbd2 = row.createCell(cellnum++);
             cellAbd2.setCellValue(alunos.getABDOMINAL_COMP2());
 
-            if (alunos.getIndicadoresAbdomem().equals(Constantes.ZONA_CLASSIFICAÇÃO_ABDOMINAL_DIMINUICAO)) {
+            if (alunos.getIndicadoresAbdomem().equals(Constantes.ZONA_CLASSIFICACAO_ABDOMINAL_DIMINUICAO)) {
                 sinalIndicativo = " - ";
             }
-            if (alunos.getIndicadoresAbdomem().equals(Constantes.ZONA_CLASSIFICAÇÃO_ABDOMINAL_AUMENTO)) {
+            if (alunos.getIndicadoresAbdomem().equals(Constantes.ZONA_CLASSIFICACAO_ABDOMINAL_AUMENTO)) {
                 sinalIndicativo = " + ";
             }
 
@@ -955,6 +1006,7 @@ public class ExportaTabelaExl {
             AgilidadeInd.setCellValue(alunos.getIndicadoresAgilidade());
             AgilidadeInd.setCellStyle(tabelaXlsStyle.cellDesempenhoFraco(workbook, alunos.getIndicadoresAgilidade()));
             sinalIndicativo = " ";
+
             //=================================Velocidade
             Cell cellVelocidade = row.createCell(cellnum++);
             cellVelocidade.setCellValue(alunos.getVELOCIDADE());
@@ -1004,37 +1056,93 @@ public class ExportaTabelaExl {
             CorridaInd6s.setCellValue(alunos.getIndicadoresCorrida_6());
             CorridaInd6s.setCellStyle(tabelaXlsStyle.cellDesempenhoFraco(workbook, alunos.getIndicadoresCorrida_6()));
             sinalIndicativo = " ";
-            
-            //============================================VO2
-            
-//             Cell cellVo2Um = row.createCell(cellnum++);
-//            cellVo2Um.setCellValue(alunos.get);
+
+            //==============================================VO2 CM 
+            Cell cellVo2Um = row.createCell(cellnum++);
+            cellVo2Um.setCellValue(alunos.getVO2_MS_COMP_1());
+
+            Cell cellVo2Dois = row.createCell(cellnum++);
+            cellVo2Dois.setCellValue(alunos.getVO2_MS_COMP_2());
+
+            //=============================================VO2 Km 
+            Cell cellVo2KmUm = row.createCell(cellnum++);
+            cellVo2KmUm.setCellValue(alunos.getVO2_KM_COMP_1());
+
+            Cell cellVo2KmDois = row.createCell(cellnum++);
+            cellVo2KmDois.setCellValue(alunos.getVO2_KM_COMP_2());
+            //============================================RESULTADO COMUM KM / CM 
+
+            if (alunos.getIndicadoresV02Ms().equals(Constantes.ZONA_CLASSIFICACAO_V02_DIMINUICAO)) {
+                sinalIndicativo = " + ";
+            }
+            if (alunos.getIndicadoresV02Ms().equals(Constantes.ZONA_CLASSIFICACAO_VO2_AUMENTO)) {
+                sinalIndicativo = " - ";
+            }
+
+            Cell cellResultadoV02Ms = row.createCell(cellnum++);
+            cellResultadoV02Ms.setCellValue(sinalIndicativo + validacoes.truncateValorDouble(Double.valueOf(alunos.getResultadoV02Ms())));
+
+            Cell cellPercV02Ms = row.createCell(cellnum++);
+            cellPercV02Ms.setCellValue(sinalIndicativo + validacoes.truncateValorDouble(Double.valueOf(alunos.getResultadoPorcentagemV02Ms())) + " %");
+
+            Cell cellVo2msInd = row.createCell(cellnum++);
+            cellVo2msInd.setCellValue(alunos.getIndicadoresV02Ms());
+            cellVo2msInd.setCellStyle(tabelaXlsStyle.cellDesempenhoFraco(workbook, alunos.getIndicadoresV02Ms()));
+            sinalIndicativo = " ";
+
+            //============================================VO MAX
+            Cell cellVoMax = row.createCell(cellnum++);
+            cellVoMax.setCellValue(alunos.getVO2_MAX_COMP_1());
+
+            Cell cellVoMax02 = row.createCell(cellnum++);
+            cellVoMax02.setCellValue(alunos.getVO2_MAX_COMP_2());
+
+            if (alunos.getIndicadoresSalto().equals(Constantes.ZONA_CLASSIFICACAO_V02_DIMINUICAO)) {
+                sinalIndicativo = " - ";
+            }
+            if (alunos.getIndicadoresSalto().equals(Constantes.ZONA_CLASSIFICACAO_VO2_AUMENTO)) {
+                sinalIndicativo = " + ";
+            }
+
+            Cell cellVomaxResult = row.createCell(cellnum++);
+            cellVomaxResult.setCellValue(sinalIndicativo + validacoes.truncateValorDouble(Double.valueOf(alunos.getResultadoV02Max())));
+
+            Cell voMaxPerc = row.createCell(cellnum++);
+            voMaxPerc.setCellValue(validacoes.truncateValorDouble(Double.valueOf(alunos.getResultadoPorcentagemV02Max())) + " %");
+
+            Cell voMaxindi = row.createCell(cellnum++);
+            voMaxindi.setCellValue(alunos.getIndicadoresV02Max());
+            voMaxindi.setCellStyle(tabelaXlsStyle.cellDesempenhoFraco(workbook, alunos.getIndicadoresV02Max()));
+            sinalIndicativo = " ";
+
+            //============================================VO MAX DESEMPENHO 
+            Cell cellVoMaxDesempenho01 = row.createCell(cellnum++);
+            cellVoMaxDesempenho01.setCellValue(alunos.getVO2_MAX_DESEMPENHO_VALOR());
+
+            Cell cellVoMaxDesempenho02 = row.createCell(cellnum++);
+            cellVoMaxDesempenho02.setCellValue(alunos.getVO2_MAX_DESEMPENHO_RESULTADO());
+            cellVoMaxDesempenho02.setCellStyle(tabelaXlsStyle.cellDesempenhoFraco(workbook, alunos.getVO2_MAX_DESEMPENHO_RESULTADO()));
+
 //
-//            Cell cellCorrida6saude2 = row.createCell(cellnum++);
-//            cellCorrida6saude2.setCellValue(alunos.getCORRIDA_6_MIN_COMP2());
-//
-//            if (alunos.getIndicadoresCorrida_6().equals(Constantes.ZONA_CLASSIFICAÇÃO_CORRIDA6_DIMINUICAO)) {
-//                sinalIndicativo = " - ";
-//            }
-//            if (alunos.getIndicadoresCorrida_6().equals(Constantes.ZONA_CLASSIFICAÇÃO_CORRIDA6_AUMENTO)) {
+//            if (alunos.getIndicadoresV02Ms().equals(Constantes.INDICADOR_POSITIVO)) {
 //                sinalIndicativo = " + ";
 //            }
-//
-//            Cell cellCorridaResult6s = row.createCell(cellnum++);
-//            cellCorridaResult6s.setCellValue(sinalIndicativo + validacoes.truncateValorDouble(Double.valueOf(alunos.getResultadoCorrida_6())));
-//
-//            Cell CorridaPerc6s = row.createCell(cellnum++);
-//            CorridaPerc6s.setCellValue(validacoes.truncateValorDouble(Double.valueOf(alunos.getResultadoPorcentagemCorrida_6())) + " %");
-//
-//            Cell CorridaInd6s = row.createCell(cellnum++);
-//            CorridaInd6s.setCellValue(alunos.getIndicadoresCorrida_6());
-//            CorridaInd6s.setCellStyle(tabelaXlsStyle.cellDesempenhoFraco(workbook, alunos.getIndicadoresCorrida_6()));
+//            if (alunos.getIndicadoresV02Ms().equals(Constantes.INDICADOR_NEGATIVO)) {
+//                sinalIndicativo = " - ";
+//            }  
+//            
+//            Cell cellResultadoV02km= row.createCell(cellnum++);
+//            cellResultadoV02km.setCellValue(sinalIndicativo + validacoes.truncateValorDouble(Double.valueOf(alunos.getResultadoV02Km())));
+//            
+//            Cell cellPercV02Km = row.createCell(cellnum++);
+//            cellPercV02Km.setCellValue(sinalIndicativo + validacoes.truncateValorDouble(Double.valueOf(alunos.getResultadoPorcentagemV02Km()))+ " %");
+//            
+//            Cell cellVo2kmInd = row.createCell(cellnum++);
+//            cellVo2kmInd.setCellValue(alunos.getIndicadoresV02Km());
+//            cellVo2kmInd.setCellStyle(tabelaXlsStyle.cellDesempenhoFraco(workbook, alunos.getIndicadoresV02Km()));
 //            sinalIndicativo = " ";
 //            
-            
-            
-            
-
+//            
             //============================================================
             //Corrida 6 metros esporte
 //            Cell cellCorrida = row.createCell(cellnum++);
@@ -1060,7 +1168,6 @@ public class ExportaTabelaExl {
 //            CorridaInd.setCellValue(alunos.getIndicadoresCorrida_6());
 //            CorridaInd.setCellStyle(tabelaXlsStyle.cellDesempenhoFraco(workbook, alunos.getIndicadoresCorrida_6()));
 //            sinalIndicativo = " ";
-
             //Corrida 6 metros SAUDE
             //   Cell CorridaIndSaude = row.createCell(cellnum++);
             //   CorridaIndSaude.setCellValue(alunos.getIndicadoresCorrida_6_saude());
@@ -1079,7 +1186,7 @@ public class ExportaTabelaExl {
             System.out.println("Planilha Criada Com Sucesso!!");
 
         } catch (Exception e) {
-            System.out.println("Erro planilha final " + e.getMessage());
+            System.out.println("Erro ao gerar a  planilha final motivo: " + e.getMessage());
         }
     }
 }

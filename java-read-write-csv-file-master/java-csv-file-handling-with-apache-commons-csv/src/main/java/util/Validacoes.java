@@ -106,7 +106,7 @@ public class Validacoes {
             try {
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
                 LocalDate dataAniversario = LocalDate.parse(dataNascimento, formatter);
-                LocalDate dataAvaliacao = LocalDate.parse(dataAvaliacaoExame,formatter);
+                LocalDate dataAvaliacao = LocalDate.parse(dataAvaliacaoExame, formatter);
 
                 return Period.between(dataAniversario, dataAvaliacao).getYears();
 
@@ -195,7 +195,6 @@ public class Validacoes {
         if (value == null || value.equals("")) {
             return Constantes.ERROR_TRUCA_DOUBLR;
         } else {
-
             Double valor = Double.valueOf(value);
             DecimalFormat df = new DecimalFormat("0.##");
             return df.format(valor);
@@ -248,6 +247,11 @@ public class Validacoes {
                     return null;
             }
         }
+
+    }
+
+    public double mediaComparativoResultado(double resultado1conv1, double resultado1conv2) {
+        return (resultado1conv1 + resultado1conv2) /2;
 
     }
 

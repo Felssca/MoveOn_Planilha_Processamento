@@ -48,12 +48,14 @@ public class IniciarProcesso {
 
             if (validacoes.isMatricula(listaAluno.getMatricula())) {
 
-                idade = validacoes.calcularIdadeAtual(listaAluno.getDtNascimento(),listaAluno.getDtAvaliacao());
+               idade = validacoes.calcularIdadeAtual(listaAluno.getDtNascimento(),listaAluno.getDtAvaliacao());
                 altura = validacoes.transformarCampoDouble(listaAluno.getALTURA());
                 peso = validacoes.transformarCampoDouble(listaAluno.getPESO());
                 cintura = validacoes.transformarCampoDouble(listaAluno.getCINTURA());
                 flexibilidade = validacoes.transformarCampoDouble(listaAluno.getFLEXIBILIDADE());
                 arremeco = validacoes.transformarCampoDouble(listaAluno.getMEDICINIBALL());
+                
+                listaAluno.setIdade(Integer.toString(idade));
 
                 //classificacao por tabela: 
                 String genero = listaAluno.getGenero();
@@ -99,6 +101,8 @@ public class IniciarProcesso {
                 listaAluno.setCLASSIFICACAO_6MIN(classCorrida);
                 String classCorridaSaude = algoClassificacao.tabelaCorridaResistencia6MinSaude(idade, genero, corrida);
                 listaAluno.setCLASSIFICACAO_6MIN_SAUDE(classCorridaSaude);
+                //---------------------------
+                
 
                 Legendas legendas = new Legendas();
 

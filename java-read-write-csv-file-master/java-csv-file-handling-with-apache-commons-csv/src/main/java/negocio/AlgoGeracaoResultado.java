@@ -9,6 +9,7 @@ import beans.Constantes;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import util.Validacoes;
 
 /**
  *
@@ -34,6 +35,8 @@ public class AlgoGeracaoResultado {
                 alunoResultado = new Alunos();
                 alunoResultado.setMatricula(alunoSem1.getMatricula());
                 alunoResultado.setNome(alunoSem1.getNome());
+                alunoResultado.setIdade(alunoSem1.getIdade());
+                alunoResultado.setGenero(alunoSem1.getGenero());
 
                 //PESO COMP
                 algoComparacaoSemestres.tabelaComparativa(alunoSem1.getPESO(), alunoSem2.getPESO(),
@@ -167,10 +170,59 @@ public class AlgoGeracaoResultado {
                 alunoResultado.setResultadoCorrida_6(Double.toString(algoComparacaoSemestres.getResultado()));
                 alunoResultado.setResultadoPorcentagemCorrida_6(Double.toString(algoComparacaoSemestres.getPorcentagem()));
                 alunoResultado.setIndicadoresCorrida_6(algoComparacaoSemestres.getIndicador());
+
                 //cORRIDA 6    SAUDE
                 algoComparacaoSemestres.tabelaComparativa(alunoSem1.getCORRIDA_6_MIN(), alunoSem2.getCORRIDA_6_MIN(),
                         Constantes.TIPO_ETIQUETA_MODALIDADES_CORRIDA6_SAUDE);
                 alunoResultado.setIndicadoresCorrida_6_saude(algoComparacaoSemestres.getIndicador());
+
+// VO2/Ms
+                Validacoes valid = new Validacoes();
+                String vo2_01 = valid.truncateValorDoubleString(alunoSem1.getVO2_VELOCIDADE_MEDIA_MS());
+                String vo_02 = valid.truncateValorDoubleString(alunoSem2.getVO2_VELOCIDADE_MEDIA_MS());
+                algoComparacaoSemestres.tabelaComparativa(vo2_01, vo_02, Constantes.TIPO_ETIQUETA_MODALIDADES_VO_MS);
+                alunoResultado.setVO2_MS_COMP_1(vo2_01);
+                alunoResultado.setVO2_MS_COMP_2(vo_02);
+                alunoResultado.setResultadoV02Ms(Double.toString(algoComparacaoSemestres.getResultado()));
+                alunoResultado.setResultadoPorcentagemV02Ms(Double.toString(algoComparacaoSemestres.getPorcentagem()));
+                alunoResultado.setIndicadoresV02Ms(algoComparacaoSemestres.getIndicador());
+// VO2/Km
+
+                String vo2Km_01 = valid.truncateValorDoubleString(alunoSem1.getVO2_VELOCIDADE_MEDIA_KM());
+                String vo2Km_02 = valid.truncateValorDoubleString(alunoSem2.getVO2_VELOCIDADE_MEDIA_KM());
+                algoComparacaoSemestres.tabelaComparativa(vo2Km_01, vo2Km_02, Constantes.TIPO_ETIQUETA_MODALIDADES_VO_KM);
+                alunoResultado.setVO2_KM_COMP_1(vo2Km_01);
+                alunoResultado.setVO2_KM_COMP_2(vo2Km_02);
+                alunoResultado.setResultadoV02Km(Double.toString(algoComparacaoSemestres.getResultado()));
+                alunoResultado.setResultadoPorcentagemV02Km(Double.toString(algoComparacaoSemestres.getPorcentagem()));
+                alunoResultado.setIndicadoresV02Km(algoComparacaoSemestres.getIndicador());
+// VO MAX
+
+                String vo2Max01 = valid.truncateValorDoubleString(alunoSem1.getVO2_MAX());
+                String vo2Max02 = valid.truncateValorDoubleString(alunoSem2.getVO2_MAX());
+                algoComparacaoSemestres.tabelaComparativa(vo2Max01, vo2Max02, Constantes.TIPO_ETIQUETA_MODALIDADES_VO_MAX);
+                alunoResultado.setVO2_MAX_COMP_1(vo2Max01);
+                alunoResultado.setVO2_MAX_COMP_2(vo2Max02);
+                alunoResultado.setResultadoV02Max(Double.toString(algoComparacaoSemestres.getResultado()));
+                alunoResultado.setResultadoPorcentagemV02Max(Double.toString(algoComparacaoSemestres.getPorcentagem()));
+                alunoResultado.setIndicadoresV02Max(algoComparacaoSemestres.getIndicador());
+
+// VO MAX desempenho 
+                String vo2Max01Desempenho = valid.truncateValorDoubleString(alunoSem1.getVO2_MAX());
+                String vo2Max02Desempenho2 = valid.truncateValorDoubleString(alunoSem2.getVO2_MAX());
+
+                double vo2Max01Desemp = valid.transformarCampoDouble(vo2Max01Desempenho);
+                double vo2Max01Desemp2 = valid.transformarCampoDouble(vo2Max02Desempenho2);
+                double vo2MaxDesempenhoValor = valid.mediaComparativoResultado(vo2Max01Desemp, vo2Max01Desemp2);
+
+                alunoResultado.setVO2_MAX_DESEMPENHO_VALOR(valid.truncateValorDoubleString(Double.toString(vo2MaxDesempenhoValor)));
+
+                int idade = Integer.parseInt(alunoSem1.getIdade());
+                double valorResultado = (valid.transformarCampoDouble(alunoResultado.getVO2_MAX_DESEMPENHO_VALOR()));
+
+                AlgoClassificacao algoClassificacao = new AlgoClassificacao();
+                String resultadoClass = algoClassificacao.classificacaoVo2(idade, alunoSem1.getGenero(), valorResultado);
+                alunoResultado.setVO2_MAX_DESEMPENHO_RESULTADO(resultadoClass);
 
                 listaAlunosResult.add(alunoResultado);
 
@@ -178,8 +230,7 @@ public class AlgoGeracaoResultado {
                 alunosNaoProcessados.add(alunoSem1);
             }
         }
-          return listaAlunosResult;
-
+        return listaAlunosResult;
 
     }
 

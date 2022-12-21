@@ -20,8 +20,6 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-//import org.apache.poi.xssf.usermodel.XSSFCell;
-//import org.apache.poi.xssf.usermodel.XSSFRow;
 import util.Validacoes;
 
 /**
@@ -126,13 +124,13 @@ public class CarregarArquivo {
                                 alunos.setParticipacaoTestes(validacao.covertCellToString(cell, Constantes.PARTICIPACAO_TESTE));
                                 break;
                             case 17:
-                                alunos.setVO2_VELOCIDADE_MEDIA_MS(validacao.covertCellToString(cell, Constantes.CAB_VOMAX_MS));
+                                alunos.setVO2_VELOCIDADE_MEDIA_MS(validacao.covertCellToString(cell, Constantes.CAB_VOMAX_MS_1));
                                 break;
                             case 18:
-                                alunos.setVO2_VELOCIDADE_MEDIA_KM(validacao.covertCellToString(cell, Constantes.CAB_VOMAX_KM));
+                                alunos.setVO2_VELOCIDADE_MEDIA_KM(validacao.covertCellToString(cell, Constantes.CAB_VOMAX_KM_1));
                                 break;
                             case 19:
-                                alunos.setVO2_MAX(validacao.covertCellToString(cell, Constantes.CAB_VOMAX));
+                                alunos.setVO2_MAX(validacao.covertCellToString(cell, Constantes.CAB_VOMAX_01));
                                 break;
                         }
 

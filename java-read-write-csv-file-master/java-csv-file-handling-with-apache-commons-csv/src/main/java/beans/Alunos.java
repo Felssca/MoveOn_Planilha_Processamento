@@ -9,7 +9,400 @@ package beans;
  *
  * @author FelipeSSCA
  */
-public  class Alunos {
+public class Alunos {
+
+    /**
+     * @return the VO2_MAX_DESEMPENHO_VALOR
+     */
+    public String getVO2_MAX_DESEMPENHO_VALOR() {
+        return VO2_MAX_DESEMPENHO_VALOR;
+    }
+
+    /**
+     * @param VO2_MAX_DESEMPENHO_VALOR the VO2_MAX_DESEMPENHO_VALOR to set
+     */
+    public void setVO2_MAX_DESEMPENHO_VALOR(String VO2_MAX_DESEMPENHO_VALOR) {
+        this.VO2_MAX_DESEMPENHO_VALOR = VO2_MAX_DESEMPENHO_VALOR;
+    }
+
+    /**
+     * @return the VO2_MAX_DESEMPENHO_RESULTADO
+     */
+    public String getVO2_MAX_DESEMPENHO_RESULTADO() {
+        return VO2_MAX_DESEMPENHO_RESULTADO;
+    }
+
+    /**
+     * @param VO2_MAX_DESEMPENHO_RESULTADO the VO2_MAX_DESEMPENHO_RESULTADO to set
+     */
+    public void setVO2_MAX_DESEMPENHO_RESULTADO(String VO2_MAX_DESEMPENHO_RESULTADO) {
+        this.VO2_MAX_DESEMPENHO_RESULTADO = VO2_MAX_DESEMPENHO_RESULTADO;
+    }
+
+    private String matricula;
+    private String nome;
+    private String dtNascimento;
+    private String genero;
+    private String numeroOrdem;
+    private String idade;
+    private String deficienciaReportada;
+
+    private String nAvaliacao;
+    private String QUANTIDADE_TOTAL_TREINOS;
+    private String QUANTIDADE_DE_TREINOS_POR_ALUNOS;
+    private String QUANTIDADE_TOTAL_DE_TREINOS;
+    private String QUANTIDADE_DE_VEZES_COM_UNIFORME;
+    private String SERIE;
+    private String TURMA;
+    private String dtAvaliacao;
+    private String participacaoTestes;
+
+    //---desc classific
+    private String PESO;
+    private String ALTURA;
+    private String IMC;
+    private String IMC_Sem_2;
+
+    private String indicadoresIMCSem_1;
+    private String indicadoresIMCSem_2;
+
+    private String Classificacao_IMC_POEST;
+
+    private String CINTURA;
+    private String Classificacao_RCE;
+    private String Valor_Classificacao_RCE;
+
+    private String ENVERGADURA;
+
+    private String FLEXIBILIDADE;
+    private String CLASSIFICACAO_FLEXIBILIDADE;
+    private String VALOR_CLASSIFICACAO_FLEXIBILIDADE;
+
+    private String ABDOMINAL;
+    private String OBSERVACAO_ABDOMINAL;
+    private String CLASSIFICACAO_ABDOMINAL;
+    private String VALOR_CLASSIFICACAO_ABDOMINAL;
+
+    private String SALTO;
+    private String CLASSIFICACAO_SALTO;
+    private String VALOR_CLASSIFICACAO_SALTO;
+
+    private String MEDICINIBALL;
+    private String CLASSIFICACAO_MEDICINIBALL;
+    private String VALOR_CLASSIFICACAO_MEDICINIBALL;
+
+    private String VELOCIDADE;
+    private String CLASSIFICACAO_VELOCIDADE;
+    private String VALOR_CLASSIFICACAO_VELOCIDADE;
+
+    private String AGILIDADE;
+    private String CLASSIFICACAO_AGILIDADE;
+    private String VALOR_CLASSIFICACAO_AGILIDADE;
+
+    private String CORRIDA_6_MIN;
+    private String CLASSIFICACAO_6MIN;
+    private String VALOR_CLASSIFICACAO_6MIN;
+    private String CLASSIFICACAO_6MIN_SAUDE;
+
+    private String VO2_VELOCIDADE_MEDIA_MS;
+    private String CLASSIFICACAO_VO2_VELOCIDADE_MEDIA_MS;
+    private String VALOR_VO2_VELOCIDADE_MEDIA_MS;
+
+    private String VO2_VELOCIDADE_MEDIA_KM;
+    private String CLASSIFICACAO_VO2_VELOCIDADE_MEDIA_KM;
+    private String VALOR_VO2_VELOCIDADE_MEDIA_KM;
+
+    private String VO2_MAX;
+    private String CLASSFICACAO_VO2_MAX;
+    private String VALOR_VO2_MAX;
+
+    private String OBS1_CALCADO;
+    private String OBS2_CAFE;
+    private String OBS3_PERCEPCAO;
+    private String OBS4_PERCEPCAO;
+    private String OBS5_PERCEPCAO;
+    private String OBS6_PERCEPCAO;
+    private String OBS7_PERCEPCAO;
+
+    //dados tabela 1 e 2 facilitar o comparativo 
+    private String resultadoPeso;
+    private String resultadoPorcentagemPeso;
+    private String indicadoresPeso;
+
+    private String resultadoAltura;
+    private String resultadoPorcentagemAltura;
+    private String indicadoresAltura;
+
+    private String resultadoCintura;
+    private String resultadoPorcentagemCintura;
+    private String indicadoresCintura;
+
+    private String resultadoEnvergadura;
+    private String indicadoresEnvergadura;
+    private String resultadoPorcentagemEnvergadura;
+
+    private String resultadoFlex;
+    private String indicadoresFlex;
+    private String resultadoPorcentagemFlex;
+
+    private String resultadoAbdomem;
+    private String indicadoresAbdomem;
+    private String resultadoPorcentagemAbdomem;
+
+    private String resultadoSalto;
+    private String indicadoresSalto;
+    private String resultadoPorcentagemSalto;
+
+    private String resultadoMedBall;
+    private String indicadoresMedBall;
+    private String resultadoPorcentagemMedBall;
+
+    private String resultadoVerlocidade;
+    private String indicadoresVerlocidade;
+    private String resultadoPorcentagemVerlocidade;
+
+    private String resultadoAgilidade;
+    private String indicadoresAgilidade;
+    private String resultadoPorcentagemAgilidade;
+
+    private String resultadoCorrida;
+    private String indicadoresCorrida;
+    private String resultadoPorcentagemCorrida;
+
+    private String resultadoCorrida_6;
+    private String indicadoresCorrida_6;
+    private String resultadoPorcentagemCorrida_6;
+
+    private String indicadoresCorrida_6_saude;
+
+    //---tabela 3 --// indicadores RCE
+    private String indicadoresRCESemestre_1;
+    private String indicadoresRCESemestre_2;
+
+    //---IMC--diferencas IMC atual tabela 3 
+    private String resultadoIMCTab3;
+    private String indicadoresIMCTab3;
+    private String resultadoPorcentagemIMCTab3;
+    //---RCE--diferencas RCE atual tabela 3 
+
+    private String resultadoRCEab3;
+    private String indicadoresRCETab3;
+    private String resultadoPorcentagemRCEab3;
+    
+    //-------------VO2--------------------
+    
+    private String resultadoV02Ms;
+    private String indicadoresV02Ms;
+    private String resultadoPorcentagemV02Ms;
+    
+    private String resultadoV02Km;
+    private String indicadoresV02Km;
+    private String resultadoPorcentagemV02Km;
+    
+    private String resultadoV02Max;
+    private String indicadoresV02Max;
+    private String resultadoPorcentagemV02Max;
+
+    //voMs
+    private String VO2_MS_COMP_1;
+    private String VO2_MS_COMP_2;
+
+    //VO2 KM
+    private String VO2_KM_COMP_1;
+    private String VO2_KM_COMP_2;
+
+    //VO2 MAX
+    private String VO2_MAX_COMP_1;
+    private String VO2_MAX_COMP_2;
+    
+    //VO2 MAX DESEMPENHO 
+    private String VO2_MAX_DESEMPENHO_VALOR;
+    private String VO2_MAX_DESEMPENHO_RESULTADO;
+
+    private String PESO_COMP_2;
+    private String ALTURA_COMP_2;
+    private String CINTURA_COMP2;
+    private String Valor_Classificacao_RCE_comp_2;
+    private String ENVERGADURA_COMP2;
+    private String FLEXIBILIDADE_COMP2;
+    private String ABDOMINAL_COMP2;
+    private String SALTO_COMPE2;
+    private String MEDICINIBALL_COMP2;
+    private String VELOCIDADE_COMP2;
+    private String AGILIDADE_COMP2;
+    private String CORRIDA_6_MIN_COMP2;
+
+    /**
+     * @return the CLASSIFICACAO_VO2_VELOCIDADE_MEDIA_MS
+     */
+    public String getCLASSIFICACAO_VO2_VELOCIDADE_MEDIA_MS() {
+        return CLASSIFICACAO_VO2_VELOCIDADE_MEDIA_MS;
+    }
+
+    /**
+     * @param CLASSIFICACAO_VO2_VELOCIDADE_MEDIA_MS the
+     * CLASSIFICACAO_VO2_VELOCIDADE_MEDIA_MS to set
+     */
+    public void setCLASSIFICACAO_VO2_VELOCIDADE_MEDIA_MS(String CLASSIFICACAO_VO2_VELOCIDADE_MEDIA_MS) {
+        this.CLASSIFICACAO_VO2_VELOCIDADE_MEDIA_MS = CLASSIFICACAO_VO2_VELOCIDADE_MEDIA_MS;
+    }
+
+    /**
+     * @return the VALOR_VO2_VELOCIDADE_MEDIA_MS
+     */
+    public String getVALOR_VO2_VELOCIDADE_MEDIA_MS() {
+        return VALOR_VO2_VELOCIDADE_MEDIA_MS;
+    }
+
+    /**
+     * @param VALOR_VO2_VELOCIDADE_MEDIA_MS the VALOR_VO2_VELOCIDADE_MEDIA_MS to
+     * set
+     */
+    public void setVALOR_VO2_VELOCIDADE_MEDIA_MS(String VALOR_VO2_VELOCIDADE_MEDIA_MS) {
+        this.VALOR_VO2_VELOCIDADE_MEDIA_MS = VALOR_VO2_VELOCIDADE_MEDIA_MS;
+    }
+
+    /**
+     * @return the CLASSIFICACAO_VO2_VELOCIDADE_MEDIA_KM
+     */
+    public String getCLASSIFICACAO_VO2_VELOCIDADE_MEDIA_KM() {
+        return CLASSIFICACAO_VO2_VELOCIDADE_MEDIA_KM;
+    }
+
+    /**
+     * @param CLASSIFICACAO_VO2_VELOCIDADE_MEDIA_KM the
+     * CLASSIFICACAO_VO2_VELOCIDADE_MEDIA_KM to set
+     */
+    public void setCLASSIFICACAO_VO2_VELOCIDADE_MEDIA_KM(String CLASSIFICACAO_VO2_VELOCIDADE_MEDIA_KM) {
+        this.CLASSIFICACAO_VO2_VELOCIDADE_MEDIA_KM = CLASSIFICACAO_VO2_VELOCIDADE_MEDIA_KM;
+    }
+
+    /**
+     * @return the VALOR_VO2_VELOCIDADE_MEDIA_KM
+     */
+    public String getVALOR_VO2_VELOCIDADE_MEDIA_KM() {
+        return VALOR_VO2_VELOCIDADE_MEDIA_KM;
+    }
+
+    /**
+     * @param VALOR_VO2_VELOCIDADE_MEDIA_KM the VALOR_VO2_VELOCIDADE_MEDIA_KM to
+     * set
+     */
+    public void setVALOR_VO2_VELOCIDADE_MEDIA_KM(String VALOR_VO2_VELOCIDADE_MEDIA_KM) {
+        this.VALOR_VO2_VELOCIDADE_MEDIA_KM = VALOR_VO2_VELOCIDADE_MEDIA_KM;
+    }
+
+    /**
+     * @return the CLASSFICACAO_VO2_MAX
+     */
+    public String getCLASSFICACAO_VO2_MAX() {
+        return CLASSFICACAO_VO2_MAX;
+    }
+
+    /**
+     * @param CLASSFICACAO_VO2_MAX the CLASSFICACAO_VO2_MAX to set
+     */
+    public void setCLASSFICACAO_VO2_MAX(String CLASSFICACAO_VO2_MAX) {
+        this.CLASSFICACAO_VO2_MAX = CLASSFICACAO_VO2_MAX;
+    }
+
+    /**
+     * @return the VALOR_VO2_MAX
+     */
+    public String getVALOR_VO2_MAX() {
+        return VALOR_VO2_MAX;
+    }
+
+    /**
+     * @param VALOR_VO2_MAX the VALOR_VO2_MAX to set
+     */
+    public void setVALOR_VO2_MAX(String VALOR_VO2_MAX) {
+        this.VALOR_VO2_MAX = VALOR_VO2_MAX;
+    }
+
+    /**
+     * @return the VO2_MS_COMP_1
+     */
+    public String getVO2_MS_COMP_1() {
+        return VO2_MS_COMP_1;
+    }
+
+    /**
+     * @param VO2_MS_COMP_1 the VO2_MS_COMP_1 to set
+     */
+    public void setVO2_MS_COMP_1(String VO2_MS_COMP_1) {
+        this.VO2_MS_COMP_1 = VO2_MS_COMP_1;
+    }
+
+    /**
+     * @return the VO2_MS_COMP_2
+     */
+    public String getVO2_MS_COMP_2() {
+        return VO2_MS_COMP_2;
+    }
+
+    /**
+     * @param VO2_MS_COMP_2 the VO2_MS_COMP_2 to set
+     */
+    public void setVO2_MS_COMP_2(String VO2_MS_COMP_2) {
+        this.VO2_MS_COMP_2 = VO2_MS_COMP_2;
+    }
+
+    /**
+     * @return the VO2_KM_COMP_1
+     */
+    public String getVO2_KM_COMP_1() {
+        return VO2_KM_COMP_1;
+    }
+
+    /**
+     * @param VO2_KM_COMP_1 the VO2_KM_COMP_1 to set
+     */
+    public void setVO2_KM_COMP_1(String VO2_KM_COMP_1) {
+        this.VO2_KM_COMP_1 = VO2_KM_COMP_1;
+    }
+
+    /**
+     * @return the VO2_KM_COMP_2
+     */
+    public String getVO2_KM_COMP_2() {
+        return VO2_KM_COMP_2;
+    }
+
+    /**
+     * @param VO2_KM_COMP_2 the VO2_KM_COMP_2 to set
+     */
+    public void setVO2_KM_COMP_2(String VO2_KM_COMP_2) {
+        this.VO2_KM_COMP_2 = VO2_KM_COMP_2;
+    }
+
+    /**
+     * @return the VO2_MAX_COMP_1
+     */
+    public String getVO2_MAX_COMP_1() {
+        return VO2_MAX_COMP_1;
+    }
+
+    /**
+     * @param VO2_MAX_COMP_1 the VO2_MAX_COMP_1 to set
+     */
+    public void setVO2_MAX_COMP_1(String VO2_MAX_COMP_1) {
+        this.VO2_MAX_COMP_1 = VO2_MAX_COMP_1;
+    }
+
+    /**
+     * @return the VO2_MAX_COMP_2
+     */
+    public String getVO2_MAX_COMP_2() {
+        return VO2_MAX_COMP_2;
+    }
+
+    /**
+     * @param VO2_MAX_COMP_2 the VO2_MAX_COMP_2 to set
+     */
+    public void setVO2_MAX_COMP_2(String VO2_MAX_COMP_2) {
+        this.VO2_MAX_COMP_2 = VO2_MAX_COMP_2;
+    }
 
     /**
      * @return the VO2_VELOCIDADE_MEDIA_MS
@@ -81,7 +474,6 @@ public  class Alunos {
         this.indicadoresRCESemestre_2 = indicadoresRCESemestre_2;
     }
 
-
     /**
      * @return the Valor_Classificacao_RCE
      */
@@ -95,181 +487,14 @@ public  class Alunos {
     public void setValor_Classificacao_RCE(String Valor_Classificacao_RCE) {
         this.Valor_Classificacao_RCE = Valor_Classificacao_RCE;
     }
-        public String getCLASSIFICACAO_6MIN_SAUDE() {
+
+    public String getCLASSIFICACAO_6MIN_SAUDE() {
         return CLASSIFICACAO_6MIN_SAUDE;
     }
 
     public void setCLASSIFICACAO_6MIN_SAUDE(String VALOR_CLASSIFICACAO_6MIN_SAUDE) {
         this.CLASSIFICACAO_6MIN_SAUDE = VALOR_CLASSIFICACAO_6MIN_SAUDE;
     }
-
-    private String matricula;
-    private String nome;
-    private String dtNascimento;
-    private String genero;
-    private String numeroOrdem;
-    private String idade;
-    private String deficienciaReportada;
-
-    private String nAvaliacao;
-    private String QUANTIDADE_TOTAL_TREINOS;
-    private String QUANTIDADE_DE_TREINOS_POR_ALUNOS;
-    private String QUANTIDADE_TOTAL_DE_TREINOS;
-    private String QUANTIDADE_DE_VEZES_COM_UNIFORME;
-    private String SERIE;
-    private String TURMA;
-    private String dtAvaliacao;
-    private String participacaoTestes;
-    
-    
-    
-    //---desc classific
-    private String PESO;
-    private String ALTURA;
-    private String IMC;
-    private String IMC_Sem_2;
-    
-    private String indicadoresIMCSem_1;
-    private String indicadoresIMCSem_2;
-    
-    private String Classificacao_IMC_POEST;
-
-    private String CINTURA;
-    private String Classificacao_RCE;
-    private String Valor_Classificacao_RCE;
-    
-    
-    private String ENVERGADURA;
-
-    private String FLEXIBILIDADE;
-    private String CLASSIFICACAO_FLEXIBILIDADE;
-    private String VALOR_CLASSIFICACAO_FLEXIBILIDADE;
-
-    private String ABDOMINAL;
-    private String OBSERVACAO_ABDOMINAL;
-    private String CLASSIFICACAO_ABDOMINAL;
-    private String VALOR_CLASSIFICACAO_ABDOMINAL;
-
-    private String SALTO;
-    private String CLASSIFICACAO_SALTO;
-    private String VALOR_CLASSIFICACAO_SALTO;
-
-    private String MEDICINIBALL;
-    private String CLASSIFICACAO_MEDICINIBALL;
-    private String VALOR_CLASSIFICACAO_MEDICINIBALL;
-
-    private String VELOCIDADE;
-    private String CLASSIFICACAO_VELOCIDADE;
-    private String VALOR_CLASSIFICACAO_VELOCIDADE;
-
-    private String AGILIDADE;
-    private String CLASSIFICACAO_AGILIDADE;
-    private String VALOR_CLASSIFICACAO_AGILIDADE;
-
-    private String CORRIDA_6_MIN;
-    private String CLASSIFICACAO_6MIN;
-    private String VALOR_CLASSIFICACAO_6MIN;
-    private String CLASSIFICACAO_6MIN_SAUDE;
-    
-    private String VO2_VELOCIDADE_MEDIA_MS;
-    private String VO2_VELOCIDADE_MEDIA_KM;
-    private String VO2_MAX;
-
-
-
-    private String OBS1_CALCADO;
-    private String OBS2_CAFE;
-    private String OBS3_PERCEPCAO;
-    private String OBS4_PERCEPCAO;
-    private String OBS5_PERCEPCAO;
-    private String OBS6_PERCEPCAO;
-    private String OBS7_PERCEPCAO;
-
-  
-
-    //dados tabela 1 e 2 facilitar o comparativo 
-    
-    private String resultadoPeso;
-    private String resultadoPorcentagemPeso;
-    private String indicadoresPeso;
-    
-    private String resultadoAltura;
-    private String resultadoPorcentagemAltura;
-    private String indicadoresAltura;
-    
-    private String resultadoCintura;
-    private String resultadoPorcentagemCintura;
-    private String indicadoresCintura;
-    
-    private String resultadoEnvergadura;
-    private String indicadoresEnvergadura;
-    private String resultadoPorcentagemEnvergadura;
-    
-    private String resultadoFlex;
-    private String indicadoresFlex;
-    private String resultadoPorcentagemFlex;
-    
-    private String resultadoAbdomem;
-    private String indicadoresAbdomem;
-    private String resultadoPorcentagemAbdomem;
-    
-    private String resultadoSalto;
-    private String indicadoresSalto;
-    private String resultadoPorcentagemSalto;
-    
-    private String resultadoMedBall;
-    private String indicadoresMedBall;
-    private String resultadoPorcentagemMedBall;
-    
-    private String resultadoVerlocidade;
-    private String indicadoresVerlocidade;
-    private String resultadoPorcentagemVerlocidade;
-    
-    private String resultadoAgilidade;
-    private String indicadoresAgilidade;
-    private String resultadoPorcentagemAgilidade;
-    
-    private String resultadoCorrida;
-    private String indicadoresCorrida;
-    private String resultadoPorcentagemCorrida;
-    
-    private String resultadoCorrida_6;
-    private String indicadoresCorrida_6;
-    private String resultadoPorcentagemCorrida_6;
-    
-    private String indicadoresCorrida_6_saude;
-    
-    //---tabela 3 --// indicadores RCE
-    
-    private String indicadoresRCESemestre_1;
-    private String indicadoresRCESemestre_2;
-    
-    //---IMC--diferencas IMC atual tabela 3 
-    
-    
-    private String resultadoIMCTab3;
-    private String indicadoresIMCTab3;
-    private String resultadoPorcentagemIMCTab3;
-    //---RCE--diferencas RCE atual tabela 3 
-    
-    
-    private String resultadoRCEab3;
-    private String indicadoresRCETab3;
-    private String resultadoPorcentagemRCEab3;
-
-    
-    private String PESO_COMP_2;
-    private String ALTURA_COMP_2;
-    private String CINTURA_COMP2;
-    private String Valor_Classificacao_RCE_comp_2;
-    private String ENVERGADURA_COMP2;
-    private String FLEXIBILIDADE_COMP2;
-    private String ABDOMINAL_COMP2;
-    private String SALTO_COMPE2;
-    private String MEDICINIBALL_COMP2;
-    private String VELOCIDADE_COMP2;
-    private String AGILIDADE_COMP2;
-    private String CORRIDA_6_MIN_COMP2;
 
     //resultado comp tabela
     /**
@@ -1042,7 +1267,6 @@ public  class Alunos {
         this.resultadoEnvergadura = resultadoEnvergadura;
     }
 
-  
     /**
      * @return the PESO_COMP_2
      */
@@ -1197,7 +1421,6 @@ public  class Alunos {
         this.CORRIDA_6_MIN_COMP2 = CORRIDA_6_MIN_COMP2;
     }
 
-
     /**
      * @return the resultadoPorcentagemPeso
      */
@@ -1304,7 +1527,8 @@ public  class Alunos {
     }
 
     /**
-     * @param resultadoPorcentagemEnvergadura the resultadoPorcentagemEnvergadura to set
+     * @param resultadoPorcentagemEnvergadura the
+     * resultadoPorcentagemEnvergadura to set
      */
     public void setResultadoPorcentagemEnvergadura(String resultadoPorcentagemEnvergadura) {
         this.resultadoPorcentagemEnvergadura = resultadoPorcentagemEnvergadura;
@@ -1514,7 +1738,8 @@ public  class Alunos {
     }
 
     /**
-     * @param resultadoPorcentagemVerlocidade the resultadoPorcentagemVerlocidade to set
+     * @param resultadoPorcentagemVerlocidade the
+     * resultadoPorcentagemVerlocidade to set
      */
     public void setResultadoPorcentagemVerlocidade(String resultadoPorcentagemVerlocidade) {
         this.resultadoPorcentagemVerlocidade = resultadoPorcentagemVerlocidade;
@@ -1556,7 +1781,8 @@ public  class Alunos {
     }
 
     /**
-     * @param resultadoPorcentagemAgilidade the resultadoPorcentagemAgilidade to set
+     * @param resultadoPorcentagemAgilidade the resultadoPorcentagemAgilidade to
+     * set
      */
     public void setResultadoPorcentagemAgilidade(String resultadoPorcentagemAgilidade) {
         this.resultadoPorcentagemAgilidade = resultadoPorcentagemAgilidade;
@@ -1640,7 +1866,8 @@ public  class Alunos {
     }
 
     /**
-     * @param resultadoPorcentagemCorrida_6 the resultadoPorcentagemCorrida_6 to set
+     * @param resultadoPorcentagemCorrida_6 the resultadoPorcentagemCorrida_6 to
+     * set
      */
     public void setResultadoPorcentagemCorrida_6(String resultadoPorcentagemCorrida_6) {
         this.resultadoPorcentagemCorrida_6 = resultadoPorcentagemCorrida_6;
@@ -1826,6 +2053,132 @@ public  class Alunos {
      */
     public void setParticipacaoTestes(String participacaoTestes) {
         this.participacaoTestes = participacaoTestes;
+    }
+
+    /**
+     * @return the resultadoV02Ms
+     */
+    public String getResultadoV02Ms() {
+        return resultadoV02Ms;
+    }
+
+    /**
+     * @param resultadoV02Ms the resultadoV02Ms to set
+     */
+    public void setResultadoV02Ms(String resultadoV02Ms) {
+        this.resultadoV02Ms = resultadoV02Ms;
+    }
+
+    /**
+     * @return the indicadoresV02Ms
+     */
+        public String getIndicadoresV02Ms() {
+        return indicadoresV02Ms;
+    }
+
+    /**
+     * @param indicadoresV02Ms the indicadoresV02Ms to set
+     */
+    public void setIndicadoresV02Ms(String indicadoresV02Ms) {
+        this.indicadoresV02Ms = indicadoresV02Ms;
+    }
+
+    /**
+     * @return the resultadoPorcentagemV02Ms
+     */
+    public String getResultadoPorcentagemV02Ms() {
+        return resultadoPorcentagemV02Ms;
+    }
+
+    /**
+     * @param resultadoPorcentagemV02Ms the resultadoPorcentagemV02Ms to set
+     */
+    public void setResultadoPorcentagemV02Ms(String resultadoPorcentagemV02Ms) {
+        this.resultadoPorcentagemV02Ms = resultadoPorcentagemV02Ms;
+    }
+
+    /**
+     * @return the resultadoV02Km
+     */
+    public String getResultadoV02Km() {
+        return resultadoV02Km;
+    }
+
+    /**
+     * @param resultadoV02Km the resultadoV02Km to set
+     */
+    public void setResultadoV02Km(String resultadoV02Km) {
+        this.resultadoV02Km = resultadoV02Km;
+    }
+
+    /**
+     * @return the indicadoresV02Km
+     */
+    public String getIndicadoresV02Km() {
+        return indicadoresV02Km;
+    }
+
+    /**
+     * @param indicadoresV02Km the indicadoresV02Km to set
+     */
+    public void setIndicadoresV02Km(String indicadoresV02Km) {
+        this.indicadoresV02Km = indicadoresV02Km;
+    }
+
+    /**
+     * @return the resultadoPorcentagemV02Km
+     */
+    public String getResultadoPorcentagemV02Km() {
+        return resultadoPorcentagemV02Km;
+    }
+
+    /**
+     * @param resultadoPorcentagemV02Km the resultadoPorcentagemV02Km to set
+     */
+    public void setResultadoPorcentagemV02Km(String resultadoPorcentagemV02Km) {
+        this.resultadoPorcentagemV02Km = resultadoPorcentagemV02Km;
+    }
+
+    /**
+     * @return the resultadoV02Max
+     */
+    public String getResultadoV02Max() {
+        return resultadoV02Max;
+    }
+
+    /**
+     * @param resultadoV02Max the resultadoV02Max to set
+     */
+    public void setResultadoV02Max(String resultadoV02Max) {
+        this.resultadoV02Max = resultadoV02Max;
+    }
+
+    /**
+     * @return the indicadoresV02Max
+     */
+    public String getIndicadoresV02Max() {
+        return indicadoresV02Max;
+    }
+
+    /**
+     * @param indicadoresV02Max the indicadoresV02Max to set
+     */
+    public void setIndicadoresV02Max(String indicadoresV02Max) {
+        this.indicadoresV02Max = indicadoresV02Max;
+    }
+
+    /**
+     * @return the resultadoPorcentagemV02Max
+     */
+    public String getResultadoPorcentagemV02Max() {
+        return resultadoPorcentagemV02Max;
+    }
+
+    /**
+     * @param resultadoPorcentagemV02Max the resultadoPorcentagemV02Max to set
+     */
+    public void setResultadoPorcentagemV02Max(String resultadoPorcentagemV02Max) {
+        this.resultadoPorcentagemV02Max = resultadoPorcentagemV02Max;
     }
 
 }

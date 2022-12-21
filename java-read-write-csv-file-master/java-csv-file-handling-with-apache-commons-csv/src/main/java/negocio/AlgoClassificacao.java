@@ -16,7 +16,7 @@ public class AlgoClassificacao {
     private double resultadoClassificacaoRCE;
     private double resultadoMedBall;
     private double resultadoCalculoIMC;
-   
+
 //    private final DecimalFormat formato = new DecimalFormat("#.##");
 
     /*
@@ -25,8 +25,7 @@ public class AlgoClassificacao {
     public String tabelaMedBall(int idade, String sexo, double arremeco) {
 
         String resultado = "Não informado";
-        
-        
+
         if (arremeco == 0) {
             resultado = Constantes.AUSENTE;
         } else {
@@ -3691,7 +3690,7 @@ public class AlgoClassificacao {
         *Genero Feminino
              */
             if (sexo.equals(Constantes.FEMININO)) {
-                
+
                 switch (idade) {
                     case 6:
                         if (abdomem < 20) {
@@ -3837,7 +3836,62 @@ public class AlgoClassificacao {
         return classificacao;
     }
 
-    // classificacao 
+    // Vo2
+    public String classificacaoVo2(int idade, String sexo, double vo) {
+
+        if (vo == 0) {
+            return Constantes.AUSENTE;
+        }
+
+        if (idade < 10) {
+            return Constantes.IDADE_FORA_RANGE;
+        }
+
+        return auxClassificacaoVo2(vo, sexo);
+    }
+
+    private String auxClassificacaoVo2(double vo, String sexo) {
+
+        String resultadoClassificacaoVo = Constantes.NAO_AFERIDO;
+
+        if (sexo.equals(Constantes.MASCULINO)) {
+
+            if (vo < 38.7) {
+                resultadoClassificacaoVo = Constantes.MUITO_FRACO;
+            } else if (vo >= 38.7 && vo <= 43.3) {
+                resultadoClassificacaoVo = Constantes.FRACO;
+            } else if (vo >= 43.4 && vo <= 47.9) {
+                resultadoClassificacaoVo = Constantes.REGULAR;
+            } else if (vo >= 48.0 && vo <= 52.2) {
+                resultadoClassificacaoVo = Constantes.BOM;
+            } else if (vo >= 52.3) {
+                resultadoClassificacaoVo = Constantes.EXCELENCA;
+            }
+
+        }
+
+        if (sexo.equals(Constantes.FEMININO)) {
+
+            if (vo < 33.0) {
+                resultadoClassificacaoVo = Constantes.MUITO_FRACO;
+            } else if (vo >= 33.0 && vo <= 36.4) {
+                resultadoClassificacaoVo = Constantes.FRACO;
+            } else if (vo >= 36.5 && vo <= 38.7) {
+                resultadoClassificacaoVo = Constantes.REGULAR;
+            } else if (vo >= 38.8 && vo <= 42.4) {
+                resultadoClassificacaoVo = Constantes.BOM;
+            } else if (vo >= 42.5) {
+                resultadoClassificacaoVo = Constantes.EXCELENCA;
+            }
+
+        }
+
+        return resultadoClassificacaoVo;
+
+    }
+
+//
+// classificacao 
     /**
      * @return the resultadoClassificacaoRCE
      */
