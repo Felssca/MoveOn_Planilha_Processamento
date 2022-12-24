@@ -9,6 +9,7 @@ import beans.Alunos;
 import beans.Constantes;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.List;
 import javax.swing.JOptionPane;
 
@@ -18,11 +19,8 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 //import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;
-import org.apache.poi.ss.usermodel.FillPatternType;
-import org.apache.poi.ss.usermodel.HorizontalAlignment;
 import org.apache.poi.ss.usermodel.IndexedColors;
 import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.VerticalAlignment;
 import org.apache.poi.ss.util.CellRangeAddress;
 import style.TabelaXlsStyle;
 import util.Legendas;
@@ -36,136 +34,152 @@ public class ExportaTabelaExl {
 
     //exporta planilha 01 e 02 isoladamente
     public void exportarExel(List<Alunos> listaAluno, String pathOut) {
-        //Blank workbook
         XSSFWorkbook workbook = new XSSFWorkbook();
 
         TabelaXlsStyle tabelaXlsStyle = new TabelaXlsStyle();
         Legendas legendas = new Legendas();
         Validacoes validacoes = new Validacoes();
 
+        String sinalIndicativo = " ";
+
         //Create a blank sheet
         XSSFSheet sheetAlunos = workbook.createSheet("Alunos");
 
-        //estilo cabeçalho:
-        CellStyle cellStyle = workbook.createCellStyle();
-        sheetAlunos.createFreezePane(9, 2);
+        sheetAlunos.createFreezePane(4, 3);
 
-        int rownum = 1;
         int cellCount = 0;
 
+        //LINHA 0
+        //estilo cabeçalho:
         //linha um cabeçalho
-        Row rowInit = sheetAlunos.createRow(0);
-        Cell cabcabecalho = rowInit.createCell(cellCount);
-        cellStyle.setFillBackgroundColor(IndexedColors.GREY_50_PERCENT.getIndex());
-        cabcabecalho.setCellStyle(cellStyle);
+        Row rowNum = sheetAlunos.createRow(0);
+        Cell cabcabecalho = rowNum.createCell(0);
+
+        cabcabecalho.setCellStyle(tabelaXlsStyle.cellTabelaResultadoIdentificacaoDicente(workbook));
         cabcabecalho.setCellValue(Constantes.CAB_IDENTIFICACAO_DISCENTE);
 
-        Row rowZero = sheetAlunos.createRow(1);
         //linha dois cabeçalho
-        sheetAlunos.addMergedRegion(CellRangeAddress.valueOf("A1:C1"));
-        Cell cab0 = rowZero.createCell(cellCount++);
-        // cellStyle.setRotation((short)90);
-        cab0.setCellStyle(cellStyle);
-        cab0.setCellValue(Constantes.CAB_MATRICULA);
+        sheetAlunos.addMergedRegion(CellRangeAddress.valueOf("A1:BU1"));
 
-//        Cell cab1 = rowZero.createCell(cellCount++);
-//        cab1.setCellValue(Constantes.CAB_NUM);
-        Cell cab2 = rowZero.createCell(cellCount++);
-        cab2.setCellValue(Constantes.CAB_NOME);
+        //AVALIAÇÃO GERAL 
+        // sheetAlunos.addMergedRegion(CellRangeAddress.valueOf("D1:BK"));
+        Short laranja = IndexedColors.ORANGE.getIndex();
+        Short azul = IndexedColors.AQUA.getIndex();
+        Short marfim = IndexedColors.LIGHT_YELLOW.getIndex();
 
-//        Cell cab3 = rowZero.createCell(cellCount++);
-//        cab3.setCellValue(Constantes.CAB_DT_NASCIMENTO);
-        //---------------------------
-        Cell cab6 = rowZero.createCell(cellCount++);
-        cab6.setCellValue(Constantes.CAB_DT_AVALIACAO);
+        //LINHA CABECALHO 2
+        Row rowZero = sheetAlunos.createRow(1);
 
-//        Cell cab7 = rowZero.createCell(cellCount++);
-//        cab7.setCellValue(Constantes.CAB_SERIE);
-//        Cell cab8 = rowZero.createCell(cellCount++);
-//        cab8.setCellValue(Constantes.CAB_TURMA);
-        Cell cab5 = rowZero.createCell(cellCount++);
-        cab5.setCellValue(Constantes.CAB_GENERO);
+        Cell titulo = rowZero.createCell(cellCount++);
+        titulo.setCellStyle(tabelaXlsStyle.cellTabelaResultadoCabecalho02(workbook, Constantes.CAB_MATRICULA));
+        titulo.setCellValue(Constantes.CAB_MATRICULA);
 
-        Cell cab4 = rowZero.createCell(cellCount++);
-        cab4.setCellValue(Constantes.CAB_IDADE);
+        Cell genero = rowZero.createCell(cellCount++);
+        genero.setCellStyle(tabelaXlsStyle.cellTabelaResultadoCabecalho02(workbook, Constantes.CAB_GENERO));
+        genero.setCellValue(Constantes.CAB_GENERO);
 
-        //---------------------------
+        Cell nome = rowZero.createCell(cellCount++);
+        nome.setCellStyle(tabelaXlsStyle.cellTabelaResultadoCabecalho02(workbook, Constantes.CAB_NOME));
+        nome.setCellValue(Constantes.CAB_NOME);
+
+        Cell idade = rowZero.createCell(cellCount++);
+        idade.setCellStyle(tabelaXlsStyle.cellTabelaResultadoCabecalho02(workbook, Constantes.CAB_IDADE));
+        idade.setCellValue(Constantes.CAB_IDADE);
+        //---------------------------------------------------------------------------------------------------
         Cell cab9 = rowZero.createCell(cellCount++);
         cab9.setCellValue(Constantes.CAB_PESO);
+        cab9.setCellStyle(tabelaXlsStyle.cellTabelaResultadoCabecalhoReultado(workbook, azul));
 
         Cell cab10 = rowZero.createCell(cellCount++);
-
         cab10.setCellValue(Constantes.CAB_ALTURA);
+        cab10.setCellStyle(tabelaXlsStyle.cellTabelaResultadoCabecalhoReultado(workbook, laranja));
+
         Cell cab13 = rowZero.createCell(cellCount++);
-
         cab13.setCellValue(Constantes.CAB_CINTURA);
+        cab13.setCellStyle(tabelaXlsStyle.cellTabelaResultadoCabecalhoReultado(workbook, azul));
+
         Cell cab15 = rowZero.createCell(cellCount++);
-
         cab15.setCellValue(Constantes.CAB_ENVERGADURA);
+        cab15.setCellStyle(tabelaXlsStyle.cellTabelaResultadoCabecalhoReultado(workbook, laranja));
+
         Cell cab11 = rowZero.createCell(cellCount++);
-
         cab11.setCellValue(Constantes.CAB_IMC);
+        cab11.setCellStyle(tabelaXlsStyle.cellTabelaResultadoCabecalhoReultado(workbook, azul));
+
         Cell cab12 = rowZero.createCell(cellCount++);
-
         cab12.setCellValue(Constantes.CAB_IMC_POEST);
+        cab12.setCellStyle(tabelaXlsStyle.cellTabelaResultadoCabecalhoReultado(workbook, marfim));
+
         Cell cabRce = rowZero.createCell(cellCount++);
-
         cabRce.setCellValue(Constantes.CAB_RCE_NUMB);
-        Cell cab14 = rowZero.createCell(cellCount++);
+        cabRce.setCellStyle(tabelaXlsStyle.cellTabelaResultadoCabecalhoReultado(workbook, laranja));
 
+        Cell cab14 = rowZero.createCell(cellCount++);
         cab14.setCellValue(Constantes.CAB_RCE);
+        cab14.setCellStyle(tabelaXlsStyle.cellTabelaResultadoCabecalhoReultado(workbook, marfim));
+
         Cell cab16 = rowZero.createCell(cellCount++);
         cab16.setCellValue(Constantes.CAB_FLEXIBILIDADE);
+        cab16.setCellStyle(tabelaXlsStyle.cellTabelaResultadoCabecalhoReultado(workbook, laranja));
+
         Cell cab17 = rowZero.createCell(cellCount++);
         cab17.setCellValue(Constantes.CAB_CLASSIFICACAO_FLEXIBILIDADE);
+        cab17.setCellStyle(tabelaXlsStyle.cellTabelaResultadoCabecalhoReultado(workbook, marfim));
 
         Cell cab18 = rowZero.createCell(cellCount++);
         cab18.setCellValue(Constantes.CAB_ABDOMINAL);
+        cab18.setCellStyle(tabelaXlsStyle.cellTabelaResultadoCabecalhoReultado(workbook, azul));
+
         Cell cab20 = rowZero.createCell(cellCount++);
         cab20.setCellValue(Constantes.CAB_CLASSIFICACAO_ABDOMINAL);
+        cab20.setCellStyle(tabelaXlsStyle.cellTabelaResultadoCabecalhoReultado(workbook, marfim));
 
         Cell cab29ValorSaude = rowZero.createCell(cellCount++);
         cab29ValorSaude.setCellValue(Constantes.CAB_CLASSIFICACAO_6MIN_SAUDE);
+        cab29ValorSaude.setCellStyle(tabelaXlsStyle.cellTabelaResultadoCabecalhoReultado(workbook, laranja));
+
         Cell cab31 = rowZero.createCell(cellCount++);
         cab31.setCellValue(Constantes.CAB_CLASS_CLASSIFICACAO_6MIN_SAUDE);
+        cab31.setCellStyle(tabelaXlsStyle.cellTabelaResultadoCabecalhoReultado(workbook, marfim));
 
         Cell cab29 = rowZero.createCell(cellCount++);
         cab29.setCellValue(Constantes.CAB_CORRIDA_6_MIN_DESEMPENHO_ESPORTIVO);
+        cab29.setCellStyle(tabelaXlsStyle.cellTabelaResultadoCabecalhoReultado(workbook, laranja));
+
         Cell cab30 = rowZero.createCell(cellCount++);
         cab30.setCellValue(Constantes.CAB_CORRIDA_CLASSIFICACAO_6_MIN_DESEMPENHO_ESPORTIVO);
+        cab30.setCellStyle(tabelaXlsStyle.cellTabelaResultadoCabecalhoReultado(workbook, marfim));
 
         Cell cab21 = rowZero.createCell(cellCount++);
         cab21.setCellValue(Constantes.CAB_SALTO);
+        cab21.setCellStyle(tabelaXlsStyle.cellTabelaResultadoCabecalhoReultado(workbook, azul));
         Cell cab22 = rowZero.createCell(cellCount++);
         cab22.setCellValue(Constantes.CAB_CLASSIFICACAO_SALTO_HORIZONTAL);
+        cab22.setCellStyle(tabelaXlsStyle.cellTabelaResultadoCabecalhoReultado(workbook, marfim));
+
         Cell cab23 = rowZero.createCell(cellCount++);
         cab23.setCellValue(Constantes.CAB_MEDICINIBALL);
+        cab23.setCellStyle(tabelaXlsStyle.cellTabelaResultadoCabecalhoReultado(workbook, laranja));
         Cell cab24 = rowZero.createCell(cellCount++);
         cab24.setCellValue(Constantes.CAB_CLASSIFICACAO_MEDICINIBALL);
+        cab24.setCellStyle(tabelaXlsStyle.cellTabelaResultadoCabecalhoReultado(workbook, marfim));
+
         Cell cab25 = rowZero.createCell(cellCount++);
         cab25.setCellValue(Constantes.CAB_VELOCIDADE);
+        cab25.setCellStyle(tabelaXlsStyle.cellTabelaResultadoCabecalhoReultado(workbook, azul));
         Cell cab26 = rowZero.createCell(cellCount++);
         cab26.setCellValue(Constantes.CAB_CLASSIFICACAO_VELOCIDADE);
+        cab26.setCellStyle(tabelaXlsStyle.cellTabelaResultadoCabecalhoReultado(workbook, marfim));
+
         Cell cab27 = rowZero.createCell(cellCount++);
         cab27.setCellValue(Constantes.CAB_AGILIDADE_1);
+        cab27.setCellStyle(tabelaXlsStyle.cellTabelaResultadoCabecalhoReultado(workbook, laranja));
+        
         Cell cab28 = rowZero.createCell(cellCount++);
         cab28.setCellValue(Constantes.CAB_CLASSIFICACAO_AGILIDADE);
+        cab28.setCellStyle(tabelaXlsStyle.cellTabelaResultadoCabecalhoReultado(workbook, marfim));
 
-        Cell caboBSSAP = rowZero.createCell(cellCount++);
-        caboBSSAP.setCellValue(Constantes.SAPATO_OBS);
-        Cell caboFeed = rowZero.createCell(cellCount++);
-        caboFeed.setCellValue(Constantes.ALIMENTACAO_OBS);
-        Cell cabCorrida = rowZero.createCell(cellCount++);
-        cabCorrida.setCellValue(Constantes.PERCEPCAO_DE_ESFORCO_OBS_1);
-        Cell cabCorrida1 = rowZero.createCell(cellCount++);
-        cabCorrida1.setCellValue(Constantes.PERCEPCAO_DE_ESFORCO_OBS_2);
-        Cell cabCorrida2 = rowZero.createCell(cellCount++);
-        cabCorrida2.setCellValue(Constantes.PERCEPCAO_DE_ESFORCO_OBS_3);
-        Cell cabCorrida3 = rowZero.createCell(cellCount++);
-        cabCorrida3.setCellValue(Constantes.PERCEPCAO_DE_ESFORCO_OBS_4);
-        Cell cabCorrida4 = rowZero.createCell(cellCount++);
-        cabCorrida4.setCellValue(Constantes.PERCEPCAO_DE_ESFORCO_OBS_5);
-
+        int rownum = 2;
         for (Alunos alunos : listaAluno) {
 
             Row row = sheetAlunos.createRow(rownum++);
@@ -175,28 +189,13 @@ public class ExportaTabelaExl {
             cellMat.setCellValue(alunos.getMatricula());
 
             Cell cellNumOrdem = row.createCell(cellnum++);
-            cellNumOrdem.setCellValue(alunos.getNumeroOrdem());
+            cellNumOrdem.setCellValue(alunos.getGenero());
 
             Cell cellNome = row.createCell(cellnum++);
             cellNome.setCellValue(alunos.getNome());
 
             Cell cellDtNacimento = row.createCell(cellnum++);
-            cellDtNacimento.setCellValue(alunos.getDtNascimento());
-
-            Cell cellDataAvaliacao = row.createCell(cellnum++);
-            cellDataAvaliacao.setCellValue(alunos.getDtAvaliacao());
-
-            Cell cellSerie = row.createCell(cellnum++);
-            cellSerie.setCellValue(alunos.getSERIE());
-
-            Cell cellTurma = row.createCell(cellnum++);
-            cellTurma.setCellValue(alunos.getTURMA());
-
-            Cell cellGenero = row.createCell(cellnum++);
-            cellGenero.setCellValue(legendas.converteLegendas(alunos.getGenero(), 5));
-
-            Cell cellDtIdade = row.createCell(cellnum++);
-            cellDtIdade.setCellValue(alunos.getIdade());
+            cellDtNacimento.setCellValue(alunos.getIdade());
 
             Cell cellPeso = row.createCell(cellnum++);
             cellPeso.setCellValue(alunos.getPESO());
@@ -276,69 +275,24 @@ public class ExportaTabelaExl {
             cellAgilidadeClass.setCellValue(alunos.getCLASSIFICACAO_AGILIDADE());
             cellAgilidadeClass.setCellStyle(tabelaXlsStyle.cellDesempenhoFraco(workbook, alunos.getCLASSIFICACAO_AGILIDADE()));
 
-            Cell Obs1 = row.createCell(cellnum++);
-            Obs1.setCellValue(alunos.getOBS1_CALCADO());
-
-            Cell Obs2 = row.createCell(cellnum++);
-            Obs2.setCellValue(alunos.getOBS2_CAFE());
-
-            Cell Obs3 = row.createCell(cellnum++);
-            Obs3.setCellValue(alunos.getOBS3_PERCEPCAO());
-            Cell Obs4 = row.createCell(cellnum++);
-            Obs4.setCellValue(alunos.getOBS4_PERCEPCAO());
-            Cell Obs5 = row.createCell(cellnum++);
-            Obs5.setCellValue(alunos.getOBS5_PERCEPCAO());
-            Cell Obs6 = row.createCell(cellnum++);
-            Obs6.setCellValue(alunos.getOBS6_PERCEPCAO());
-            Cell Obs7 = row.createCell(cellnum++);
-            Obs7.setCellValue(alunos.getOBS7_PERCEPCAO());
-
         }
 
-        //This data needs to be written (Object[])
-        /*
-		Map<String, Object[]> data = new TreeMap<String, Object[]>();
-		data.put("1", new Object[] {"ID", "NAME", "LASTNAME"});
-		data.put("2", new Object[] {1, "Amit", "Shukla"});
-		data.put("3", new Object[] {2, "Lokesh", "Gupta"});
-		data.put("4", new Object[] {3, "John", "Adwards"});
-		data.put("5", new Object[] {4, "Brian", "Schultz"});
-		 
-		//Iterate over data and write to sheet
-		Set<String> keyset = data.keySet();
-		int rownum = 0;
-		for (String key : keyset)
-		{
-		    Row row = sheet.createRow(rownum++);
-		    Object [] objArr = data.get(key);
-		    int cellnum = 0;
-		    for (Object obj : objArr)
-		    {
-		       Cell cell = (Cell) row.createCell(cellnum++);
-		       if(obj instanceof String)
-                    
-		            cell.((String)obj);
-		        else if(obj instanceof Integer)
-		            cell.setCellValue((Integer)obj);
-		    }
-		}*/
         try {
             //Write the workbook in file system
             for (int i = 0; i < 41; i++) {
                 sheetAlunos.autoSizeColumn(i);
             }
 
-            FileOutputStream out = new FileOutputStream(new File(pathOut));
-            workbook.write(out);
-            out.close();
+            try ( FileOutputStream out = new FileOutputStream(new File(pathOut))) {
+                workbook.write(out);
+            }
 
             System.out.println("Planilha Criada Com Sucesso!!");
 
-        } catch (Exception e) {
-
+        } catch (IOException e) {
             JOptionPane.showMessageDialog(JOptionPane.getRootFrame(),
                     e.getMessage(),
-                    "Erro ao criar a planilha! Verifique se o local de exportação está marcado!",
+                    "Erro ao criar a planilha!",
                     JOptionPane.ERROR_MESSAGE);
 
         }
@@ -365,14 +319,11 @@ public class ExportaTabelaExl {
 
         //LINHA 0
         //estilo cabeçalho:
-        CellStyle cellStyle = workbook.createCellStyle();
         //linha um cabeçalho
         Row rowInit = sheetAlunos.createRow(0);
         Cell cabcabecalho = rowInit.createCell(0);
 
-        cellStyle.setFillForegroundColor(IndexedColors.LIGHT_TURQUOISE1.getIndex());
-        cellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
-        cabcabecalho.setCellStyle(cellStyle);
+        cabcabecalho.setCellStyle(tabelaXlsStyle.cellTabelaResultadoIdentificacaoDicente(workbook));
         cabcabecalho.setCellValue(Constantes.CAB_IDENTIFICACAO_DISCENTE);
 
         //linha dois cabeçalho
@@ -383,8 +334,6 @@ public class ExportaTabelaExl {
         Short laranja = IndexedColors.ORANGE.getIndex();
         Short azul = IndexedColors.AQUA.getIndex();
         Short marfim = IndexedColors.LIGHT_YELLOW.getIndex();
-
-
 
         //LINHA CABECALHO 2
         Row rowZero = sheetAlunos.createRow(1);
@@ -1186,7 +1135,7 @@ public class ExportaTabelaExl {
             System.out.println("Planilha Criada Com Sucesso!!");
 
         } catch (Exception e) {
-            System.out.println("Erro ao gerar a  planilha final motivo: " + e.getMessage());
+            System.out.println("Erro ao gerar a  planilha FINAL RESULTANTE, motivo: " + e.getMessage());
         }
     }
 }
