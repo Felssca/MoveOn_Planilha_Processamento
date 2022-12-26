@@ -10,7 +10,7 @@ import beans.Alunos;
 import java.io.IOException;
 import java.util.List;
 import negocio.AlgoClassificacao;
-import util.Legendas;       
+import util.Legendas;
 import util.Validacoes;
 
 /**
@@ -48,13 +48,13 @@ public class IniciarProcesso {
 
             if (validacoes.isMatricula(listaAluno.getMatricula())) {
 
-               idade = validacoes.calcularIdadeAtual(listaAluno.getDtNascimento(),listaAluno.getDtAvaliacao());
+                idade = validacoes.calcularIdadeAtual(listaAluno.getDtNascimento(), listaAluno.getDtAvaliacao());
                 altura = validacoes.transformarCampoDouble(listaAluno.getALTURA());
                 peso = validacoes.transformarCampoDouble(listaAluno.getPESO());
                 cintura = validacoes.transformarCampoDouble(listaAluno.getCINTURA());
                 flexibilidade = validacoes.transformarCampoDouble(listaAluno.getFLEXIBILIDADE());
                 arremeco = validacoes.transformarCampoDouble(listaAluno.getMEDICINIBALL());
-                
+
                 listaAluno.setIdade(Integer.toString(idade));
 
                 //classificacao por tabela: 
@@ -101,18 +101,20 @@ public class IniciarProcesso {
                 listaAluno.setCLASSIFICACAO_6MIN(classCorrida);
                 String classCorridaSaude = algoClassificacao.tabelaCorridaResistencia6MinSaude(idade, genero, corrida);
                 listaAluno.setCLASSIFICACAO_6MIN_SAUDE(classCorridaSaude);
-                //---------------------------
-                
 
-                Legendas legendas = new Legendas();
+                //---------------------------
+                double vo2Max = validacoes.transformarCampoDouble(listaAluno.getVO2_MAX());
+                String classVo2max = algoClassificacao.classificacaoVo2(idade, genero, vo2Max);
+                listaAluno.setCLASSFICACAO_VO2_MAX(classVo2max);
+                //--------------------------
 
                 System.out.println("-------------------------(" + listaAluno.getNumeroOrdem() + ")----------------------------");
                 System.out.println("Name : " + listaAluno.getNome());
                 System.out.println("Mat : " + listaAluno.getMatricula());
-                System.out.println("Numero : " + listaAluno.getNumeroOrdem());
+                System.out.println("Número : " + listaAluno.getNumeroOrdem());
                 System.out.println("Nascimento : " + listaAluno.getDtNascimento());
                 System.out.println("Idade : " + listaAluno.getIdade());
-                System.out.println("Genero : " + legendas.converteLegendas(listaAluno.getGenero(), 5));
+                System.out.println("Gênero : " + listaAluno.getGenero());
                 System.out.println("Peso : " + listaAluno.getPESO() + "KG");
                 System.out.println("Altura : " + listaAluno.getALTURA() + "CM");
                 System.out.println("Cintura : " + listaAluno.getCINTURA() + "CM");
@@ -143,6 +145,11 @@ public class IniciarProcesso {
 
                 System.out.println("Corrida ¨6 Min : " + listaAluno.getCORRIDA_6_MIN());
                 System.out.println("Classificacao 6 Min : " + listaAluno.getCLASSIFICACAO_6MIN());
+
+                System.out.println("VO2 MAX : " + listaAluno.getVO2_MAX());
+                System.out.println("Classificacao 6 Min : " + listaAluno.getCLASSFICACAO_VO2_MAX());
+
+                System.out.println("Próximo-Aluno----------->>");
 
             }
 

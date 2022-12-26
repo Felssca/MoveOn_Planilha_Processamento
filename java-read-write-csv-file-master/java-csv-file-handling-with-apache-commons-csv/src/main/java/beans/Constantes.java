@@ -140,15 +140,19 @@ public class Constantes {
     public static final String CAB_ALTURA_1 = "ALTURA 1";
     public static final String CAB_ALTURA_2 = "ALTURA 2";
     public static final String CAB_IMC = "IMC";
+    public static final String CAB_IMC_1 = "IMC 1";
+    public static final String CAB_IMC_2 = "IMC 2";
     public static final String CAB_IMC_POEST = "Classificação IMC POEST";
     public static final String CAB_CINTURA = "CINTURA";
     public static final String CAB_CINTURA_1 = "CINTURA 1";
     public static final String CAB_CINTURA_2 = "CINTURA 2";
     public static final String CAB_RCE_NUMB = "RCE";
+    public static final String CAB_RCE_NUMB_1 = "RCE 1";
+    public static final String CAB_RCE_NUMB_2 = "RCE 2";
     public static final String CAB_RCE = "CLASSIFICAÇÃO RCE";
-    public static final String CAB_ENVERGADURA = "ENVERGADURA 1";
-    public static final String CAB_ENVERGADURA_1 = "ENVERGADURA 2";
-    public static final String CAB_ENVERGADURA_2 = "ENVERGADURA";
+    public static final String CAB_ENVERGADURA = "ENVERGADURA";
+    public static final String CAB_ENVERGADURA_1 = "ENVERGADURA 1";
+    public static final String CAB_ENVERGADURA_2 = "ENVERGADURA 2";
     public static final String CAB_FLEXIBILIDADE_1 = "FLEXIBILIDADE 1 ";
     public static final String CAB_FLEXIBILIDADE_2 = "FLEXIBILIDADE 2";
     public static final String CAB_FLEXIBILIDADE = "FLEXIBILIDADE";
@@ -167,6 +171,7 @@ public class Constantes {
     public static final String CAB_VOMAX_KM_2 = "VO2 MÁXIMO 2 (Km/h)";
     public static final String CAB_VOMAX_01 = "VO2 MÁXIMO 1";
     public static final String CAB_VOMAX_02 = "VO2 MÁXIMO 2";
+    public static final String CAB_VOMAX = "VO2 MÁXIMO";
     public static final String CAB_VOMAX_DESEMPENHO = "VO2 MÁXIMO DESEMPENHO";
     public static final String CAB_VOMAX_DESEMPENHO_MEDIA = "VO2 MÁXIMO MÉDIO";
     
@@ -195,6 +200,7 @@ public class Constantes {
     public static final String CAB_VELOCIDADE = "VELOCIDADE";
     public static final String CAB_CLASSIFICACAO_VELOCIDADE = "CLASSIFICAÇÃO VELOCIDADE";
     public static final String CAB_AGILIDADE_1 = "AGILIDADE 1";
+    public static final String CAB_AGILIDADE = "AGILIDADE";
     public static final String CAB_AGILIDADE_2 = "AGILIDADE 2";
     public static final String CAB_CLASSIFICACAO_AGILIDADE = "CLASSIFICAÇÃO AGILIDADE";
     public static final String CAB_CORRIDA_6_MIN = "CORRIDA 6 MIN";
@@ -204,6 +210,7 @@ public class Constantes {
     public static final String CAB_CLASSIFICACAO_6MIN = "CLASSIFICAÇÃO 6MIN";
     public static final String CAB_CLASSIFICACAO_6MIN_SAUDE = " CORRIDA 6 MINUTOS VS SAÚDE ";
     public static final String CAB_CLASS_CLASSIFICACAO_6MIN_SAUDE = " CLASSIFICAÇÃO CORRIDA 6 MINUTOS VS SAÚDE ";
+    public static final String CAB_CLASS_CLASSIFICACAO_VO2_MAX = " CLASSIFICAÇÃO VO2 MAX ";
 
     //Enunciados exportacao 
     public static final String CAB_RESULTADO = "RESULTADO";

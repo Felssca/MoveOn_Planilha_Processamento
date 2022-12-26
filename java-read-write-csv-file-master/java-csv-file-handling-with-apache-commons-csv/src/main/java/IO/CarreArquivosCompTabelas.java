@@ -65,14 +65,14 @@ public class CarreArquivosCompTabelas {
     private void exportarTabelasXlsx(List<Alunos> resultadoAlunos, String pathOut) {
 
         ExportaTabelaExl exportaTabelaExl = new ExportaTabelaExl();
-        exportaTabelaExl.exportarExel(resultadoAlunos, pathOut);
+        exportaTabelaExl.exportarPlanilhaSemestresExel(resultadoAlunos, pathOut);
 
     }
 
     private void exportarTabelasXlsxResultado(List<Alunos> resultadoAlunos, String pathOut) {
 
         ExportaTabelaExl exportaTabelaExl = new ExportaTabelaExl();
-        exportaTabelaExl.exportarExelComparacaoSemestres(resultadoAlunos, pathOut);
+        exportaTabelaExl.exportarComparacaoSemestresExcel(resultadoAlunos, pathOut);
 
     }
 
