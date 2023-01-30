@@ -22,6 +22,7 @@ public class PlanilhasSemestresCabecalho {
     public void planilhaSemestreMontaCabecalho(XSSFWorkbook workbook,XSSFSheet sheetAlunos, TabelaXlsStyle tabelaXlsStyle) {
         
         sheetAlunos.createFreezePane(4, 3);
+        
 
         int cellCount = 0;
 
@@ -61,7 +62,8 @@ public class PlanilhasSemestresCabecalho {
         Cell idade = rowZero.createCell(cellCount++);
         idade.setCellStyle(tabelaXlsStyle.cellTabelaResultadoCabecalho02(workbook, Constantes.CAB_IDADE));
         idade.setCellValue(Constantes.CAB_IDADE);
-        //---------------------------------------------------------------------------------------------------
+        
+        
         Cell cab9 = rowZero.createCell(cellCount++);
         cab9.setCellValue(Constantes.CAB_PESO);
         cab9.setCellStyle(tabelaXlsStyle.cellTabelaResultadoCabecalhoReultado(workbook, azul));

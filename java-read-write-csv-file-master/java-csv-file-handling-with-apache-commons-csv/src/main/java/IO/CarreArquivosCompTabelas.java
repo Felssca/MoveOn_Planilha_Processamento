@@ -18,7 +18,6 @@ import processo.IniciarProcesso;
  */
 public class CarreArquivosCompTabelas {
 
-
     private List<Alunos> listaAlunosSem1;
     private List<Alunos> listaAlunosSem2;
     private List<Alunos> listaAlunosResult;
@@ -56,8 +55,10 @@ public class CarreArquivosCompTabelas {
 
     public void processarResultadosTabelasTres() {
         
+
+        
         AlgoGeracaoResultado geracaoResultado = new AlgoGeracaoResultado();
-        listaAlunosResult = geracaoResultado.processarResultadosTabelasTres(listaAlunosSem1,listaAlunosSem2);
+        listaAlunosResult = geracaoResultado.processarResultadosTabelasTres(listaAlunosSem1, listaAlunosSem2);
         exportarTabelasXlsxResultado(listaAlunosResult, getOUTPUTplanilha03());
 
     }

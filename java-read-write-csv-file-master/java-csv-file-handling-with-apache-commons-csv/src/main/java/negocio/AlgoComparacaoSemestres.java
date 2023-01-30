@@ -105,11 +105,11 @@ public class AlgoComparacaoSemestres {
                 break;
             case Constantes.TIPO_ETIQUETA_MODALIDADES_AGILIDADE:
                 if (indicador == Constantes.TIPO_ETIQUETA_NEGATIVO) {
-                    etiquetaIndicador = Constantes.ZONA_CLASSIFICA플O_AGILIDADE_DIMINUICAO;
+                    etiquetaIndicador = Constantes.ZONA_CLASSIFICACAO_AGILIDADE_DIMINUICAO;
                 } else if (indicador == Constantes.TIPO_ETIQUETA_POSITIVO) {
-                    etiquetaIndicador = Constantes.ZONA_CLASSIFICA플O_AGILIDADE_AUMENTO;
+                    etiquetaIndicador = Constantes.ZONA_CLASSIFICACAO_AGILIDADE_AUMENTO;
                 } else {
-                    etiquetaIndicador = Constantes.ZONA_CLASSIFICA플O_AGILIDADE_ESTAVEL;
+                    etiquetaIndicador = Constantes.ZONA_CLASSIFICACAO_AGILIDADE_ESTAVEL;
                 }
 
                 break;
@@ -135,11 +135,11 @@ public class AlgoComparacaoSemestres {
                 break;
             case Constantes.TIPO_ETIQUETA_MODALIDADES_FLEXIBILIDADE:
                 if (indicador == Constantes.TIPO_ETIQUETA_NEGATIVO) {
-                    etiquetaIndicador = Constantes.ZONA_CLASSIFICA플O_FLEXIBILIDADE_DIMINUICAO;
+                    etiquetaIndicador = Constantes.ZONA_CLASSIFICACAO_FLEXIBILIDADE_DIMINUICAO;
                 } else if (indicador == Constantes.TIPO_ETIQUETA_POSITIVO) {
-                    etiquetaIndicador = Constantes.ZONA_CLASSIFICA플O_FLEXIBILIDADE_AUMENTO;
+                    etiquetaIndicador = Constantes.ZONA_CLASSIFICACAO_FLEXIBILIDADE_AUMENTO;
                 } else {
-                    etiquetaIndicador = Constantes.ZONA_CLASSIFICA플O_FLEXIBILIDADE_ESTAVEL;
+                    etiquetaIndicador = Constantes.ZONA_CLASSIFICACAO_FLEXIBILIDADE_ESTAVEL;
                 }
 
                 break;
@@ -155,71 +155,71 @@ public class AlgoComparacaoSemestres {
                 break;
             case Constantes.TIPO_ETIQUETA_MODALIDADES_MEDBALL:
                 if (indicador == Constantes.TIPO_ETIQUETA_NEGATIVO) {
-                    etiquetaIndicador = Constantes.ZONA_CLASSIFICA플O_MEDBALL_DIMINUICAO;
+                    etiquetaIndicador = Constantes.ZONA_CLASSIFICACAO_MEDBALL_DIMINUICAO;
                 } else if (indicador == Constantes.TIPO_ETIQUETA_POSITIVO) {
-                    etiquetaIndicador = Constantes.ZONA_CLASSIFICA플O_MEDBALL_AUMENTO;
+                    etiquetaIndicador = Constantes.ZONA_CLASSIFICACAO_MEDBALL_AUMENTO;
                 } else {
-                    etiquetaIndicador = Constantes.ZONA_CLASSIFICA플O_MEDBALL_ESTAVEL;
+                    etiquetaIndicador = Constantes.ZONA_CLASSIFICACAO_MEDBALL_ESTAVEL;
                 }
 
                 break;
             case Constantes.TIPO_ETIQUETA_MODALIDADES_SALTO:
                 if (indicador == Constantes.TIPO_ETIQUETA_NEGATIVO) {
-                    etiquetaIndicador = Constantes.ZONA_CLASSIFICA플O_SALTO_DIMINUICAO;
+                    etiquetaIndicador = Constantes.ZONA_CLASSIFICACAO_SALTO_DIMINUICAO;
                 } else if (indicador == Constantes.TIPO_ETIQUETA_POSITIVO) {
-                    etiquetaIndicador = Constantes.ZONA_CLASSIFICA플O_SALTO_AUMENTO;
+                    etiquetaIndicador = Constantes.ZONA_CLASSIFICACAO_SALTO_AUMENTO;
                 } else {
-                    etiquetaIndicador = Constantes.ZONA_CLASSIFICA플O_SALTO_ESTAVEL;
+                    etiquetaIndicador = Constantes.ZONA_CLASSIFICACAO_SALTO_ESTAVEL;
                 }
 
                 break;
             case Constantes.TIPO_ETIQUETA_MODALIDADES_VELOCIDADE:
                 if (indicador == Constantes.TIPO_ETIQUETA_NEGATIVO) {
-                    etiquetaIndicador = Constantes.ZONA_CLASSIFICA플O_VELOCIDADE_DIMINUICAO;
+                    etiquetaIndicador = Constantes.ZONA_CLASSIFICACAO_VELOCIDADE_DIMINUICAO;
                 } else if (indicador == Constantes.TIPO_ETIQUETA_POSITIVO) {
-                    etiquetaIndicador = Constantes.ZONA_CLASSIFICA플O_VELOCIDADE_AUMENTO;
+                    etiquetaIndicador = Constantes.ZONA_CLASSIFICACAO_VELOCIDADE_AUMENTO;
                 } else {
-                    etiquetaIndicador = Constantes.ZONA_CLASSIFICA플O_VELOCIDADE_ESTAVEL;
+                    etiquetaIndicador = Constantes.ZONA_CLASSIFICACAO_VELOCIDADE_ESTAVEL;
                 }
 
                 break;
             case Constantes.TIPO_ETIQUETA_MODALIDADES_CORRIDA6:
                 if (indicador == Constantes.TIPO_ETIQUETA_NEGATIVO) {
-                    etiquetaIndicador = Constantes.ZONA_CLASSIFICA플O_CORRIDA6_DIMINUICAO;
+                    etiquetaIndicador = Constantes.ZONA_CLASSIFICACAO_CORRIDA6_DIMINUICAO;
                 } else if (indicador == Constantes.TIPO_ETIQUETA_POSITIVO) {
-                    etiquetaIndicador = Constantes.ZONA_CLASSIFICA플O_CORRIDA6_AUMENTO;
+                    etiquetaIndicador = Constantes.ZONA_CLASSIFICACAO_CORRIDA6_AUMENTO;
                 } else {
-                    etiquetaIndicador = Constantes.ZONA_CLASSIFICA플O_CORRIDA6_ESTAVEL;
+                    etiquetaIndicador = Constantes.ZONA_CLASSIFICACAO_CORRIDA6_ESTAVEL;
                 }
 
                 break;
             case Constantes.TIPO_ETIQUETA_MODALIDADES_CORRIDA6_SAUDE:
                 if (indicador == Constantes.TIPO_ETIQUETA_NEGATIVO) {
-                    etiquetaIndicador = Constantes.ZONA_CLASSIFICA플O_CORRIDA6_SAUDE_DIMINUICAO;
+                    etiquetaIndicador = Constantes.ZONA_CLASSIFICACAO_CORRIDA6_SAUDE_DIMINUICAO;
                 } else if (indicador == Constantes.TIPO_ETIQUETA_POSITIVO) {
-                    etiquetaIndicador = Constantes.ZONA_CLASSIFICA플O_CORRIDA6_SAUDE_AUMENTO;
+                    etiquetaIndicador = Constantes.ZONA_CLASSIFICACAO_CORRIDA6_SAUDE_AUMENTO;
                 } else {
-                    etiquetaIndicador = Constantes.ZONA_CLASSIFICA플O_CORRIDA6_SAUDE_ESTAVEL;
+                    etiquetaIndicador = Constantes.ZONA_CLASSIFICACAO_CORRIDA6_SAUDE_ESTAVEL;
                 }
 
                 break;
             case Constantes.TIPO_ETIQUETA_MODALIDADES_IMC:
                 if (indicador == Constantes.TIPO_ETIQUETA_NEGATIVO) {
-                    etiquetaIndicador = Constantes.ZONA_CLASSIFICA플O_CORRIDA6_SAUDE_DIMINUICAO;
+                    etiquetaIndicador = Constantes.ZONA_CLASSIFICACAO_CORRIDA6_SAUDE_DIMINUICAO;
                 } else if (indicador == Constantes.TIPO_ETIQUETA_POSITIVO) {
-                    etiquetaIndicador = Constantes.ZONA_CLASSIFICA플O_CORRIDA6_SAUDE_AUMENTO;
+                    etiquetaIndicador = Constantes.ZONA_CLASSIFICACAO_CORRIDA6_SAUDE_AUMENTO;
                 } else {
-                    etiquetaIndicador = Constantes.ZONA_CLASSIFICA플O_CORRIDA6_SAUDE_ESTAVEL;
+                    etiquetaIndicador = Constantes.ZONA_CLASSIFICACAO_CORRIDA6_SAUDE_ESTAVEL;
                 }
 
                 break;
             case Constantes.TIPO_ETIQUETA_MODALIDADES_RCE:
                 if (indicador == Constantes.TIPO_ETIQUETA_NEGATIVO) {
-                    etiquetaIndicador = Constantes.ZONA_CLASSIFICA플O_RCE_DIMINUICAO;
+                    etiquetaIndicador = Constantes.ZONA_CLASSIFICACAO_RCE_DIMINUICAO;
                 } else if (indicador == Constantes.TIPO_ETIQUETA_POSITIVO) {
-                    etiquetaIndicador = Constantes.ZONA_CLASSIFICA플O_RCE_AUMENTO;
+                    etiquetaIndicador = Constantes.ZONA_CLASSIFICACAO_RCE_AUMENTO;
                 } else {
-                    etiquetaIndicador = Constantes.ZONA_CLASSIFICA플O_RCE_ESTAVEL;
+                    etiquetaIndicador = Constantes.ZONA_CLASSIFICACAO_RCE_ESTAVEL;
                 }
 
                 break;

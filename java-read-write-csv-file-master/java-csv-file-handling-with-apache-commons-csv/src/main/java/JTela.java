@@ -6,6 +6,8 @@
 
 import IO.CarreArquivosCompTabelas;
 import exceptions.NegocioException;
+import java.time.Duration;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -30,15 +32,15 @@ public class JTela extends javax.swing.JFrame {
 
     String INPUT_caminhoArquivoNumero_01;
     String OUTPUT_caminhoPlanilha01;
-    String fileNamePlanilha_01;
+    String fileNamePlanilha_01 = "AVALIAÇÃO DE APTDÃO FÍSICA GERAL 01";
     final int planilha01 = 01;
 
     String INPUT_caminhoArquivoNumero_02;
     String OUTPUT_caminhoPlanilha02;
-    String fileNamePlanilha_02;
+    String fileNamePlanilha_02 = "AVALIAÇÃO DE APTDÃO FÍSICA GERAL 02";
     final int planilha02 = 03;
 
-    String fileNamePlanilha_03;
+    String fileNamePlanilha_03 = "COMPARAÇÃO APTIDÃO FÍSICA GERAL 1 VS 2";
     String OUTPUT_planilha03;
 
     String logSistema = "";
@@ -48,12 +50,10 @@ public class JTela extends javax.swing.JFrame {
     CarreArquivosCompTabelas arquivosCompTabelas;
 
     public JTela() {
-
-//        ImageIcon icon = new ImageIcon("ts.png");
-//        setIconImage(icon.getImage());
         initComponents();
         arquivosCompTabelas = new CarreArquivosCompTabelas();
         limparLog();
+        
     }
 
     public void acrescentarLogSistema(String log) {
@@ -86,15 +86,12 @@ public class JTela extends javax.swing.JFrame {
         if (aproved == JFileChooser.APPROVE_OPTION) {
 
             if (planilha == 1) {
-
                 INPUT_caminhoArquivoNumero_01 = fileDialog.getSelectedFile().toString();
-                fileNamePlanilha_01 = fileDialog.getSelectedFile().getName();
                 jTexField.setText(INPUT_caminhoArquivoNumero_01);
                 acrescentarLogSistema(INPUT_caminhoArquivoNumero_01);
-                
+
             } else {
                 INPUT_caminhoArquivoNumero_02 = fileDialog.getSelectedFile().toString();
-                fileNamePlanilha_02 = fileDialog.getSelectedFile().getName();
                 jTexField.setText(INPUT_caminhoArquivoNumero_02);
                 acrescentarLogSistema(INPUT_caminhoArquivoNumero_02);
 
@@ -130,7 +127,7 @@ public class JTela extends javax.swing.JFrame {
         }
     }
 
-    private void processarArquivo() throws NegocioException {
+    private boolean processarArquivo() throws NegocioException, InterruptedException, NegocioException {
 
         CarreArquivosCompTabelas arquivosCompTabelas = new CarreArquivosCompTabelas();
         List<String> paths = new ArrayList<>();
@@ -143,61 +140,97 @@ public class JTela extends javax.swing.JFrame {
 
         if (preCheckagem(paths, 1) == false) {
             painelAviso("Os caminhos das planilhas estão incorretos, favor selecionar um arquivo válido", "Caminhos inválidos");
+            return false;
         } else if (preCheckagem(pathsOut, 2) == false) {
             painelAviso("A pasta de saida esta incorreta, selecione um caminho válido", "Caminho Saída");
+            return false;
         } else {
-
-            arquivosCompTabelas.setINPUTcaminhoPlanilha01(INPUT_caminhoArquivoNumero_01);
-            arquivosCompTabelas.setOUTPUTcaminhoPlanilha01(OUTPUT_caminhoPlanilha01 + "//" + "PROCESSADO_" + fileNamePlanilha_01);
-
-            arquivosCompTabelas.setINPUTcaminhoPlanilha02(INPUT_caminhoArquivoNumero_02);
-            arquivosCompTabelas.setOUTPUTcaminhoPlanilha02(OUTPUT_caminhoPlanilha02 + "//" + "PROCESSADO_" + fileNamePlanilha_02);
-
-            fileNamePlanilha_03 = "RESULTADO_FINAL".toUpperCase().concat(".xlsx");
-
-            arquivosCompTabelas.setOUTPUTplanilha03(OUTPUT_planilha03 + "//" + fileNamePlanilha_03);
-
-            limparLog();
-
-            acrescentarLogSistema("------------------------");
-            acrescentarLogSistema("PROCESSANDO SEMESTRE UM");
-
-            try {
-                arquivosCompTabelas.carregarTabelasSemestreUm();
-                acrescentarLogSistema("----------OK----------");
-            } catch (Exception e) {
-                painelErro(e.getMessage(), "Erro ao gerar tabela 1");
-                acrescentarLogSistema("--------ERRO TABELA 1----------");
-                throw new NegocioException(e.getMessage());
-
-            }
-
-            acrescentarLogSistema("-------------------------");
-            acrescentarLogSistema("PROCESSANDO SEMESTRE DOIS");
-
-            try {
-                arquivosCompTabelas.carregarTabelasSemestreDois();
-                acrescentarLogSistema("----------OK----------");
-            } catch (Exception e) {
-                painelErro(e.getMessage(), "Erro ao gerar tabela 2");
-                acrescentarLogSistema("--------ERRO TABELA 2----------");
-                throw new NegocioException(e.getMessage());
-            }
-
-            acrescentarLogSistema("-------------------------");
-            acrescentarLogSistema("PROCESSANDO RESULTADO");
-
-            try {
-                arquivosCompTabelas.processarResultadosTabelasTres();
-                painelOK("Arquivos criados com sucesso!!!", "Arquivos Criados");
-                acrescentarLogSistema("----------OK----------");
-            } catch (Exception e) {
-                painelErro(e.getMessage(), "Erro ao gerar tabela final");
-                acrescentarLogSistema("--------ERRO TABELA FINAL----------");
-                throw new NegocioException(e.getMessage());
-            }
+            return true;
+           
         }
 
+    }
+
+    private void iniciarProcessamento() {
+
+        LocalDateTime startCount = LocalDateTime.now();
+        LocalDateTime durationCount;
+
+        arquivosCompTabelas.setINPUTcaminhoPlanilha01(INPUT_caminhoArquivoNumero_01);
+        arquivosCompTabelas.setOUTPUTcaminhoPlanilha01(OUTPUT_caminhoPlanilha01 + "//" + fileNamePlanilha_01.concat(".xlsx"));
+
+        arquivosCompTabelas.setINPUTcaminhoPlanilha02(INPUT_caminhoArquivoNumero_02);
+        arquivosCompTabelas.setOUTPUTcaminhoPlanilha02(OUTPUT_caminhoPlanilha02 + "//" + fileNamePlanilha_02.concat(".xlsx"));
+
+        arquivosCompTabelas.setOUTPUTplanilha03(OUTPUT_planilha03 + "//" + fileNamePlanilha_03.concat(".xlsx"));
+
+        // limparLog();
+        Thread threadTabela01 = new Thread(() -> {
+            try {
+                arquivosCompTabelas.carregarTabelasSemestreUm();
+                
+            } catch (Exception ex) {
+                painelErro(ex.getMessage(), "Erro ao gerar tabela semestre 01");
+                Logger.getLogger(JTela.class.getName()).log(Level.SEVERE, null, ex);
+                negocioEx(ex);
+            }
+        });
+
+        Thread threadTabela02 = new Thread(() -> {
+            try {
+                arquivosCompTabelas.carregarTabelasSemestreDois();
+            } catch (Exception ex) {
+                painelErro(ex.getMessage(), "Erro ao gerar tabela semestre 02 ");
+                Logger.getLogger(JTela.class.getName()).log(Level.SEVERE, null, ex);
+                negocioEx(ex);
+            }
+        });
+
+        threadTabela01.start();
+        Logger.getLogger(JTela.class.getName()).log(Level.INFO,threadTabela01.getId()+"--"+threadTabela01.getName() , threadTabela01);
+        threadTabela02.start();
+        Logger.getLogger(JTela.class.getName()).log(Level.INFO,threadTabela02.getId()+"--"+threadTabela02.getName() , threadTabela02);
+
+        Thread threadTabelaResultado03 = new Thread(() -> {
+            try {
+                arquivosCompTabelas.processarResultadosTabelasTres();
+            } catch (Exception ex) {
+                painelErro(ex.getMessage(), "Erro ao gerar tabela final");
+                Logger.getLogger(JTela.class.getName()).log(Level.SEVERE, null, ex);
+                negocioEx(ex);
+            }
+        });
+
+        while (threadTabela01.isAlive() || threadTabela02.isAlive()) {
+   
+        }
+
+        threadTabelaResultado03.start();
+        Logger.getLogger(JTela.class.getName()).log(Level.INFO,threadTabelaResultado03.getId()+"--"+threadTabelaResultado03.getName() , threadTabelaResultado03);
+
+        while (threadTabelaResultado03.isAlive()) {
+            
+        }
+        
+        durationCount = LocalDateTime.now();
+        acrescentarLogSistema("Planilhas geradas OK - Tempo de processamento : "
+                .concat(contador(startCount, durationCount)).concat(" Segundos"));
+        painelOK("Planilhas Criadas com Sucesso!!", "Planilhas");
+    }
+
+    private String contador(LocalDateTime start, LocalDateTime durationCount) {
+        Duration duration = Duration.between(start, durationCount);
+        return Long.toString(duration.getSeconds());
+
+    }
+
+    private void negocioEx(Exception ex) {
+        try {
+            throw new NegocioException(ex.getMessage());
+        } catch (NegocioException ex1) {
+            Logger.getLogger(JTela.class
+                    .getName()).log(Level.SEVERE, null, ex1);
+        }
     }
 
     private void painelAviso(String mensagem, String titulo) {
@@ -223,6 +256,17 @@ public class JTela extends javax.swing.JFrame {
                 mensagem,
                 titulo,
                 JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    private void painelBarraLoadingCarregar() {
+        barraProgressao.setIndeterminate(true);
+        barraProgressao.setVisible(true);
+
+    }
+
+    private void painelBarraLoadingDescarregar() {
+        barraProgressao.setVisible(false);
+
     }
 
     private boolean preCheckagem(List<String> paths, int tipoValidacao) {
@@ -288,13 +332,11 @@ public class JTela extends javax.swing.JFrame {
         textAreaLog = new javax.swing.JTextArea();
         painelBotaoClassificar = new javax.swing.JPanel();
         btnClassificacao = new javax.swing.JButton();
+        barraProgressao = new javax.swing.JProgressBar();
         menuBar = new javax.swing.JMenuBar();
-        helpMenu = new javax.swing.JMenu();
-        aboutMenuItem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("MoveON Planilhas");
-        setAlwaysOnTop(true);
+        setTitle("MoveON -  Student Spreadsheet Processor 1.0");
         setResizable(false);
 
         painelCaminhosArquivos.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -350,14 +392,14 @@ public class JTela extends javax.swing.JFrame {
                     .addComponent(jLabel1)
                     .addComponent(jLabel2))
                 .addGap(49, 49, 49)
-                .addGroup(painelCaminhosArquivosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(campoPlanilha01, javax.swing.GroupLayout.DEFAULT_SIZE, 449, Short.MAX_VALUE)
+                .addGroup(painelCaminhosArquivosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(campoPlanilha01)
                     .addComponent(campoPlanilha02))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(painelCaminhosArquivosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(BtnSelecionarCaminho02, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnSelecionarCaminho01, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE))
-                .addContainerGap(24, Short.MAX_VALUE))
+                    .addComponent(btnSelecionarCaminho01, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
         painelCaminhosArquivosLayout.setVerticalGroup(
             painelCaminhosArquivosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -401,23 +443,23 @@ public class JTela extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(campoPlanilha3, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(campoPlanilha3, javax.swing.GroupLayout.PREFERRED_SIZE, 549, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSelecionarCaminhoOut, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         painelSaidaLayout.setVerticalGroup(
             painelSaidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(painelSaidaLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(painelSaidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(campoPlanilha3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSelecionarCaminhoOut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-            .addGroup(painelSaidaLayout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addComponent(jLabel4)
-                .addGap(18, 18, 18))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(painelSaidaLayout.createSequentialGroup()
+                .addContainerGap(8, Short.MAX_VALUE)
+                .addGroup(painelSaidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(campoPlanilha3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSelecionarCaminhoOut, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         jLabel6.setLabelFor(this);
@@ -435,14 +477,13 @@ public class JTela extends javax.swing.JFrame {
         painelLog.setLayout(painelLogLayout);
         painelLogLayout.setHorizontalGroup(
             painelLogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 795, Short.MAX_VALUE)
         );
         painelLogLayout.setVerticalGroup(
             painelLogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelLogLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(painelLogLayout.createSequentialGroup()
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(144, 144, 144))
+                .addGap(0, 35, Short.MAX_VALUE))
         );
 
         painelBotaoClassificar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -459,46 +500,40 @@ public class JTela extends javax.swing.JFrame {
         painelBotaoClassificar.setLayout(painelBotaoClassificarLayout);
         painelBotaoClassificarLayout.setHorizontalGroup(
             painelBotaoClassificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(painelBotaoClassificarLayout.createSequentialGroup()
-                .addGap(107, 107, 107)
-                .addComponent(btnClassificacao, javax.swing.GroupLayout.PREFERRED_SIZE, 499, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelBotaoClassificarLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnClassificacao, javax.swing.GroupLayout.PREFERRED_SIZE, 561, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(113, 113, 113))
         );
         painelBotaoClassificarLayout.setVerticalGroup(
             painelBotaoClassificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnClassificacao, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(btnClassificacao, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         menuBar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
-        helpMenu.setMnemonic('h');
-        helpMenu.setText("Ajuda");
-
-        aboutMenuItem.setMnemonic('a');
-        aboutMenuItem.setText("Sobre");
-        helpMenu.add(aboutMenuItem);
-
-        menuBar.add(helpMenu);
-
         setJMenuBar(menuBar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(barraProgressao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSeparator1)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel6)
-                            .addComponent(painelLog, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(painelSaida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel6)
+                                    .addComponent(painelLog, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE))
                             .addComponent(painelCaminhosArquivos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(painelBotaoClassificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(painelSaida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(painelBotaoClassificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -515,9 +550,11 @@ public class JTela extends javax.swing.JFrame {
                 .addComponent(painelSaida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(painelBotaoClassificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(53, 53, 53)
-                .addComponent(painelLog, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(152, 152, 152))
+                .addGap(17, 17, 17)
+                .addComponent(barraProgressao, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(painelLog, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -541,10 +578,22 @@ public class JTela extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSelecionarCaminhoOutActionPerformed
 
     private void btnClassificacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClassificacaoActionPerformed
-        try {   // TODO add your handling code here
-            processarArquivo();
+        try {
+            painelBarraLoadingCarregar();
+            if (Boolean.TRUE.equals(processarArquivo())) {
+                acrescentarLogSistema("Iniciando processamento:" + LocalDateTime.now());
+                painelBarraLoadingCarregar();
+                iniciarProcessamento();
+                painelBarraLoadingDescarregar();
+            }
+
         } catch (NegocioException ex) {
-            Logger.getLogger(JTela.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(JTela.class
+                    .getName()).log(Level.SEVERE, null, ex);
+
+        } catch (InterruptedException ex) {
+            Logger.getLogger(JTela.class
+                    .getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnClassificacaoActionPerformed
 
@@ -571,31 +620,34 @@ public class JTela extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JTela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JTela.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        
+
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-            new JTela().setVisible(true);
+            JTela jtela = new JTela();
+            jtela.setLocationRelativeTo(null);
+            jtela.setVisible(true);
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnSelecionarCaminho02;
-    private javax.swing.JMenuItem aboutMenuItem;
+    private javax.swing.JProgressBar barraProgressao;
     private javax.swing.JButton btnClassificacao;
     private javax.swing.JButton btnSelecionarCaminho01;
     private javax.swing.JButton btnSelecionarCaminhoOut;
     private javax.swing.JTextField campoPlanilha01;
     private javax.swing.JTextField campoPlanilha02;
     private javax.swing.JTextField campoPlanilha3;
-    private javax.swing.JMenu helpMenu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
