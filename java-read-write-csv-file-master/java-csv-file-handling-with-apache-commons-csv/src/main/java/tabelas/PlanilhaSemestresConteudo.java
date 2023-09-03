@@ -79,22 +79,32 @@ public class PlanilhaSemestresConteudo {
             cellRce.setCellValue(alunos.getClassificacao_RCE());
             cellRce.setCellStyle(tabelaXlsStyle.cellDesempenhoFraco(workbook, alunos.getClassificacao_RCE()));
 
+            //Flexibilidade
             Cell cellFlex = row.createCell(cellnum++);
             sheetAlunos.autoSizeColumn(cellnum);
             cellFlex.setCellValue(alunos.getFLEXIBILIDADE());
             Cell cellFlexCalss = row.createCell(cellnum++);
             cellFlexCalss.setCellValue(alunos.getCLASSIFICACAO_FLEXIBILIDADE());
             cellFlexCalss.setCellStyle(tabelaXlsStyle.cellDesempenhoFraco(workbook, alunos.getCLASSIFICACAO_FLEXIBILIDADE()));
+            Cell cellFlexVsEsporte = row.createCell(cellnum++);
+            sheetAlunos.autoSizeColumn(cellnum);
+            cellFlexVsEsporte.setCellValue(alunos.getResultadoFlexbilidadeVsEsporte());
+            cellFlexVsEsporte.setCellStyle(tabelaXlsStyle.cellDesempenhoFraco(workbook, alunos.getResultadoFlexbilidadeVsEsporte()));
 
+            //Abdominal
             Cell cellAbdominal = row.createCell(cellnum++);
             sheetAlunos.autoSizeColumn(cellnum);
             cellAbdominal.setCellValue(alunos.getABDOMINAL());
-
             Cell cellAbdominalClass = row.createCell(cellnum++);
             sheetAlunos.autoSizeColumn(cellnum);
             cellAbdominalClass.setCellValue(alunos.getCLASSIFICACAO_ABDOMINAL());
             cellAbdominalClass.setCellStyle(tabelaXlsStyle.cellDesempenhoFraco(workbook, alunos.getCLASSIFICACAO_ABDOMINAL()));
+            Cell cellAbdominalVsEsporte = row.createCell(cellnum++);
+            sheetAlunos.autoSizeColumn(cellnum);
+            cellAbdominalVsEsporte.setCellValue(alunos.getResultadoAbdominalVsEsporte());
+            cellAbdominalVsEsporte.setCellStyle(tabelaXlsStyle.cellDesempenhoFraco(workbook, alunos.getResultadoAbdominalVsEsporte()));
 
+            //
             Cell cellCorrida6 = row.createCell(cellnum++);
             sheetAlunos.autoSizeColumn(cellnum);
             cellCorrida6.setCellValue(alunos.getCORRIDA_6_MIN());
@@ -121,6 +131,7 @@ public class PlanilhaSemestresConteudo {
             cellSaltoClass.setCellValue(alunos.getCLASSIFICACAO_SALTO());
             cellSaltoClass.setCellStyle(tabelaXlsStyle.cellDesempenhoFraco(workbook, alunos.getCLASSIFICACAO_SALTO()));
 
+            //MEDBALL
             Cell cellMedBall = row.createCell(cellnum++);
             sheetAlunos.autoSizeColumn(cellnum);
             cellMedBall.setCellValue(alunos.getMEDICINIBALL());
@@ -128,7 +139,12 @@ public class PlanilhaSemestresConteudo {
             sheetAlunos.autoSizeColumn(cellnum);
             cellMedBallClass.setCellValue(alunos.getCLASSIFICACAO_MEDICINIBALL());
             cellMedBallClass.setCellStyle(tabelaXlsStyle.cellDesempenhoFraco(workbook, alunos.getCLASSIFICACAO_MEDICINIBALL()));
+            Cell cellMedBallSaude = row.createCell(cellnum++);
+            sheetAlunos.autoSizeColumn(cellnum);
+            cellMedBallSaude.setCellStyle(tabelaXlsStyle.cellDesempenhoFraco(workbook, alunos.getResultadoMedBallvsSaude()));
+            cellMedBallSaude.setCellValue(alunos.getResultadoMedBallvsSaude());
 
+            //Velocidade
             Cell cellVelocidade = row.createCell(cellnum++);
             sheetAlunos.autoSizeColumn(cellnum);
             cellVelocidade.setCellValue(alunos.getVELOCIDADE());
@@ -136,6 +152,10 @@ public class PlanilhaSemestresConteudo {
             sheetAlunos.autoSizeColumn(cellnum);
             cellVelocidadeClass.setCellValue(alunos.getCLASSIFICACAO_VELOCIDADE());
             cellVelocidadeClass.setCellStyle(tabelaXlsStyle.cellDesempenhoFraco(workbook, alunos.getCLASSIFICACAO_VELOCIDADE()));
+            Cell cellVelocidadeVsSaude = row.createCell(cellnum++);
+            sheetAlunos.autoSizeColumn(cellnum);
+            cellVelocidadeVsSaude.setCellValue(alunos.getResultadoVelocidadeVsSaude());
+            cellVelocidadeVsSaude.setCellStyle(tabelaXlsStyle.cellDesempenhoFraco(workbook, alunos.getResultadoVelocidadeVsSaude()));
 
             Cell cellAgilidade = row.createCell(cellnum++);
             cellAgilidade.setCellValue(alunos.getAGILIDADE());

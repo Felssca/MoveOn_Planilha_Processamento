@@ -12,6 +12,50 @@ package beans;
 public class Alunos {
 
     /**
+     * @return the resultadoAbdominalVsEsporte
+     */
+    public String getResultadoAbdominalVsEsporte() {
+        return resultadoAbdominalVsEsporte;
+    }
+
+    /**
+     * @param resultadoAbdominalVsEsporte the resultadoAbdominalVsEsporte to set
+     */
+    public void setResultadoAbdominalVsEsporte(String resultadoAbdominalVsEsporte) {
+        this.resultadoAbdominalVsEsporte = resultadoAbdominalVsEsporte;
+    }
+
+
+
+    /**
+     * @return the resultadoFlexbilidadeVsEsporte
+     */
+    public String getResultadoFlexbilidadeVsEsporte() {
+        return resultadoFlexbilidadeVsEsporte;
+    }
+
+    /**
+     * @param resultadoFlexbilidadeVsEsporte the resultadoFlexbilidadeVsEsporte to set
+     */
+    public void setResultadoFlexbilidadeVsEsporte(String resultadoFlexbilidadeVsEsporte) {
+        this.resultadoFlexbilidadeVsEsporte = resultadoFlexbilidadeVsEsporte;
+    }
+
+    /**
+     * @return the resultadoVelocidadeVsSaude
+     */
+    public String getResultadoVelocidadeVsSaude() {
+        return resultadoVelocidadeVsSaude;
+    }
+
+    /**
+     * @param resultadoVelocidadeVsSaude the resultadoVelocidadeVsSaude to set
+     */
+    public void setResultadoVelocidadeVsSaude(String resultadoVelocidadeVsSaude) {
+        this.resultadoVelocidadeVsSaude = resultadoVelocidadeVsSaude;
+    }
+
+    /**
      * @return the VO2_MAX_DESEMPENHO_VALOR
      */
     public String getVO2_MAX_DESEMPENHO_VALOR() {
@@ -33,10 +77,19 @@ public class Alunos {
     }
 
     /**
-     * @param VO2_MAX_DESEMPENHO_RESULTADO the VO2_MAX_DESEMPENHO_RESULTADO to set
+     * @param VO2_MAX_DESEMPENHO_RESULTADO the VO2_MAX_DESEMPENHO_RESULTADO to
+     * set
      */
     public void setVO2_MAX_DESEMPENHO_RESULTADO(String VO2_MAX_DESEMPENHO_RESULTADO) {
         this.VO2_MAX_DESEMPENHO_RESULTADO = VO2_MAX_DESEMPENHO_RESULTADO;
+    }
+
+    public String getResultadoMedBallvsSaude() {
+        return resultadoMedBallvsSaude;
+    }
+
+    public void setResultadoMedBallvsSaude(String resultadoMedBallvsSaude) {
+        this.resultadoMedBallvsSaude = resultadoMedBallvsSaude;
     }
 
     private String matricula;
@@ -82,6 +135,7 @@ public class Alunos {
     private String OBSERVACAO_ABDOMINAL;
     private String CLASSIFICACAO_ABDOMINAL;
     private String VALOR_CLASSIFICACAO_ABDOMINAL;
+    private String resultadoAbdominalVsEsporte;
 
     private String SALTO;
     private String CLASSIFICACAO_SALTO;
@@ -148,6 +202,7 @@ public class Alunos {
     private String resultadoAbdomem;
     private String indicadoresAbdomem;
     private String resultadoPorcentagemAbdomem;
+    private String resultadoFlexbilidadeVsEsporte;
 
     private String resultadoSalto;
     private String indicadoresSalto;
@@ -156,10 +211,12 @@ public class Alunos {
     private String resultadoMedBall;
     private String indicadoresMedBall;
     private String resultadoPorcentagemMedBall;
+    private String resultadoMedBallvsSaude;
 
     private String resultadoVerlocidade;
     private String indicadoresVerlocidade;
     private String resultadoPorcentagemVerlocidade;
+    private String resultadoVelocidadeVsSaude;
 
     private String resultadoAgilidade;
     private String indicadoresAgilidade;
@@ -188,17 +245,16 @@ public class Alunos {
     private String resultadoRCEab3;
     private String indicadoresRCETab3;
     private String resultadoPorcentagemRCEab3;
-    
+
     //-------------VO2--------------------
-    
     private String resultadoV02Ms;
     private String indicadoresV02Ms;
     private String resultadoPorcentagemV02Ms;
-    
+
     private String resultadoV02Km;
     private String indicadoresV02Km;
     private String resultadoPorcentagemV02Km;
-    
+
     private String resultadoV02Max;
     private String indicadoresV02Max;
     private String resultadoPorcentagemV02Max;
@@ -214,7 +270,7 @@ public class Alunos {
     //VO2 MAX
     private String VO2_MAX_COMP_1;
     private String VO2_MAX_COMP_2;
-    
+
     //VO2 MAX DESEMPENHO 
     private String VO2_MAX_DESEMPENHO_VALOR;
     private String VO2_MAX_DESEMPENHO_RESULTADO;
@@ -2072,7 +2128,7 @@ public class Alunos {
     /**
      * @return the indicadoresV02Ms
      */
-        public String getIndicadoresV02Ms() {
+    public String getIndicadoresV02Ms() {
         return indicadoresV02Ms;
     }
 

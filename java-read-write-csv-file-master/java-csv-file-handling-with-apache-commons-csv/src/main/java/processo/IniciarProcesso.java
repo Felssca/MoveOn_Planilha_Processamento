@@ -59,11 +59,16 @@ public class IniciarProcesso {
 
                 //classificacao por tabela: 
                 String genero = listaAluno.getGenero();
-                String classificacaoMedBoll = null;
+                String classificacaoMedBoll;
+                String classeificacaoMedBallSaude;
 
                 classificacaoMedBoll = algoClassificacao.tabelaMedBall(idade, genero, arremeco);
+                classeificacaoMedBallSaude = algoClassificacao.tabelaMedballSaude(idade, genero, arremeco);
                 listaAluno.setCLASSIFICACAO_MEDICINIBALL(classificacaoMedBoll);
+                listaAluno.setResultadoMedBallvsSaude(classeificacaoMedBallSaude);
+
                 listaAluno.setCLASSIFICACAO_FLEXIBILIDADE(algoClassificacao.tabelaFlexibilidade(idade, genero, flexibilidade));
+                listaAluno.setResultadoFlexbilidadeVsEsporte(algoClassificacao.tabelaFlexibilidadeEsporte(idade, genero, flexibilidade));
 
                 String imcResult = null;
 
@@ -79,11 +84,14 @@ public class IniciarProcesso {
                 double abdomem = validacoes.transformarCampoDouble(listaAluno.getABDOMINAL());
                 String classAbdominal = algoClassificacao.classificacaoAbdominal(idade, genero, abdomem);
                 listaAluno.setCLASSIFICACAO_ABDOMINAL(classAbdominal);
+                listaAluno.setResultadoAbdominalVsEsporte(algoClassificacao.tabelaAbdominalEsporte1M(idade, genero, abdomem));
 
                 //---------------------------
                 double velocidade = validacoes.transformarCampoDouble(listaAluno.getVELOCIDADE());
                 String classVelocidade = algoClassificacao.tabelaCorridaResistencia20Min(idade, genero, velocidade);
                 listaAluno.setCLASSIFICACAO_VELOCIDADE(classVelocidade);
+                String velocidadeVsSaude = algoClassificacao.tabelaCorridaResistencia20MinSaude(idade, genero, arremeco);
+                listaAluno.setResultadoVelocidadeVsSaude(velocidadeVsSaude);
 
                 //---------------------------
                 double salto = validacoes.transformarCampoDouble(listaAluno.getSALTO());

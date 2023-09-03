@@ -139,6 +139,8 @@ public class AlgoGeracaoResultado {
                 alunoResultado.setResultadoMedBall(Double.toString(algoComparacaoSemestres.getResultado()));
                 alunoResultado.setResultadoPorcentagemMedBall(Double.toString(algoComparacaoSemestres.getPorcentagem()));
                 alunoResultado.setIndicadoresMedBall(algoComparacaoSemestres.getIndicador());
+                //alunoResultado.setResultadoMedBallvsSaude();
+               
 
 //vELOCIDADE    
                 alunoSem1.getVELOCIDADE();

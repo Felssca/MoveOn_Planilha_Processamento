@@ -19,10 +19,9 @@ import style.TabelaXlsStyle;
  */
 public class PlanilhasSemestresCabecalho {
 
-    public void planilhaSemestreMontaCabecalho(XSSFWorkbook workbook,XSSFSheet sheetAlunos, TabelaXlsStyle tabelaXlsStyle) {
-        
+    public void planilhaSemestreMontaCabecalho(XSSFWorkbook workbook, XSSFSheet sheetAlunos, TabelaXlsStyle tabelaXlsStyle) {
+
         sheetAlunos.createFreezePane(4, 3);
-        
 
         int cellCount = 0;
 
@@ -62,8 +61,7 @@ public class PlanilhasSemestresCabecalho {
         Cell idade = rowZero.createCell(cellCount++);
         idade.setCellStyle(tabelaXlsStyle.cellTabelaResultadoCabecalho02(workbook, Constantes.CAB_IDADE));
         idade.setCellValue(Constantes.CAB_IDADE);
-        
-        
+
         Cell cab9 = rowZero.createCell(cellCount++);
         cab9.setCellValue(Constantes.CAB_PESO);
         cab9.setCellStyle(tabelaXlsStyle.cellTabelaResultadoCabecalhoReultado(workbook, azul));
@@ -96,21 +94,27 @@ public class PlanilhasSemestresCabecalho {
         cab14.setCellValue(Constantes.CAB_RCE);
         cab14.setCellStyle(tabelaXlsStyle.cellTabelaResultadoCabecalhoReultado(workbook, marfim));
 
+        //Flexibilidade
         Cell cab16 = rowZero.createCell(cellCount++);
         cab16.setCellValue(Constantes.CAB_FLEXIBILIDADE);
-        cab16.setCellStyle(tabelaXlsStyle.cellTabelaResultadoCabecalhoReultado(workbook, azul));
-
+        cab16.setCellStyle(tabelaXlsStyle.cellTabelaResultadoCabecalhoReultado(workbook, laranja));
         Cell cab17 = rowZero.createCell(cellCount++);
         cab17.setCellValue(Constantes.CAB_CLASSIFICACAO_FLEXIBILIDADE);
         cab17.setCellStyle(tabelaXlsStyle.cellTabelaResultadoCabecalhoReultado(workbook, marfim));
+        Cell flexEsporte = rowZero.createCell(cellCount++);
+        flexEsporte.setCellValue(Constantes.CAB_FLEXIBILIDADE_ESPORTE);
+        flexEsporte.setCellStyle(tabelaXlsStyle.cellTabelaResultadoCabecalhoReultado(workbook, azul));
 
+        //Abdominal
         Cell cab18 = rowZero.createCell(cellCount++);
         cab18.setCellValue(Constantes.CAB_ABDOMINAL);
         cab18.setCellStyle(tabelaXlsStyle.cellTabelaResultadoCabecalhoReultado(workbook, laranja));
-
         Cell cab20 = rowZero.createCell(cellCount++);
         cab20.setCellValue(Constantes.CAB_CLASSIFICACAO_ABDOMINAL);
         cab20.setCellStyle(tabelaXlsStyle.cellTabelaResultadoCabecalhoReultado(workbook, marfim));
+        Cell abdEsporte = rowZero.createCell(cellCount++);
+        abdEsporte.setCellValue(Constantes.CAB_ABDOMINAL_ESPORTE);
+        abdEsporte.setCellStyle(tabelaXlsStyle.cellTabelaResultadoCabecalhoReultado(workbook, azul));
 
         Cell cab29ValorSaude = rowZero.createCell(cellCount++);
         cab29ValorSaude.setCellValue(Constantes.CAB_CLASSIFICACAO_6MIN_SAUDE);
@@ -135,19 +139,27 @@ public class PlanilhasSemestresCabecalho {
         cab22.setCellValue(Constantes.CAB_CLASSIFICACAO_SALTO_HORIZONTAL);
         cab22.setCellStyle(tabelaXlsStyle.cellTabelaResultadoCabecalhoReultado(workbook, marfim));
 
+        //Medball
         Cell cab23 = rowZero.createCell(cellCount++);
         cab23.setCellValue(Constantes.CAB_MEDICINIBALL);
         cab23.setCellStyle(tabelaXlsStyle.cellTabelaResultadoCabecalhoReultado(workbook, laranja));
         Cell cab24 = rowZero.createCell(cellCount++);
         cab24.setCellValue(Constantes.CAB_CLASSIFICACAO_MEDICINIBALL);
         cab24.setCellStyle(tabelaXlsStyle.cellTabelaResultadoCabecalhoReultado(workbook, marfim));
+        Cell cab_saude = rowZero.createCell(cellCount++);
+        cab_saude.setCellValue(Constantes.CAB_MEDICINIBALL_SAUDE);
+        cab_saude.setCellStyle(tabelaXlsStyle.cellTabelaResultadoCabecalhoReultado(workbook, azul));
 
+        //VELOCDIDADE 20 M
         Cell cab25 = rowZero.createCell(cellCount++);
         cab25.setCellValue(Constantes.CAB_VELOCIDADE);
-        cab25.setCellStyle(tabelaXlsStyle.cellTabelaResultadoCabecalhoReultado(workbook, azul));
+        cab25.setCellStyle(tabelaXlsStyle.cellTabelaResultadoCabecalhoReultado(workbook, laranja));
         Cell cab26 = rowZero.createCell(cellCount++);
         cab26.setCellValue(Constantes.CAB_CLASSIFICACAO_VELOCIDADE);
         cab26.setCellStyle(tabelaXlsStyle.cellTabelaResultadoCabecalhoReultado(workbook, marfim));
+        Cell cabVelocsaude = rowZero.createCell(cellCount++);
+        cabVelocsaude.setCellValue(Constantes.CAB_VELOCIDADE_SAUDE);
+        cabVelocsaude.setCellStyle(tabelaXlsStyle.cellTabelaResultadoCabecalhoReultado(workbook, azul));
 
         Cell cab27 = rowZero.createCell(cellCount++);
         cab27.setCellValue(Constantes.CAB_AGILIDADE);

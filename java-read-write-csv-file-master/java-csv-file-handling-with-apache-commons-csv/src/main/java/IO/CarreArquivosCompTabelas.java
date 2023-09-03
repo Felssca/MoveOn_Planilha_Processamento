@@ -55,8 +55,6 @@ public class CarreArquivosCompTabelas {
 
     public void processarResultadosTabelasTres() {
         
-
-        
         AlgoGeracaoResultado geracaoResultado = new AlgoGeracaoResultado();
         listaAlunosResult = geracaoResultado.processarResultadosTabelasTres(listaAlunosSem1, listaAlunosSem2);
         exportarTabelasXlsxResultado(listaAlunosResult, getOUTPUTplanilha03());

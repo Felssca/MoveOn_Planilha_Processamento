@@ -58,7 +58,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>BasicCSVReader</mainClass>
+                            <mainClass>JTela</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

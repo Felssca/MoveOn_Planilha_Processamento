@@ -6,6 +6,7 @@
 
 import IO.CarreArquivosCompTabelas;
 import exceptions.NegocioException;
+import images.AsciiImages;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -48,11 +49,14 @@ public class JTela extends javax.swing.JFrame {
     String arquivoAvisoChooser03 = "Selecione a pasta de resultado";
 
     CarreArquivosCompTabelas arquivosCompTabelas;
+    
+    AsciiImages asciiImages = new AsciiImages();
 
     public JTela() {
         initComponents();
         arquivosCompTabelas = new CarreArquivosCompTabelas();
         limparLog();
+        acrescentarLogSistema(asciiImages.initialLogo());
         
     }
 
@@ -128,8 +132,7 @@ public class JTela extends javax.swing.JFrame {
     }
 
     private boolean processarArquivo() throws NegocioException, InterruptedException, NegocioException {
-
-        CarreArquivosCompTabelas arquivosCompTabelas = new CarreArquivosCompTabelas();
+        
         List<String> paths = new ArrayList<>();
 
         paths.add(INPUT_caminhoArquivoNumero_01);
@@ -330,13 +333,14 @@ public class JTela extends javax.swing.JFrame {
         painelLog = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         textAreaLog = new javax.swing.JTextArea();
+        jLabel5 = new javax.swing.JLabel();
         painelBotaoClassificar = new javax.swing.JPanel();
         btnClassificacao = new javax.swing.JButton();
         barraProgressao = new javax.swing.JProgressBar();
         menuBar = new javax.swing.JMenuBar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("MoveON -  Student Spreadsheet Processor 1.0");
+        setTitle("FITSCHOOL -  Student Spreadsheet Processor 1.0.2");
         setResizable(false);
 
         painelCaminhosArquivos.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -473,17 +477,26 @@ public class JTela extends javax.swing.JFrame {
         textAreaLog.setRows(5);
         jScrollPane2.setViewportView(textAreaLog);
 
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 8)); // NOI18N
+        jLabel5.setText("FITSCHOOL -  Student Spreadsheet Processor 1.0.2");
+
         javax.swing.GroupLayout painelLogLayout = new javax.swing.GroupLayout(painelLog);
         painelLog.setLayout(painelLogLayout);
         painelLogLayout.setHorizontalGroup(
             painelLogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 795, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelLogLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel5)
+                .addGap(21, 21, 21))
         );
         painelLogLayout.setVerticalGroup(
             painelLogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(painelLogLayout.createSequentialGroup()
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 35, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel5)
+                .addContainerGap(7, Short.MAX_VALUE))
         );
 
         painelBotaoClassificar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -652,6 +665,7 @@ public class JTela extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;

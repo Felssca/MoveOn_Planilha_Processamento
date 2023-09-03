@@ -541,6 +541,254 @@ public class AlgoClassificacao {
     }
 
     /*
+    Tabela medballsaúde 
+     */
+    public String tabelaMedballSaude(int idade, String sexo, double arremeco) {
+
+        String resultadoFlexibilidade = "Não aferido";
+
+        if (arremeco == 0) {
+            resultadoFlexibilidade = Constantes.AUSENTE;
+        } else {
+
+            /*
+        *Genero Masculino 
+             */
+            if (sexo.equals(Constantes.MASCULINO)) {
+
+                switch (idade) {
+                    case 6:
+                        if (arremeco <= 147) {
+                            resultadoFlexibilidade = Constantes.MEDBALL_RISCO;
+                        } else {
+                            resultadoFlexibilidade = Constantes.MEDBALL_SAUDAVEL;
+                        }
+                        break;
+
+                    case 7:
+                        if (arremeco <= 168.7) {
+                            resultadoFlexibilidade = Constantes.MEDBALL_RISCO;
+                        } else {
+                            resultadoFlexibilidade = Constantes.FLEX_SAUDAVEL;
+                        }
+                        break;
+
+                    case 8:
+                        if (arremeco <= 190.0) {
+                            resultadoFlexibilidade = Constantes.MEDBALL_RISCO;
+                        } else {
+
+                            resultadoFlexibilidade = Constantes.MEDBALL_SAUDAVEL;
+                        }
+                        break;
+
+                    case 9:
+                        if (arremeco <= 210) {
+                            resultadoFlexibilidade = Constantes.MEDBALL_RISCO;
+                        } else {
+
+                            resultadoFlexibilidade = Constantes.MEDBALL_SAUDAVEL;
+                        }
+                        break;
+
+                    case 10:
+                        if (arremeco <= 232) {
+                            resultadoFlexibilidade = Constantes.MEDBALL_RISCO;
+                        } else {
+
+                            resultadoFlexibilidade = Constantes.MEDBALL_SAUDAVEL;
+                        }
+                        break;
+
+                    case 11:
+                        if (arremeco <= 260) {
+                            resultadoFlexibilidade = Constantes.MEDBALL_RISCO;
+                        } else {
+
+                            resultadoFlexibilidade = Constantes.MEDBALL_SAUDAVEL;
+                        }
+                        break;
+
+                    case 12:
+                        if (arremeco <= 290) {
+                            resultadoFlexibilidade = Constantes.MEDBALL_RISCO;
+                        } else {
+
+                            resultadoFlexibilidade = Constantes.MEDBALL_SAUDAVEL;
+                        }
+                        break;
+
+                    case 13:
+                        if (arremeco <= 335) {
+                            resultadoFlexibilidade = Constantes.MEDBALL_RISCO;
+                        } else {
+
+                            resultadoFlexibilidade = Constantes.MEDBALL_SAUDAVEL;
+                        }
+                        break;
+
+                    case 14:
+                        if (arremeco <= 400) {
+                            resultadoFlexibilidade = Constantes.MEDBALL_RISCO;
+                        } else {
+
+                            resultadoFlexibilidade = Constantes.MEDBALL_SAUDAVEL;
+                        }
+                        break;
+
+                    case 15:
+                        if (arremeco <= 440) {
+                            resultadoFlexibilidade = Constantes.MEDBALL_RISCO;
+                        } else {
+
+                            resultadoFlexibilidade = Constantes.MEDBALL_SAUDAVEL;
+                        }
+                        break;
+
+                    case 16:
+                        if (arremeco <= 480) {
+                            resultadoFlexibilidade = Constantes.MEDBALL_RISCO;
+                        } else {
+
+                            resultadoFlexibilidade = Constantes.MEDBALL_SAUDAVEL;
+                        }
+                        break;
+
+                    case 17:
+                        if (arremeco <= 500) {
+                            resultadoFlexibilidade = Constantes.MEDBALL_RISCO;
+                        } else {
+
+                            resultadoFlexibilidade = Constantes.MEDBALL_SAUDAVEL;
+                        }
+                        break;
+                }
+
+            }
+            /*
+        *Genero Feminino
+             */
+            if (sexo.equals(Constantes.FEMININO)) {
+
+                switch (idade) {
+                    case 6:
+                        if (arremeco <= 125) {
+                            resultadoFlexibilidade = Constantes.MEDBALL_RISCO;
+                        } else {
+
+                            resultadoFlexibilidade = Constantes.MEDBALL_SAUDAVEL;
+                        }
+                        break;
+
+                    case 7:
+                        if (arremeco <= 140) {
+                            resultadoFlexibilidade = Constantes.MEDBALL_RISCO;
+                        } else {
+
+                            resultadoFlexibilidade = Constantes.MEDBALL_SAUDAVEL;
+                        }
+                        break;
+
+                    case 8:
+                        if (arremeco <= 158.1) {
+                            resultadoFlexibilidade = Constantes.MEDBALL_RISCO;
+                        } else {
+
+                            resultadoFlexibilidade = Constantes.MEDBALL_SAUDAVEL;
+                        }
+                        break;
+
+                    case 9:
+                        if (arremeco <= 175) {
+                            resultadoFlexibilidade = Constantes.MEDBALL_RISCO;
+                        } else {
+
+                            resultadoFlexibilidade = Constantes.MEDBALL_SAUDAVEL;
+                        }
+                        break;
+
+                    case 10:
+                        if (arremeco <= 202) {
+                            resultadoFlexibilidade = Constantes.MEDBALL_RISCO;
+                        } else {
+
+                            resultadoFlexibilidade = Constantes.MEDBALL_SAUDAVEL;
+                        }
+                        break;
+
+                    case 11:
+                        if (arremeco <= 228) {
+                            resultadoFlexibilidade = Constantes.MEDBALL_RISCO;
+                        } else {
+
+                            resultadoFlexibilidade = Constantes.MEDBALL_SAUDAVEL;
+                        }
+                        break;
+
+                    case 12:
+                        if (arremeco <= 260) {
+                            resultadoFlexibilidade = Constantes.MEDBALL_RISCO;
+                        } else {
+
+                            resultadoFlexibilidade = Constantes.MEDBALL_SAUDAVEL;
+                        }
+                        break;
+
+                    case 13:
+                        if (arremeco <= 280) {
+                            resultadoFlexibilidade = Constantes.MEDBALL_RISCO;
+                        } else {
+
+                            resultadoFlexibilidade = Constantes.MEDBALL_SAUDAVEL;
+                        }
+                        break;
+
+                    case 14:
+                        if (arremeco <= 290) {
+                            resultadoFlexibilidade = Constantes.MEDBALL_RISCO;
+                        } else {
+
+                            resultadoFlexibilidade = Constantes.MEDBALL_SAUDAVEL;
+                        }
+                        break;
+
+                    case 15:
+                        if (arremeco <= 306) {
+                            resultadoFlexibilidade = Constantes.MEDBALL_RISCO;
+                        } else {
+
+                            resultadoFlexibilidade = Constantes.MEDBALL_SAUDAVEL;
+                        }
+                        break;
+
+                    case 16:
+                        if (arremeco <= 310) {
+                            resultadoFlexibilidade = Constantes.MEDBALL_RISCO;
+                        } else {
+
+                            resultadoFlexibilidade = Constantes.MEDBALL_SAUDAVEL;
+                        }
+                        break;
+
+                    case 17:
+                        if (arremeco <= 315) {
+                            resultadoFlexibilidade = Constantes.MEDBALL_RISCO;
+                        } else {
+
+                            resultadoFlexibilidade = Constantes.MEDBALL_SAUDAVEL;
+                        }
+                        break;
+                }
+
+            }
+
+        }
+
+        return resultadoFlexibilidade;
+
+    }
+
+    /*
     Tabela salto OK
      */
     public String tabelaSalto(int idade, String sexo, double salto) {
@@ -3041,6 +3289,254 @@ public class AlgoClassificacao {
     }
 
     /*
+    Tabaela corrida resistencia 20 metros
+     */
+    public String tabelaCorridaResistencia20MinSaude(int idade, String sexo, double arremeco) {
+
+        String resultadoFlexibilidade = "Não aferido";
+
+        if (arremeco == 0) {
+            resultadoFlexibilidade = Constantes.AUSENTE;
+        } else {
+
+            /*
+        *Genero Masculino 
+             */
+            if (sexo.equals(Constantes.MASCULINO)) {
+
+                switch (idade) {
+                    case 6:
+                        if (arremeco <= 4.81) {
+                            resultadoFlexibilidade = Constantes.CORRIDA_RISCO;
+                        } else {
+                            resultadoFlexibilidade = Constantes.MEDBALL_SAUDAVEL;
+                        }
+                        break;
+
+                    case 7:
+                        if (arremeco <= 4.52) {
+                            resultadoFlexibilidade = Constantes.MEDBALL_RISCO;
+                        } else {
+                            resultadoFlexibilidade = Constantes.FLEX_SAUDAVEL;
+                        }
+                        break;
+
+                    case 8:
+                        if (arremeco <= 4.31) {
+                            resultadoFlexibilidade = Constantes.CORRIDA_RISCO;
+                        } else {
+
+                            resultadoFlexibilidade = Constantes.CORRIDA_SAUDAVEL;
+                        }
+                        break;
+
+                    case 9:
+                        if (arremeco <= 4.25) {
+                            resultadoFlexibilidade = Constantes.CORRIDA_RISCO;
+                        } else {
+
+                            resultadoFlexibilidade = Constantes.CORRIDA_SAUDAVEL;
+                        }
+                        break;
+
+                    case 10:
+                        if (arremeco <= 4.09) {
+                            resultadoFlexibilidade = Constantes.CORRIDA_RISCO;
+                        } else {
+
+                            resultadoFlexibilidade = Constantes.CORRIDA_SAUDAVEL;
+                        }
+                        break;
+
+                    case 11:
+                        if (arremeco <= 4.00) {
+                            resultadoFlexibilidade = Constantes.CORRIDA_RISCO;
+                        } else {
+
+                            resultadoFlexibilidade = Constantes.CORRIDA_SAUDAVEL;
+                        }
+                        break;
+
+                    case 12:
+                        if (arremeco <= 3.88) {
+                            resultadoFlexibilidade = Constantes.CORRIDA_RISCO;
+                        } else {
+
+                            resultadoFlexibilidade = Constantes.CORRIDA_SAUDAVEL;
+                        }
+                        break;
+
+                    case 13:
+                        if (arremeco <= 3.72) {
+                            resultadoFlexibilidade = Constantes.CORRIDA_RISCO;
+                        } else {
+
+                            resultadoFlexibilidade = Constantes.CORRIDA_SAUDAVEL;
+                        }
+                        break;
+
+                    case 14:
+                        if (arremeco <= 3.54) {
+                            resultadoFlexibilidade = Constantes.CORRIDA_RISCO;
+                        } else {
+
+                            resultadoFlexibilidade = Constantes.CORRIDA_SAUDAVEL;
+                        }
+                        break;
+
+                    case 15:
+                        if (arremeco <= 3.40) {
+                            resultadoFlexibilidade = Constantes.CORRIDA_RISCO;
+                        } else {
+
+                            resultadoFlexibilidade = Constantes.CORRIDA_SAUDAVEL;
+                        }
+                        break;
+
+                    case 16:
+                        if (arremeco <= 3.28) {
+                            resultadoFlexibilidade = Constantes.CORRIDA_RISCO;
+                        } else {
+
+                            resultadoFlexibilidade = Constantes.CORRIDA_SAUDAVEL;
+                        }
+                        break;
+
+                    case 17:
+                        if (arremeco <= 3.22) {
+                            resultadoFlexibilidade = Constantes.CORRIDA_RISCO;
+                        } else {
+
+                            resultadoFlexibilidade = Constantes.CORRIDA_SAUDAVEL;
+                        }
+                        break;
+                }
+
+            }
+            /*
+        *Genero Feminino
+             */
+            if (sexo.equals(Constantes.FEMININO)) {
+
+                switch (idade) {
+                    case 6:
+                        if (arremeco <= 5.22) {
+                            resultadoFlexibilidade = Constantes.CORRIDA_RISCO;
+                        } else {
+
+                            resultadoFlexibilidade = Constantes.CORRIDA_SAUDAVEL;
+                        }
+                        break;
+
+                    case 7:
+                        if (arremeco <= 4.88) {
+                            resultadoFlexibilidade = Constantes.CORRIDA_RISCO;
+                        } else {
+
+                            resultadoFlexibilidade = Constantes.CORRIDA_SAUDAVEL;
+                        }
+                        break;
+
+                    case 8:
+                        if (arremeco <= 4.66) {
+                            resultadoFlexibilidade = Constantes.CORRIDA_RISCO;
+                        } else {
+
+                            resultadoFlexibilidade = Constantes.CORRIDA_SAUDAVEL;
+                        }
+                        break;
+
+                    case 9:
+                        if (arremeco <= 4.58) {
+                            resultadoFlexibilidade = Constantes.CORRIDA_RISCO;
+                        } else {
+
+                            resultadoFlexibilidade = Constantes.CORRIDA_SAUDAVEL;
+                        }
+                        break;
+
+                    case 10:
+                        if (arremeco <= 4.44) {
+                            resultadoFlexibilidade = Constantes.CORRIDA_RISCO;
+                        } else {
+
+                            resultadoFlexibilidade = Constantes.CORRIDA_SAUDAVEL;
+                        }
+                        break;
+
+                    case 11:
+                        if (arremeco <= 4.36) {
+                            resultadoFlexibilidade = Constantes.CORRIDA_RISCO;
+                        } else {
+
+                            resultadoFlexibilidade = Constantes.CORRIDA_SAUDAVEL;
+                        }
+                        break;
+
+                    case 12:
+                        if (arremeco <= 4.28) {
+                            resultadoFlexibilidade = Constantes.CORRIDA_RISCO;
+                        } else {
+
+                            resultadoFlexibilidade = Constantes.CORRIDA_SAUDAVEL;
+                        }
+                        break;
+
+                    case 13:
+                        if (arremeco <= 4.17) {
+                            resultadoFlexibilidade = Constantes.CORRIDA_RISCO;
+                        } else {
+
+                            resultadoFlexibilidade = Constantes.CORRIDA_SAUDAVEL;
+                        }
+                        break;
+
+                    case 14:
+                        if (arremeco <= 4.16) {
+                            resultadoFlexibilidade = Constantes.CORRIDA_RISCO;
+                        } else {
+
+                            resultadoFlexibilidade = Constantes.CORRIDA_SAUDAVEL;
+                        }
+                        break;
+
+                    case 15:
+                        if (arremeco <= 4.07) {
+                            resultadoFlexibilidade = Constantes.CORRIDA_RISCO;
+                        } else {
+
+                            resultadoFlexibilidade = Constantes.CORRIDA_SAUDAVEL;
+                        }
+                        break;
+
+                    case 16:
+                        if (arremeco <= 4.01) {
+                            resultadoFlexibilidade = Constantes.CORRIDA_RISCO;
+                        } else {
+
+                            resultadoFlexibilidade = Constantes.CORRIDA_SAUDAVEL;
+                        }
+                        break;
+
+                    case 17:
+                        if (arremeco <= 3.91) {
+                            resultadoFlexibilidade = Constantes.CORRIDA_RISCO;
+                        } else {
+
+                            resultadoFlexibilidade = Constantes.CORRIDA_SAUDAVEL;
+                        }
+                        break;
+                }
+
+            }
+
+        }
+
+        return resultadoFlexibilidade;
+
+    }
+
+    /*
     Tabela  classificação Saúde
      */
     public String tabelaIMC(int idade, String sexo, double imc) {
@@ -3310,7 +3806,6 @@ public class AlgoClassificacao {
                         if (flex < 29.3) {
                             resultadoFlexibilidade = Constantes.FLEX_RISCO;
                         } else {
-
                             resultadoFlexibilidade = Constantes.FLEX_SAUDAVEL;
                         }
                         break;
@@ -3536,6 +4031,506 @@ public class AlgoClassificacao {
         }
 
         return resultadoFlexibilidade;
+
+    }
+
+    /*
+    Tabela de flexbilidade vs Esporte
+     */
+    public String tabelaFlexibilidadeEsporte(int idade, String sexo, double corrida) {
+
+        String resultado = "Não informado";
+
+        if (corrida == 0) {
+            resultado = Constantes.AUSENTE;
+        } else {
+
+            /*
+        *Genero Masculino 
+        
+             */
+            if (sexo.equals(Constantes.MASCULINO)) {
+
+                switch (idade) {
+                    case 6:
+
+                        if (corrida >= 74.0) {
+                            resultado = Constantes.EXCELENCA;
+                        } else if (corrida == 50.4 || corrida <= 73.9) {
+                            resultado = Constantes.MUITO_BOM;
+                        } else if (corrida == 41.3 || corrida <= 50.3) {
+                            resultado = Constantes.BOM;
+
+                        } else if (corrida == 34.3 || corrida <= 41.2) {
+                            resultado = Constantes.RAZOAVEL;
+
+                        } else if (corrida < 34.3) {
+                            resultado = Constantes.FRACO;
+
+                        }
+                        break;
+
+                }
+                switch (idade) {
+                    case 7:
+
+                        if (corrida >= 68.5) {
+                            resultado = Constantes.EXCELENCA;
+
+                        } else if (corrida == 48.0 || corrida <= 68.4) {
+                            resultado = Constantes.MUITO_BOM;
+
+                        } else if (corrida == 39.7 || corrida <= 47.9) {
+                            resultado = Constantes.BOM;
+
+                        } else if (corrida == 33.3 || corrida <= 39.6) {
+
+                            resultado = Constantes.RAZOAVEL;
+
+                        } else if (corrida < 33.3) {
+                            resultado = Constantes.FRACO;
+
+                        }
+                        break;
+
+                }
+                switch (idade) {
+                    case 8:
+
+                        if (corrida >= 64.0) {
+                            resultado = Constantes.EXCELENCA;
+                        } else if (corrida == 46.0 || corrida <= 63.9) {
+                            resultado = Constantes.MUITO_BOM;
+
+                        } else if (corrida == 38.4 || corrida <= 45.9) {
+                            resultado = Constantes.BOM;
+
+                        } else if (corrida == 32.3 || corrida <= 38.3) {
+
+                            resultado = Constantes.RAZOAVEL;
+
+                        } else if (corrida < 32.3) {
+                            resultado = Constantes.FRACO;
+
+                        }
+                        break;
+
+                }
+                switch (idade) {
+                    case 9:
+
+                        if (corrida >= 61.5) {
+                            resultado = Constantes.EXCELENCA;
+                        } else if (corrida == 44.6 || corrida <= 61.4) {
+                            resultado = Constantes.MUITO_BOM;
+
+                        } else if (corrida == 31.1 || corrida <= 44.5) {
+                            resultado = Constantes.BOM;
+
+                        } else if (corrida == 31.3 || corrida <= 37.1) {
+
+                            resultado = Constantes.RAZOAVEL;
+
+                        } else if (corrida < 31.3) {
+                            resultado = Constantes.FRACO;
+
+                        }
+                        break;
+
+                }
+                switch (idade) {
+                    case 10:
+
+                        if (corrida >= 60.8) {
+                            resultado = Constantes.EXCELENCA;
+                        } else if (corrida == 43.9 || corrida <= 60.7) {
+                            resultado = Constantes.MUITO_BOM;
+
+                        } else if (corrida == 36.5 || corrida <= 43.8) {
+                            resultado = Constantes.BOM;
+
+                        } else if (corrida == 30.4 || corrida <= 36.4) {
+
+                            resultado = Constantes.RAZOAVEL;
+
+                        } else if (corrida < 30.4) {
+                            resultado = Constantes.FRACO;
+
+                        }
+                        break;
+
+                }
+                switch (idade) {
+                    case 11:
+
+                        if (corrida >= 60.8) {
+                            resultado = Constantes.EXCELENCA;
+                        } else if (corrida == 43.9 || corrida <= 60.7) {
+                            resultado = Constantes.MUITO_BOM;
+
+                        } else if (corrida == 36.5 || corrida <= 43.8) {
+                            resultado = Constantes.BOM;
+
+                        } else if (corrida == 30.4 || corrida <= 36.4) {
+
+                            resultado = Constantes.RAZOAVEL;
+
+                        } else if (corrida < 29.8) {
+                            resultado = Constantes.FRACO;
+
+                        }
+                        break;
+
+                }
+                switch (idade) {
+                    case 12:
+
+                        if (corrida >= 57.9) {
+                            resultado = Constantes.EXCELENCA;
+                        } else if (corrida == 42.2 || corrida <= 57.8) {
+                            resultado = Constantes.MUITO_BOM;
+
+                        } else if (corrida == 35.2 || corrida <= 42.1) {
+                            resultado = Constantes.BOM;
+
+                        } else if (corrida == 29.4 || corrida <= 35.1) {
+
+                            resultado = Constantes.RAZOAVEL;
+
+                        } else if (corrida < 29.4) {
+                            resultado = Constantes.FRACO;
+
+                        }
+                        break;
+
+                }
+                switch (idade) {
+                    case 13:
+
+                        if (corrida >= 60.6) {
+                            resultado = Constantes.EXCELENCA;
+                        } else if (corrida == 42.9 || corrida <= 60.5) {
+                            resultado = Constantes.MUITO_BOM;
+
+                        } else if (corrida == 35.3 || corrida <= 42.8) {
+                            resultado = Constantes.BOM;
+
+                        } else if (corrida == 29.1 || corrida <= 35.2) {
+
+                            resultado = Constantes.RAZOAVEL;
+
+                        } else if (corrida < 29.1) {
+                            resultado = Constantes.FRACO;
+
+                        }
+                        break;
+
+                }
+                switch (idade) {
+                    case 14:
+                        if (corrida >= 67.2) {
+                            resultado = Constantes.EXCELENCA;
+                        } else if (corrida == 44.8 || corrida <= 67.1) {
+                            resultado = Constantes.MUITO_BOM;
+
+                        } else if (corrida == 35.7 || corrida <= 44.7) {
+                            resultado = Constantes.BOM;
+
+                        } else if (corrida == 28.7 || corrida <= 35.6) {
+
+                            resultado = Constantes.RAZOAVEL;
+
+                        } else if (corrida < 28.7) {
+                            resultado = Constantes.FRACO;
+
+                        }
+                        break;
+
+                }
+                switch (idade) {
+                    case 15:
+
+                        if (corrida >= 73.8) {
+                            resultado = Constantes.EXCELENCA;
+                        } else if (corrida == 47.0 || corrida <= 73.7) {
+                            resultado = Constantes.MUITO_BOM;
+
+                        } else if (corrida == 36.4 || corrida <= 46.9) {
+                            resultado = Constantes.BOM;
+
+                        } else if (corrida == 28.4 || corrida <= 36.3) {
+
+                            resultado = Constantes.RAZOAVEL;
+
+                        } else if (corrida < 28.4) {
+                            resultado = Constantes.FRACO;
+
+                        }
+                        break;
+
+                }
+                switch (idade) {
+                    case 16:
+
+                        if (corrida >= 76.6) {
+                            resultado = Constantes.EXCELENCA;
+                        } else if (corrida == 48.1 || corrida <= 76.5) {
+                            resultado = Constantes.MUITO_BOM;
+
+                        } else if (corrida == 36.8 || corrida <= 48.0) {
+                            resultado = Constantes.BOM;
+
+                        } else if (corrida == 28.4 || corrida <= 36.7) {
+
+                            resultado = Constantes.RAZOAVEL;
+
+                        } else if (corrida < 28.4) {
+                            resultado = Constantes.FRACO;
+
+                        }
+                        break;
+                }
+                switch (idade) {
+                    case 17:
+
+                        if (corrida >= 76.2) {
+                            resultado = Constantes.EXCELENCA;
+                        } else if (corrida == 48.0 || corrida <= 76.1) {
+                            resultado = Constantes.MUITO_BOM;
+                        } else if (corrida == 36.9 || corrida <= 47.9) {
+                            resultado = Constantes.BOM;
+                        } else if (corrida == 28.7 || corrida <= 36.8) {
+                            resultado = Constantes.RAZOAVEL;
+                        } else if (corrida < 28.7) {
+                            resultado = Constantes.FRACO;
+
+                        }
+                        break;
+                }
+                /*
+            *Mulheres
+                 */
+            } else {
+
+                switch (idade) {
+                    case 6:
+
+                        if (corrida >= 73.4) {
+                            resultado = Constantes.EXCELENCA;
+                        } else if (corrida == 52.6 || corrida <= 73.4) {
+                            resultado = Constantes.MUITO_BOM;
+                        } else if (corrida == 43.9 || corrida <= 52.5) {
+                            resultado = Constantes.BOM;
+                        } else if (corrida == 37.0 || corrida <= 43.8) {
+                            resultado = Constantes.RAZOAVEL;
+                        } else if (corrida < 37.0) {
+                            resultado = Constantes.FRACO;
+
+                        }
+                        break;
+                }
+                switch (idade) {
+                    case 7:
+
+                        if (corrida >= 69.1) {
+                            resultado = Constantes.EXCELENCA;
+                        } else if (corrida == 50.0 || corrida < 69.1) {
+                            resultado = Constantes.MUITO_BOM;
+                        } else if (corrida == 41.9 || corrida <= 49.9) {
+                            resultado = Constantes.BOM;
+                        } else if (corrida == 35.3 || corrida <= 41.8) {
+                            resultado = Constantes.RAZOAVEL;
+                        } else if (corrida < 35.3) {
+                            resultado = Constantes.FRACO;
+
+                        }
+                        break;
+                }
+                switch (idade) {
+                    case 8:
+
+                        if (corrida >= 65.7) {
+                            resultado = Constantes.EXCELENCA;
+                        } else if (corrida == 47.9 || corrida < 65.7) {
+                            resultado = Constantes.MUITO_BOM;
+                        } else if (corrida == 40.1 || corrida <= 47.8) {
+                            resultado = Constantes.BOM;
+                        } else if (corrida == 33.8 || corrida <= 40.0) {
+                            resultado = Constantes.RAZOAVEL;
+                        } else if (corrida < 33.8) {
+                            resultado = Constantes.FRACO;
+
+                        }
+                        break;
+
+                }
+                switch (idade) {
+                    case 9:
+
+                        if (corrida >= 63.6) {
+                            resultado = Constantes.EXCELENCA;
+                        } else if (corrida == 46.3 || corrida < 63.6) {
+                            resultado = Constantes.MUITO_BOM;
+                        } else if (corrida == 38.7 || corrida <= 46.2) {
+                            resultado = Constantes.BOM;
+                        } else if (corrida == 32.4 || corrida <= 38.6) {
+                            resultado = Constantes.RAZOAVEL;
+                        } else if (corrida < 32.4) {
+                            resultado = Constantes.FRACO;
+
+                        }
+                        break;
+
+                }
+                switch (idade) {
+                    case 10:
+
+                        if (corrida >= 62.6) {
+                            resultado = Constantes.EXCELENCA;
+                        } else if (corrida == 45.4 || corrida < 62.6) {
+                            resultado = Constantes.MUITO_BOM;
+                        } else if (corrida == 37.6 || corrida <= 45.3) {
+                            resultado = Constantes.BOM;
+                        } else if (corrida == 31.3 || corrida <= 37.5) {
+                            resultado = Constantes.RAZOAVEL;
+                        } else if (corrida < 31.3) {
+                            resultado = Constantes.FRACO;
+
+                        }
+                        break;
+
+                }
+                switch (idade) {
+                    case 11:
+
+                        if (corrida >= 61.0) {
+                            resultado = Constantes.EXCELENCA;
+                        } else if (corrida == 44.3 || corrida < 61.0) {
+                            resultado = Constantes.MUITO_BOM;
+                        } else if (corrida == 36.8 || corrida <= 44.2) {
+                            resultado = Constantes.BOM;
+                        } else if (corrida == 30.6 || corrida <= 36.7) {
+                            resultado = Constantes.RAZOAVEL;
+                        } else if (corrida < 30.6) {
+                            resultado = Constantes.FRACO;
+
+                        }
+                        break;
+
+                }
+                switch (idade) {
+                    case 12:
+
+                        if (corrida >= 61.1) {
+                            resultado = Constantes.EXCELENCA;
+                        } else if (corrida == 43.7 || corrida < 60.1) {
+                            resultado = Constantes.MUITO_BOM;
+                        } else if (corrida == 36.4 || corrida <= 43.6) {
+                            resultado = Constantes.BOM;
+                        } else if (corrida == 30.4 || corrida <= 36.3) {
+                            resultado = Constantes.RAZOAVEL;
+                        } else if (corrida < 30.4) {
+                            resultado = Constantes.FRACO;
+
+                        }
+                        break;
+
+                }
+                switch (idade) {
+                    case 13:
+
+                        if (corrida >= 62.9) {
+                            resultado = Constantes.EXCELENCA;
+                        } else if (corrida == 44.6 || corrida < 62.9) {
+                            resultado = Constantes.MUITO_BOM;
+                        } else if (corrida == 36.7 || corrida <= 44.5) {
+                            resultado = Constantes.BOM;
+                        } else if (corrida == 30.3 || corrida <= 36.6) {
+                            resultado = Constantes.RAZOAVEL;
+                        } else if (corrida < 30.3) {
+                            resultado = Constantes.FRACO;
+
+                        }
+                        break;
+
+                }
+                switch (idade) {
+                    case 14:
+
+                        if (corrida >= 69.5) {
+                            resultado = Constantes.EXCELENCA;
+                        } else if (corrida == 46.6 || corrida < 69.5) {
+                            resultado = Constantes.MUITO_BOM;
+                        } else if (corrida == 37.3 || corrida <= 46.5) {
+                            resultado = Constantes.BOM;
+                        } else if (corrida == 30.1 || corrida <= 37.2) {
+                            resultado = Constantes.RAZOAVEL;
+                        } else if (corrida < 30.1) {
+                            resultado = Constantes.FRACO;
+
+                        }
+                        break;
+
+                }
+                switch (idade) {
+                    case 15:
+
+                        if (corrida >= 77.1) {
+                            resultado = Constantes.EXCELENCA;
+                        } else if (corrida == 48.9 || corrida < 77.1) {
+                            resultado = Constantes.MUITO_BOM;
+                        } else if (corrida == 37.9 || corrida <= 48.8) {
+                            resultado = Constantes.BOM;
+                        } else if (corrida == 29.6 || corrida <= 37.8) {
+                            resultado = Constantes.RAZOAVEL;
+                        } else if (corrida < 29.6) {
+                            resultado = Constantes.FRACO;
+
+                        }
+                        break;
+
+                }
+                switch (idade) {
+                    case 16:
+
+                        if (corrida >= 80.1) {
+                            resultado = Constantes.EXCELENCA;
+                        } else if (corrida == 49.6 || corrida < 80.1) {
+                            resultado = Constantes.MUITO_BOM;
+                        } else if (corrida == 37.9 || corrida <= 49.5) {
+                            resultado = Constantes.BOM;
+                        } else if (corrida == 29.2 || corrida <= 37.8) {
+                            resultado = Constantes.RAZOAVEL;
+                        } else if (corrida < 29.2) {
+                            resultado = Constantes.FRACO;
+
+                        }
+                        break;
+
+                }
+                switch (idade) {
+                    case 17:
+
+                        if (corrida >= 79) {
+                            resultado = Constantes.EXCELENCA;
+                        } else if (corrida == 49.0 || corrida < 79.0) {
+                            resultado = Constantes.MUITO_BOM;
+                        } else if (corrida == 37.5 || corrida <= 48.9) {
+                            resultado = Constantes.BOM;
+                        } else if (corrida == 28.9 || corrida <= 37.4) {
+                            resultado = Constantes.RAZOAVEL;
+                        } else if (corrida < 28.9) {
+                            resultado = Constantes.FRACO;
+
+                        }
+                        break;
+
+                }
+
+            }
+        }
+
+        return resultado;
 
     }
 
@@ -3804,6 +4799,506 @@ public class AlgoClassificacao {
         }
 
         return resultadoClassificacaoAbdomem;
+
+    }
+
+    /*
+    Tabela de abdominal vs Esporte em 1 minuto 
+     */
+    public String tabelaAbdominalEsporte1M(int idade, String sexo, double corrida) {
+
+        String resultado = "Não informado";
+
+        if (corrida == 0) {
+            resultado = Constantes.AUSENTE;
+        } else {
+
+            /*
+        *Genero Masculino 
+        
+             */
+            if (sexo.equals(Constantes.MASCULINO)) {
+
+                switch (idade) {
+                    case 6:
+
+                        if (corrida >= 39.0) {
+                            resultado = Constantes.EXCELENCA;
+                        } else if (corrida == 28.0 || corrida <= 38.0) {
+                            resultado = Constantes.MUITO_BOM;
+                        } else if (corrida == 23.0 || corrida <= 27.0) {
+                            resultado = Constantes.BOM;
+
+                        } else if (corrida == 18.0 || corrida <= 22.0) {
+                            resultado = Constantes.RAZOAVEL;
+
+                        } else if (corrida < 18.0) {
+                            resultado = Constantes.FRACO;
+
+                        }
+                        break;
+
+                }
+                switch (idade) {
+                    case 7:
+
+                        if (corrida >= 43.0) {
+                            resultado = Constantes.EXCELENCA;
+
+                        } else if (corrida == 31.0 || corrida <= 42.0) {
+                            resultado = Constantes.MUITO_BOM;
+
+                        } else if (corrida == 26.0 || corrida <= 30.0) {
+                            resultado = Constantes.BOM;
+
+                        } else if (corrida == 20.0 || corrida <= 25.0) {
+
+                            resultado = Constantes.RAZOAVEL;
+
+                        } else if (corrida < 20.0) {
+                            resultado = Constantes.FRACO;
+
+                        }
+                        break;
+
+                }
+                switch (idade) {
+                    case 8:
+
+                        if (corrida >= 46) {
+                            resultado = Constantes.EXCELENCA;
+                        } else if (corrida == 34.0 || corrida <= 45.0) {
+                            resultado = Constantes.MUITO_BOM;
+
+                        } else if (corrida == 28.0 || corrida <= 33.0) {
+                            resultado = Constantes.BOM;
+
+                        } else if (corrida == 23.0 || corrida <= 27.0) {
+
+                            resultado = Constantes.RAZOAVEL;
+
+                        } else if (corrida < 23.0) {
+                            resultado = Constantes.FRACO;
+
+                        }
+                        break;
+
+                }
+                switch (idade) {
+                    case 9:
+
+                        if (corrida >= 48) {
+                            resultado = Constantes.EXCELENCA;
+                        } else if (corrida == 36.0 || corrida <= 47.0) {
+                            resultado = Constantes.MUITO_BOM;
+
+                        } else if (corrida == 30.0 || corrida <= 35.0) {
+                            resultado = Constantes.BOM;
+
+                        } else if (corrida == 25.0 || corrida <= 29.0) {
+
+                            resultado = Constantes.RAZOAVEL;
+
+                        } else if (corrida < 25.0) {
+                            resultado = Constantes.FRACO;
+
+                        }
+                        break;
+
+                }
+                switch (idade) {
+                    case 10:
+
+                        if (corrida >= 49.0) {
+                            resultado = Constantes.EXCELENCA;
+                        } else if (corrida == 37.0 || corrida <= 48.0) {
+                            resultado = Constantes.MUITO_BOM;
+
+                        } else if (corrida == 32.0 || corrida <= 36.0) {
+                            resultado = Constantes.BOM;
+
+                        } else if (corrida == 26.0 || corrida <= 31.0) {
+
+                            resultado = Constantes.RAZOAVEL;
+
+                        } else if (corrida < 26.0) {
+                            resultado = Constantes.FRACO;
+
+                        }
+                        break;
+
+                }
+                switch (idade) {
+                    case 11:
+
+                        if (corrida >= 50) {
+                            resultado = Constantes.EXCELENCA;
+                        } else if (corrida == 39.0 || corrida <= 49.0) {
+                            resultado = Constantes.MUITO_BOM;
+
+                        } else if (corrida == 33.0 || corrida <= 38.0) {
+                            resultado = Constantes.BOM;
+
+                        } else if (corrida == 27.0 || corrida <= 32.0) {
+
+                            resultado = Constantes.RAZOAVEL;
+
+                        } else if (corrida < 27.0) {
+                            resultado = Constantes.FRACO;
+
+                        }
+                        break;
+
+                }
+                switch (idade) {
+                    case 12:
+
+                        if (corrida >= 52.0) {
+                            resultado = Constantes.EXCELENCA;
+                        } else if (corrida == 40.0 || corrida <= 51.0) {
+                            resultado = Constantes.MUITO_BOM;
+
+                        } else if (corrida == 35.0 || corrida <= 39.0) {
+                            resultado = Constantes.BOM;
+
+                        } else if (corrida == 29.0 || corrida <= 34.0) {
+
+                            resultado = Constantes.RAZOAVEL;
+
+                        } else if (corrida < 29.0) {
+                            resultado = Constantes.FRACO;
+
+                        }
+                        break;
+
+                }
+                switch (idade) {
+                    case 13:
+
+                        if (corrida >= 54.0) {
+                            resultado = Constantes.EXCELENCA;
+                        } else if (corrida == 42.0 || corrida <= 53.0) {
+                            resultado = Constantes.MUITO_BOM;
+
+                        } else if (corrida == 36.0 || corrida <= 41.0) {
+                            resultado = Constantes.BOM;
+
+                        } else if (corrida == 30.0 || corrida <= 35.0) {
+
+                            resultado = Constantes.RAZOAVEL;
+
+                        } else if (corrida < 30.0) {
+                            resultado = Constantes.FRACO;
+
+                        }
+                        break;
+
+                }
+                switch (idade) {
+                    case 14:
+                        if (corrida >= 57.0) {
+                            resultado = Constantes.EXCELENCA;
+                        } else if (corrida == 44.0 || corrida <= 56.0) {
+                            resultado = Constantes.MUITO_BOM;
+
+                        } else if (corrida == 38.0 || corrida <= 43.0) {
+                            resultado = Constantes.BOM;
+
+                        } else if (corrida == 32.0 || corrida <= 37.0) {
+
+                            resultado = Constantes.RAZOAVEL;
+
+                        } else if (corrida < 32.0) {
+                            resultado = Constantes.FRACO;
+
+                        }
+                        break;
+
+                }
+                switch (idade) {
+                    case 15:
+
+                        if (corrida >= 60.0) {
+                            resultado = Constantes.EXCELENCA;
+                        } else if (corrida == 47.0 || corrida <= 59.0) {
+                            resultado = Constantes.MUITO_BOM;
+
+                        } else if (corrida == 40.0 || corrida <= 46.0) {
+                            resultado = Constantes.BOM;
+
+                        } else if (corrida == 34.0 || corrida <= 39.0) {
+
+                            resultado = Constantes.RAZOAVEL;
+
+                        } else if (corrida < 34.0) {
+                            resultado = Constantes.FRACO;
+
+                        }
+                        break;
+
+                }
+                switch (idade) {
+                    case 16:
+
+                        if (corrida >= 62.0) {
+                            resultado = Constantes.EXCELENCA;
+                        } else if (corrida == 48.0 || corrida <= 61.0) {
+                            resultado = Constantes.MUITO_BOM;
+
+                        } else if (corrida == 42.0 || corrida <= 47.0) {
+                            resultado = Constantes.BOM;
+
+                        } else if (corrida == 35.0 || corrida <= 41.0) {
+
+                            resultado = Constantes.RAZOAVEL;
+
+                        } else if (corrida < 35.0) {
+                            resultado = Constantes.FRACO;
+
+                        }
+                        break;
+                }
+                switch (idade) {
+                    case 17:
+
+                        if (corrida >= 63.0) {
+                            resultado = Constantes.EXCELENCA;
+                        } else if (corrida == 49.0 || corrida <= 62.0) {
+                            resultado = Constantes.MUITO_BOM;
+                        } else if (corrida == 43.0 || corrida <= 48.0) {
+                            resultado = Constantes.BOM;
+                        } else if (corrida == 36.0 || corrida <= 42.0) {
+                            resultado = Constantes.RAZOAVEL;
+                        } else if (corrida < 36.0) {
+                            resultado = Constantes.FRACO;
+
+                        }
+                        break;
+                }
+                /*
+            *Mulheres
+                 */
+            } else {
+
+                switch (idade) {
+                    case 6:
+
+                        if (corrida >= 37.0) {
+                            resultado = Constantes.EXCELENCA;
+                        } else if (corrida == 27.0 || corrida <= 37.0) {
+                            resultado = Constantes.MUITO_BOM;
+                        } else if (corrida == 22.0 || corrida <= 26.0) {
+                            resultado = Constantes.BOM;
+                        } else if (corrida == 17.0 || corrida <= 21.0) {
+                            resultado = Constantes.RAZOAVEL;
+                        } else if (corrida < 17.0) {
+                            resultado = Constantes.FRACO;
+
+                        }
+                        break;
+                }
+                switch (idade) {
+                    case 7:
+
+                        if (corrida >= 40.0) {
+                            resultado = Constantes.EXCELENCA;
+                        } else if (corrida == 30.0 || corrida < 40.0) {
+                            resultado = Constantes.MUITO_BOM;
+                        } else if (corrida == 24.0 || corrida <= 29.0) {
+                            resultado = Constantes.BOM;
+                        } else if (corrida == 19.0 || corrida <= 23.0) {
+                            resultado = Constantes.RAZOAVEL;
+                        } else if (corrida < 19.0) {
+                            resultado = Constantes.FRACO;
+
+                        }
+                        break;
+                }
+                switch (idade) {
+                    case 8:
+
+                        if (corrida >= 43.0) {
+                            resultado = Constantes.EXCELENCA;
+                        } else if (corrida == 32.0 || corrida < 43.0) {
+                            resultado = Constantes.MUITO_BOM;
+                        } else if (corrida == 26.0 || corrida <= 31.0) {
+                            resultado = Constantes.BOM;
+                        } else if (corrida == 20.0 || corrida <= 25.0) {
+                            resultado = Constantes.RAZOAVEL;
+                        } else if (corrida < 20.0) {
+                            resultado = Constantes.FRACO;
+
+                        }
+                        break;
+
+                }
+                switch (idade) {
+                    case 9:
+
+                        if (corrida >= 45.0) {
+                            resultado = Constantes.EXCELENCA;
+                        } else if (corrida == 33.0 || corrida < 45.0) {
+                            resultado = Constantes.MUITO_BOM;
+                        } else if (corrida == 27.0 || corrida <= 32.0) {
+                            resultado = Constantes.BOM;
+                        } else if (corrida == 21.0 || corrida <= 26.0) {
+                            resultado = Constantes.RAZOAVEL;
+                        } else if (corrida < 21.0) {
+                            resultado = Constantes.FRACO;
+
+                        }
+                        break;
+
+                }
+                switch (idade) {
+                    case 10:
+
+                        if (corrida >= 45.0) {
+                            resultado = Constantes.EXCELENCA;
+                        } else if (corrida == 34.0 || corrida < 45.0) {
+                            resultado = Constantes.MUITO_BOM;
+                        } else if (corrida == 28.0 || corrida <= 33.0) {
+                            resultado = Constantes.BOM;
+                        } else if (corrida == 22.0 || corrida <= 27.0) {
+                            resultado = Constantes.RAZOAVEL;
+                        } else if (corrida < 22.0) {
+                            resultado = Constantes.FRACO;
+
+                        }
+                        break;
+
+                }
+                switch (idade) {
+                    case 11:
+
+                        if (corrida >= 46.0) {
+                            resultado = Constantes.EXCELENCA;
+                        } else if (corrida == 34.0 || corrida < 46.0) {
+                            resultado = Constantes.MUITO_BOM;
+                        } else if (corrida == 29.0 || corrida <= 33.0) {
+                            resultado = Constantes.BOM;
+                        } else if (corrida == 23.0 || corrida <= 28.0) {
+                            resultado = Constantes.RAZOAVEL;
+                        } else if (corrida < 23.0) {
+                            resultado = Constantes.FRACO;
+
+                        }
+                        break;
+
+                }
+                switch (idade) {
+                    case 12:
+
+                        if (corrida >= 46.0) {
+                            resultado = Constantes.EXCELENCA;
+                        } else if (corrida == 35.0 || corrida < 46.0) {
+                            resultado = Constantes.MUITO_BOM;
+                        } else if (corrida == 29.0 || corrida <= 34.0) {
+                            resultado = Constantes.BOM;
+                        } else if (corrida == 23.0 || corrida <= 28.0) {
+                            resultado = Constantes.RAZOAVEL;
+                        } else if (corrida < 23.0) {
+                            resultado = Constantes.FRACO;
+
+                        }
+                        break;
+
+                }
+                switch (idade) {
+                    case 13:
+
+                        if (corrida >= 48.0) {
+                            resultado = Constantes.EXCELENCA;
+                        } else if (corrida == 36.0 || corrida < 48.0) {
+                            resultado = Constantes.MUITO_BOM;
+                        } else if (corrida == 30.0 || corrida <= 35.0) {
+                            resultado = Constantes.BOM;
+                        } else if (corrida == 24.0 || corrida <= 29.0) {
+                            resultado = Constantes.RAZOAVEL;
+                        } else if (corrida < 24.0) {
+                            resultado = Constantes.FRACO;
+
+                        }
+                        break;
+
+                }
+                switch (idade) {
+                    case 14:
+
+                        if (corrida >= 49.0) {
+                            resultado = Constantes.EXCELENCA;
+                        } else if (corrida == 36.0 || corrida < 49.0) {
+                            resultado = Constantes.MUITO_BOM;
+                        } else if (corrida == 30.0 || corrida <= 35.0) {
+                            resultado = Constantes.BOM;
+                        } else if (corrida == 24.0 || corrida <= 29.0) {
+                            resultado = Constantes.RAZOAVEL;
+                        } else if (corrida < 24.0) {
+                            resultado = Constantes.FRACO;
+
+                        }
+                        break;
+
+                }
+                switch (idade) {
+                    case 15:
+
+                        if (corrida >= 49.0) {
+                            resultado = Constantes.EXCELENCA;
+                        } else if (corrida == 36.0 || corrida < 49.0) {
+                            resultado = Constantes.MUITO_BOM;
+                        } else if (corrida == 30.0 || corrida <= 35.0) {
+                            resultado = Constantes.BOM;
+                        } else if (corrida == 24.0 || corrida <= 29.0) {
+                            resultado = Constantes.RAZOAVEL;
+                        } else if (corrida < 24.0) {
+                            resultado = Constantes.FRACO;
+
+                        }
+                        break;
+
+                }
+                switch (idade) {
+                    case 16:
+
+                        if (corrida >= 49.0) {
+                            resultado = Constantes.EXCELENCA;
+                        } else if (corrida == 36.0 || corrida < 49.0) {
+                            resultado = Constantes.MUITO_BOM;
+                        } else if (corrida == 30.0 || corrida <= 35.0) {
+                            resultado = Constantes.BOM;
+                        } else if (corrida == 23.0 || corrida <= 29.0) {
+                            resultado = Constantes.RAZOAVEL;
+                        } else if (corrida < 23.0) {
+                            resultado = Constantes.FRACO;
+
+                        }
+                        break;
+
+                }
+                switch (idade) {
+                    case 17:
+
+                        if (corrida >= 49.0) {
+                            resultado = Constantes.EXCELENCA;
+                        } else if (corrida == 36.0 || corrida < 49.0) {
+                            resultado = Constantes.MUITO_BOM;
+                        } else if (corrida == 30.0 || corrida <= 35.0) {
+                            resultado = Constantes.BOM;
+                        } else if (corrida == 23.0 || corrida <= 29.0) {
+                            resultado = Constantes.RAZOAVEL;
+                        } else if (corrida < 23.0) {
+                            resultado = Constantes.FRACO;
+
+                        }
+                        break;
+
+                }
+
+            }
+        }
+
+        return resultado;
 
     }
 

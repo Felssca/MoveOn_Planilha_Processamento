@@ -24,9 +24,15 @@ public class Constantes {
 
     public static final String IMC_RISCO = "ZONA DE RISCO À SAUDE";
     public static final String IMC_SAUDAVEL = "ZONA SAUDÁVEL";
+    
+    public static final String CORRIDA_RISCO = "ZONA DE RISCO À SAÚDE";
+    public static final String CORRIDA_SAUDAVEL = " ZONA SAUDÁVEL";
 
     public static final String FLEX_RISCO = "ZONA DE RISCO À SAÚDE";
     public static final String FLEX_SAUDAVEL = " ZONA SAUDÁVEL";
+
+    public static final String MEDBALL_RISCO = "ZONA DE RISCO À SAÚDE";
+    public static final String MEDBALL_SAUDAVEL = " ZONA SAUDÁVEL";
 
     public static final String SAUDE_RISCO = "ZONA DE RISCO À SAUDE";
     public static final String SAUDE_SAUDAVEL = "ZONA SAUDÁVEL";
@@ -156,6 +162,7 @@ public class Constantes {
     public static final String CAB_FLEXIBILIDADE_1 = "FLEXIBILIDADE 1 ";
     public static final String CAB_FLEXIBILIDADE_2 = "FLEXIBILIDADE 2";
     public static final String CAB_FLEXIBILIDADE = "FLEXIBILIDADE";
+    public static final String CAB_FLEXIBILIDADE_ESPORTE = "FLEX VS ESPORTE";
     public static final String CAB_DEFICIENCIA_REPOT = "Deficiência Repostada";
     public static final String CAB_ARREMESSO_1 = "ARREMESSO 1";
     public static final String CAB_ARREMESSO_2 = "ARREMESSO 2";
@@ -174,11 +181,10 @@ public class Constantes {
     public static final String CAB_VOMAX = "VO2 MÁXIMO";
     public static final String CAB_VOMAX_DESEMPENHO = "VO2 MÁXIMO DESEMPENHO";
     public static final String CAB_VOMAX_DESEMPENHO_MEDIA = "VO2 MÁXIMO MÉDIO";
-    
+
     public static final String CAB_VOMAX_MAS_MS = "VELOCIDADE MÉDIA M/S (MAS) vVO2MAX";
     public static final String CAB_VOMAX_MAS_KM = "VELOCIDADE MÉDIA KM/H (MAS) vVO2MAX";
-    
-    
+
     public static final String CAB_PESO_KG = " (Kg)";
     public static final String CAB_CM = " (cm)";
     public static final String CAB_MAX = " -MAX";
@@ -189,6 +195,7 @@ public class Constantes {
 
     public static final String CAB_CLASSIFICACAO_FLEXIBILIDADE = "CLASSIFICAÇÃO FLEXIBILIDADE";
     public static final String CAB_ABDOMINAL = "ABDOMINAL EM 1 MIN";
+    public static final String CAB_ABDOMINAL_ESPORTE = "ABDOMINAL VS ESPORTE";
     public static final String CAB_ABDOMINAL_1 = "ABDOMINAL 1";
     public static final String CAB_ABDOMINAL_2 = "ABDOMINAL 2";
     public static final String CAB_OBSERVACAO_ABDOMINAL = "OBSERVAÇÃO ABDOMINAL";
@@ -196,8 +203,10 @@ public class Constantes {
     public static final String CAB_SALTO = "SALTO";
     public static final String CAB_CLASSIFICACAO_SALTO_HORIZONTAL = "CLASSIFICAÇÃO HORIZONTAL";
     public static final String CAB_MEDICINIBALL = "MEDICINIBALL";
+    public static final String CAB_MEDICINIBALL_SAUDE = "MEDICINIBALL VS SAÚDE";
     public static final String CAB_CLASSIFICACAO_MEDICINIBALL = "CLASSIFICAÇÃO MEDICINIBALL";
-    public static final String CAB_VELOCIDADE = "VELOCIDADE";
+   public static final String CAB_VELOCIDADE = "VELOCIDADE"; 
+   public static final String CAB_VELOCIDADE_SAUDE = "VELOCIDADE vs SAÚDE"; 
     public static final String CAB_CLASSIFICACAO_VELOCIDADE = "CLASSIFICAÇÃO VELOCIDADE";
     public static final String CAB_AGILIDADE_1 = "AGILIDADE 1";
     public static final String CAB_AGILIDADE = "AGILIDADE";
@@ -306,7 +315,7 @@ public class Constantes {
     public static final String ZONA_CLASSIFICACAO_RCE_DIMINUICAO = "DIMINUIÇÃO DE RISCO À SAÚDE ";
     public static final String ZONA_CLASSIFICACAO_RCE_AUMENTO = "AUMENTO DE RISCO À SAÚDE";
     public static final String ZONA_CLASSIFICACAO_RCE_ESTAVEL = "SEM ALTERAÇÃO DE RISCO À SAÚDE ";
-    
+
     //ZONA CLASSIFICACAO VO2
     public static final String ZONA_CLASSIFICACAO_V02_DIMINUICAO = "DIMINUIÇÃO DO V02";
     public static final String ZONA_CLASSIFICACAO_VO2_AUMENTO = "AUMENTO DO V02";
@@ -435,4 +444,7 @@ public class Constantes {
      */
     public static final String ERROR_TRUCA_DOUBLR = "";
 
+    //versão
+    
+    public static final String versao =" v1.0.2";
 }
